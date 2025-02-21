@@ -6,9 +6,9 @@
     <title>首页</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
         .logo { width: 100px; height: 50px; background: #ccc; }
-        nav { display: flex; gap: 20px; align-items: center; }
+        nav { display: flex; gap: 15px; align-items: center; }
         nav a { color: white; text-decoration: none; font-size: 16px; }
         nav a:hover { text-decoration: underline; }
         select { padding: 5px; font-size: 16px; }
@@ -29,8 +29,9 @@
         .dropdown-content a:hover { background-color: #005ea2; }
         .dropdown:hover .dropdown-content { display: block; }
         @media (max-width: 768px) { 
-            header { flex-direction: column; padding: 15px; }
-            nav { flex-direction: column; gap: 10px; margin-top: 10px; }
+            header { padding: 10px; justify-content: space-between; }
+            nav { gap: 10px; }
+            .home-btn, .dropdown, select { font-size: 14px; }
             .tour-card { width: 100%; max-width: 300px; }
         }
     </style>
@@ -96,7 +97,7 @@
             const translations = {
                 zh: { 
                     title: '首页', 
-                    home: '返回主页',
+                    home: '主页',
                     tours: '行程', 
                     tour1: '香港-桂林-广州-佛山', 
                     days1: '10天', 
@@ -108,7 +109,7 @@
                 },
                 en: { 
                     title: 'Home', 
-                    home: 'Back to Home',
+                    home: 'Home',
                     tours: 'Tours', 
                     tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
                     days1: '10 days', 
@@ -120,7 +121,7 @@
                 },
                 es: { 
                     title: 'Inicio', 
-                    home: 'Volver al Inicio',
+                    home: 'Inicio',
                     tours: 'Viajes', 
                     tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
                     days1: '10 días', 
