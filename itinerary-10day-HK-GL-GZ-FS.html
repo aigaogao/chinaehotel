@@ -2,56 +2,73 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>10天退休人士休闲观光之旅 - 锦山行旅游公司</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港-桂林-广州-佛山</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0078d4; color: white; text-align: center; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .language-switch { margin: 15px 0; }
+        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { width: 100px; height: 50px; background: #ccc; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 16px; }
+        nav a:hover { text-decoration: underline; }
         select { padding: 5px; font-size: 16px; }
         .content { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         h2 { color: #0078d4; margin-top: 20px; }
         ul { list-style: none; padding: 0; }
         li { margin: 15px 0; }
         .day { font-weight: bold; }
-        .price { font-size: 14px; margin-top: 20px; }
         .day-images { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; justify-content: center; }
         .attraction-images { display: flex; gap: 10px; }
-        img { width: 100%; max-width: 200px; height: auto; border-radius: 5px; }
+        img { width: 100%; max-width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px; font-size: 14px; width: 100%; }
+        .home-btn { padding: 10px; }
+        .home-btn a { color: white; text-decoration: none; font-size: 16px; }
+        .home-btn a:hover { text-decoration: underline; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
+        .dropdown-content a:hover { background-color: #005ea2; }
+        .dropdown:hover .dropdown-content { display: block; }
+        @media (max-width: 768px) { 
+            header { flex-direction: column; padding: 15px; }
+            nav { flex-direction: column; gap: 10px; margin-top: 10px; }
+            .content { margin: 10px; padding: 15px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1 id="company">锦山行旅游公司</h1>
-        <div class="language-switch">
-            <select id="language" onchange="switchLanguage()">
-                <option value="zh">中文</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-            </select>
-        </div>
-    </header>
+    <header id="header"></header>
     <div class="content">
-        <h2 id="tour-title">10天退休人士休闲观光之旅香港-桂林-广州</h2>
+        <h2 id="tour-title">香港-桂林-广州-佛山</h2>
         <h3 id="highlights-title">亮点</h3>
         <ul id="highlights"></ul>
-
         <h3 id="itinerary-title">行程安排</h3>
         <ul id="itinerary"></ul>
-
-        <h3 id="price-title">报价</h3>
-        <div class="price" id="price"></div>
     </div>
+    <footer id="footer"></footer>
 
     <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data)
+            .then(() => {
+                document.getElementById('language').addEventListener('change', switchLanguage);
+                switchLanguage();
+            });
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
         function switchLanguage() {
             const lang = document.getElementById('language').value;
             const translations = {
                 zh: {
-                    company: '锦山行旅游公司',
-                    title: '10天退休人士休闲观光之旅香港-桂林-广州',
+                    company: '',
+                    title: '香港-桂林-广州-佛山',
+                    home: '返回主页',
+                    tours: '行程',
                     highlightsTitle: '亮点',
                     itineraryTitle: '行程安排',
-                    priceTitle: '报价',
                     highlights: [
                         '品质保证：锦山行旅游公司在全国设有分支机构，为您提供最佳服务！',
                         '香港：被誉为“东方之珠”的香港是一座高度繁荣的自由港和国际大都市，全球第三大金融中心，中西文化交融之地。',
@@ -60,7 +77,7 @@
                     ],
                     itinerary: [
                         '<span class="day">第1天：抵达香港</span> - 接机，送酒店。（无餐，住宿：4*香港都会海逸酒店或同级）',
-                        '<span class="day">第2天：香港</span> - 太平山顶（含单程缆车）、浅水湾、香港仔（舢板游）、赤柱市场。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"></div><div class="attraction-images"><img src="HK_赤柱市场.jpg"></div></div>',
+                        '<span class="day">第2天：香港</span> - 太平山顶（含单程缆车）、浅水湾、香港仔（舢板游）、赤柱市场。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div>',
                         '<span class="day">第3天：香港</span> - 昂坪大佛、星光大道、尖沙咀、黄大仙祠。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div>',
                         '<span class="day">第4天：香港/桂林</span> - 象鼻山。（早/晚餐，住宿：5*桂林漓江大瀑布酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div>',
                         '<span class="day">第5天：桂林</span> - 漓江游船、阳朔西街、印象刘三姐。（早/午/晚餐，住宿：4*阳朔新西街大酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div>',
@@ -69,15 +86,15 @@
                         '<span class="day">第8天：广州</span> - 沙面、陈家祠、荔枝湾涌、永庆坊。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div>',
                         '<span class="day">第9天：佛山</span> - 祖庙、黄飞鸿纪念馆、岭南新天地、南风古灶。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div>',
                         '<span class="day">第10天：广州/离境</span> - 越秀公园、镇海楼、花城广场、外观广州塔、天河商圈。（早/午餐）<div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div>'
-                    ],
-                    price: '12人以上：$1522/人（双人房），单人房补差 $411/人<br><strong>包含：</strong> 25座以上旅游大巴、西语导游、所列景点、指定餐食（香港 $22/人/餐，内地 $9/人/餐）、酒店住宿（香港及阳朔/广州4*，桂林5*）、高铁二等座、每日2瓶水。<br><strong>不含：</strong> 未列餐及景点、个人消费、签证/保险/国际机票、小费（$5/人/天×10天）。<br><strong>备注：</strong> 未预订，香港酒店费用及房态随时变化，以最终确认为准。不适用于香港展会/广州交易会期间。'
+                    ]
                 },
                 en: {
-                    company: 'Weekend Tour INC',
-                    title: '10-Day Retired Leisure Tour: Hong Kong - Guilin - Guangzhou',
+                    company: '',
+                    title: 'Hong Kong-Guilin-Guangzhou-Foshan',
+                    home: 'Back to Home',
+                    tours: 'Tours',
                     highlightsTitle: 'Highlights',
                     itineraryTitle: 'Itinerary',
-                    priceTitle: 'Pricing',
                     highlights: [
                         'Quality Guaranteed: Weekend Tour INC has branches across China to provide the best services for you!',
                         'Hong Kong: Known as the "Pearl of the Orient," a thriving free port and global metropolis, the world’s third-largest financial hub.',
@@ -95,15 +112,15 @@
                         '<span class="day">Day 8: Guangzhou</span> - Shamian Island, Chen Clan Ancestral Hall, Lizhiwan Canal, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
                         '<span class="day">Day 9: Foshan</span> - Zumiao Temple, Wong Fei Hung Memorial Hall, Lingnan Tiandi, Nanfeng Ancient Kiln.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
                         '<span class="day">Day 10: Guangzhou/Departure</span> - Yuexiu Park, Zhenhai Tower, Huacheng Square, exterior view of Guangzhou Tower, Tianhe shopping.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (B/L)'
-                    ],
-                    price: '12+ persons: $1522/person (twin room), single supplement $411/person<br><strong>Included:</strong> 25+ seat tour bus, Spanish guide, listed attractions, meals (Hong Kong $22/person/meal, mainland $9/person/meal), accommodation (Hong Kong & Yangshuo/Guangzhou 4*, Guilin 5*), rail tickets (2nd class), 2 bottles of water daily.<br><strong>Excluded:</strong> Unlisted meals/attractions, personal expenses, visa/insurance/flights, tips ($5/person/day × 10 days).<br><strong>Note:</strong> No bookings, Hong Kong hotel rates subject to change, final confirmation applies. Not valid during Hong Kong expos or Guangzhou fairs.'
+                    ]
                 },
                 es: {
-                    company: 'Plataforma Mayorista de Viajes',
-                    title: 'Tour de 10 días para jubilados: Hong Kong - Guilin - Guangzhou',
+                    company: '',
+                    title: 'Hong Kong-Guilin-Guangzhou-Foshan',
+                    home: 'Volver al Inicio',
+                    tours: 'Viajes',
                     highlightsTitle: 'Destacados',
                     itineraryTitle: 'Itinerario',
-                    priceTitle: 'Precios',
                     highlights: [
                         'Calidad garantizada: Nuestra empresa tiene sucursales en toda China para ofrecerle los mejores servicios.',
                         'Hong Kong: Conocida como la "Perla del Oriente," un puerto libre próspero y metrópoli global, tercer centro financiero mundial.',
@@ -121,22 +138,19 @@
                         '<span class="day">Día 8: Guangzhou</span> - Isla Shamian, Salón Ancestral Chen, Canal Lizhiwan, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
                         '<span class="day">Día 9: Foshan</span> - Templo Zumiao, Museo Wong Fei Hung, Lingnan Tiandi, Horno Antiguo Nanfeng.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
                         '<span class="day">Día 10: Guangzhou/Salida</span> - Parque Yuexiu, Torre Zhenhai, Plaza Huacheng, vista exterior Torre Guangzhou, compras Tianhe.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (D/A)'
-                    ],
-                    price: '12+ personas: $1522/persona (doble), suplemento individual $411/persona<br><strong>Incluido:</strong> Autobús 25+ asientos, guía en español, atracciones, comidas (Hong Kong $22/persona/comida, interior $9/persona/comida), alojamiento (Hong Kong y Yangshuo/Guangzhou 4*, Guilin 5*), tren (2ª clase), 2 botellas agua diarias.<br><strong>No incluido:</strong> Comidas/atracciones no listadas, gastos personales, visado/seguro/vuelos, propinas ($5/persona/día × 10 días).<br><strong>Nota:</strong> Sin reservas, tarifas de Hong Kong sujetas a cambios, confirmación final aplica. No válido en exposiciones o ferias.'
+                    ]
                 }
             };
             const t = translations[lang];
-            document.getElementById('company').textContent = t.company;
             document.getElementById('tour-title').textContent = t.title;
+            document.getElementById('home').textContent = t.home;
+            document.getElementById('tours').textContent = t.tours;
             document.getElementById('highlights-title').textContent = t.highlightsTitle;
             document.getElementById('itinerary-title').textContent = t.itineraryTitle;
-            document.getElementById('price-title').textContent = t.priceTitle;
             document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
             document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item.replace(/^([^：]+)：/, '<span class="day">$1：</span>')}</li>`).join('');
-            document.getElementById('price').innerHTML = t.price;
+            document.querySelector('footer p').textContent = t.footer;
         }
-        // 初始化页面
-        switchLanguage();
     </script>
 </body>
 </html>

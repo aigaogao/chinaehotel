@@ -2,181 +2,147 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>锦山行旅游公司</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f0f2f5; 
-            color: #333; 
-        }
-        header { 
-            background-color: #0078d4; 
-            color: white; 
-            text-align: center; 
-            padding: 20px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-        }
-        .language-switch { 
-            margin: 15px 0; 
-        }
-        select { 
-            padding: 5px; 
-            font-size: 16px; 
-        }
-        .tour-list { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 20px; 
-            padding: 20px; 
-        }
-        .tour-card { 
-            background: white; 
-            border-radius: 10px; 
-            padding: 20px; 
-            width: 300px; /* 加宽以容纳图片 */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            transition: transform 0.2s; 
-            text-align: center; 
-        }
-        .tour-card:hover { 
-            transform: translateY(-5px); 
-        }
-        .tour-card h3 { 
-            margin: 0 0 10px; 
-            color: #0078d4; 
-            font-size: 18px; 
-        }
-        .tour-card p { 
-            margin: 5px 0; 
-            font-size: 14px; 
-        }
-        .tour-card .images { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
-            margin: 10px 0; 
-        }
-        .tour-card img { 
-            width: 100%; 
-            max-width: 150px; /* 调整图片大小 */
-            height: auto; 
-            border-radius: 5px; 
-        }
-        .tour-card button { 
-            background-color: #0078d4; 
-            color: white; 
-            border: none; 
-            padding: 10px; 
-            width: 100%; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-size: 14px; 
-        }
-        .tour-card button:hover { 
-            background-color: #005ea2; 
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
+        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { width: 100px; height: 50px; background: #ccc; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 16px; }
+        nav a:hover { text-decoration: underline; }
+        select { padding: 5px; font-size: 16px; }
+        .tour-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+        .tour-card { background: white; border-radius: 10px; padding: 15px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .tour-card:hover { transform: translateY(-5px); }
+        .tour-card h3 { margin: 0; color: #0078d4; font-size: 18px; }
+        .tour-card .days { font-size: 16px; color: #0078d4; margin: 5px 0; font-family: Arial, sans-serif; }
+        .tour-card .images { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 10px 0; }
+        .tour-card img { width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: 5px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px; font-size: 14px; width: 100%; }
+        .home-btn { padding: 10px; }
+        .home-btn a { color: white; text-decoration: none; font-size: 16px; }
+        .home-btn a:hover { text-decoration: underline; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
+        .dropdown-content a:hover { background-color: #005ea2; }
+        .dropdown:hover .dropdown-content { display: block; }
+        @media (max-width: 768px) { 
+            header { flex-direction: column; padding: 15px; }
+            nav { flex-direction: column; gap: 10px; margin-top: 10px; }
+            .tour-card { width: 100%; max-width: 300px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>锦山行旅游公司</h1>
-        <div class="language-switch">
-            <select id="language" onchange="switchLanguage()">
-                <option value="zh">中文</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-            </select>
-        </div>
-    </header>
+    <header id="header"></header>
     <section class="tour-list">
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.location.href='itinerary-10day-HK-GL-GZ-FS.html'">
             <h3>香港-桂林-广州-佛山</h3>
+            <p class="days">10天</p>
             <div class="images">
                 <img src="HK_尖沙咀.jpg" alt="尖沙咀">
                 <img src="GL_漓江.jpg" alt="漓江">
                 <img src="GZ_越秀公园.jpg" alt="越秀公园">
                 <img src="FS_祖庙.jpg" alt="祖庙">
             </div>
-            <p>价格: $1522</p>
-            <p>时长: 10天</p>
-            <button onclick="window.location.href='itinerary-10day-HK-GL-GZ-FS.html'">选择套餐</button>
         </div>
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.location.href='itinerary-12day-HK-GL-GZ-HN.html'">
             <h3>香港-桂林-广州-海南</h3>
+            <p class="days">12天</p>
             <div class="images">
                 <img src="HK_尖沙咀.jpg" alt="尖沙咀">
                 <img src="GL_漓江.jpg" alt="漓江">
                 <img src="GZ_越秀公园.jpg" alt="越秀公园">
                 <img src="SY_天涯海角.jpg" alt="天涯海角">
             </div>
-            <p>价格: $1993</p>
-            <p>时长: 12天</p>
-            <button onclick="window.location.href='itinerary-12day-HK-GL-GZ-HN.html'">选择套餐</button>
         </div>
-        <div class="tour-card">
+        <div class="tour-card" onclick="window.location.href='itinerary-8day-BJ-XA-SH.html'">
             <h3>北京-西安-上海</h3>
+            <p class="days">8天</p>
             <div class="images">
                 <img src="BJ_居庸关长城.jpg" alt="居庸关长城">
                 <img src="XA_秦始皇陵兵马俑.jpg" alt="秦始皇陵兵马俑">
                 <img src="SH_外滩.jpg" alt="外滩">
             </div>
-            <p>价格: $1084</p>
-            <p>时长: 8天</p>
-            <button onclick="window.location.href='itinerary-8day-BJ-XA-SH.html'">选择套餐</button>
         </div>
     </section>
+    <footer id="footer"></footer>
 
     <script>
+        fetch('header.html')
+            .then(response => {
+                if (!response.ok) throw new Error('无法加载 header.html');
+                return response.text();
+            })
+            .then(data => document.getElementById('header').innerHTML = data)
+            .then(() => {
+                document.getElementById('language').addEventListener('change', switchLanguage);
+                switchLanguage();
+            })
+            .catch(error => console.error(error));
+
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('无法加载 footer.html');
+                return response.text();
+            })
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error(error));
+
         function switchLanguage() {
             const lang = document.getElementById('language').value;
             const translations = {
                 zh: { 
-                    company: '锦山行旅游公司', 
+                    title: '首页', 
+                    home: '返回主页',
+                    tours: '行程', 
                     tour1: '香港-桂林-广州-佛山', 
+                    days1: '10天', 
                     tour2: '香港-桂林-广州-海南', 
+                    days2: '12天', 
                     tour3: '北京-西安-上海', 
-                    price: '价格', 
-                    duration: '时长', 
-                    select: '选择套餐' 
+                    days3: '8天', 
+                    footer: '© 2025 版权所有。'
                 },
                 en: { 
-                    company: 'Weekend Tour INC', 
+                    title: 'Home', 
+                    home: 'Back to Home',
+                    tours: 'Tours', 
                     tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
+                    days1: '10 days', 
                     tour2: 'Hong Kong-Guilin-Guangzhou-Hainan', 
+                    days2: '12 days', 
                     tour3: 'Beijing-Xi’an-Shanghai', 
-                    price: 'Price', 
-                    duration: 'Duration', 
-                    select: 'Select Package' 
+                    days3: '8 days', 
+                    footer: '© 2025 All Rights Reserved.'
                 },
                 es: { 
-                    company: 'Plataforma Mayorista de Viajes', 
+                    title: 'Inicio', 
+                    home: 'Volver al Inicio',
+                    tours: 'Viajes', 
                     tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
+                    days1: '10 días', 
                     tour2: 'Hong Kong-Guilin-Guangzhou-Hainan', 
+                    days2: '12 días', 
                     tour3: 'Pekín-Xi’an-Shanghái', 
-                    price: 'Precio', 
-                    duration: 'Duración', 
-                    select: 'Seleccionar Paquete' 
+                    days3: '8 días', 
+                    footer: '© 2025 Todos los derechos reservados.'
                 }
             };
             const t = translations[lang];
-            document.querySelector('h1').textContent = t.company;
+            document.title = t.title;
+            document.getElementById('home').textContent = t.home;
+            document.getElementById('tours').textContent = t.tours;
             const cards = document.querySelectorAll('.tour-card');
             cards[0].querySelector('h3').textContent = t.tour1;
-            cards[0].querySelectorAll('p')[0].textContent = `${t.price}: $1522`;
-            cards[0].querySelectorAll('p')[1].textContent = `${t.duration}: 10${lang === 'zh' ? '天' : ' days'}`;
-            cards[0].querySelector('button').textContent = t.select;
+            cards[0].querySelector('.days').textContent = t.days1;
             cards[1].querySelector('h3').textContent = t.tour2;
-            cards[1].querySelectorAll('p')[0].textContent = `${t.price}: $1993`;
-            cards[1].querySelectorAll('p')[1].textContent = `${t.duration}: 12${lang === 'zh' ? '天' : ' days'}`;
-            cards[1].querySelector('button').textContent = t.select;
+            cards[1].querySelector('.days').textContent = t.days2;
             cards[2].querySelector('h3').textContent = t.tour3;
-            cards[2].querySelectorAll('p')[0].textContent = `${t.price}: $1084`;
-            cards[2].querySelectorAll('p')[1].textContent = `${t.duration}: 8${lang === 'zh' ? '天' : ' days'}`;
-            cards[2].querySelector('button').textContent = t.select;
+            cards[2].querySelector('.days').textContent = t.days3;
+            document.querySelector('footer p').textContent = t.footer;
         }
     </script>
 </body>

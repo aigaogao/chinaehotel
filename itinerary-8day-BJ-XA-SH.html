@@ -2,80 +2,97 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>8天“金三角”北京-西安-上海联游 - 锦山行旅游公司</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京-西安-上海</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0078d4; color: white; text-align: center; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .language-switch { margin: 15px 0; }
+        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { width: 100px; height: 50px; background: #ccc; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 16px; }
+        nav a:hover { text-decoration: underline; }
         select { padding: 5px; font-size: 16px; }
         .content { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         h2 { color: #0078d4; margin-top: 20px; }
         ul { list-style: none; padding: 0; }
         li { margin: 15px 0; }
         .day { font-weight: bold; }
-        .price { font-size: 14px; margin-top: 20px; }
         .day-images { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; justify-content: center; }
         .attraction-images { display: flex; gap: 10px; }
-        img { width: 100%; max-width: 200px; height: auto; border-radius: 5px; }
+        img { width: 100%; max-width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
+        footer { background-color: #333; color: white; text-align: center; padding: 10px; font-size: 14px; width: 100%; }
+        .home-btn { padding: 10px; }
+        .home-btn a { color: white; text-decoration: none; font-size: 16px; }
+        .home-btn a:hover { text-decoration: underline; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
+        .dropdown-content a:hover { background-color: #005ea2; }
+        .dropdown:hover .dropdown-content { display: block; }
+        @media (max-width: 768px) { 
+            header { flex-direction: column; padding: 15px; }
+            nav { flex-direction: column; gap: 10px; margin-top: 10px; }
+            .content { margin: 10px; padding: 15px; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1 id="company">锦山行旅游公司</h1>
-        <div class="language-switch">
-            <select id="language" onchange="switchLanguage()">
-                <option value="zh">中文</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-            </select>
-        </div>
-    </header>
+    <header id="header"></header>
     <div class="content">
-        <h2 id="tour-title">8天“金三角”北京-西安-上海联游</h2>
+        <h2 id="tour-title">北京-西安-上海</h2>
         <h3 id="highlights-title">亮点</h3>
         <ul id="highlights"></ul>
-
         <h3 id="itinerary-title">行程安排</h3>
         <ul id="itinerary"></ul>
-
-        <h3 id="price-title">报价</h3>
-        <div class="price" id="price"></div>
     </div>
+    <footer id="footer"></footer>
 
     <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data)
+            .then(() => {
+                document.getElementById('language').addEventListener('change', switchLanguage);
+                switchLanguage();
+            });
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+
         function switchLanguage() {
             const lang = document.getElementById('language').value;
             const translations = {
                 zh: {
-                    company: '锦山行旅游公司',
-                    title: '8天“金三角”北京-西安-上海联游',
+                    company: '',
+                    title: '北京-西安-上海',
+                    home: '返回主页',
+                    tours: '行程',
                     highlightsTitle: '亮点',
                     itineraryTitle: '行程安排',
-                    priceTitle: '报价',
                     highlights: [
                         '品质保证：锦山行旅游公司在全国设有分支机构，为您提供最佳服务！',
-                        '北京：数千年来的封建皇朝权力中心，政治中心。中国历史文化名城和古都之一，世界一线城市。',
-                        '西安：一眼千年，古都西安。它是中华文明和中华民族的重要发祥地之一，是古丝绸之路的起点。“天然历史博物馆”，世界四大古都之一。',
-                        '上海：一座充满东方魅力与现代气息的繁华、魔幻国际化大都市。中国的金融、经济中心，也是中国乃至亚洲最具活力的城市之一。'
+                        '北京: 数千年来的封建皇朝权力中心，政治中心。中国历史文化名城和古都之一，世界一线城市。',
+                        '西安: 一眼千年，古都西安。它是中华文明和中华民族的重要发祥地之一，是古丝绸之路的起点。“天然历史博物馆”世界四大古都之一。',
+                        '上海：一座充满着东方魅力与现代气息的繁华、魔幻国际化大都市。中国的金融、经济中心，也是中国乃至亚洲最具活力的城市之一。'
                     ],
                     itinerary: [
                         '<span class="day">第1天：抵达北京</span> - 接机，送酒店，安排晚餐。（晚餐，住宿：5*北京昆仑饭店或同级）',
                         '<span class="day">第2天：北京</span> - 居庸关长城，王府井步行街，外观鸟巢和水立方。（早/午/晚餐，住宿：5*北京昆仑饭店或同级）<div class="day-images"><div class="attraction-images"><img src="BJ_居庸关长城.jpg"></div><div class="attraction-images"><img src="BJ_王府井.jpg"></div><div class="attraction-images"><img src="BJ_鸟巢.jpg"><img src="BJ_水立方.jpg"></div></div>',
                         '<span class="day">第3天：北京</span> - 天安门广场，故宫，什刹海（步行烟袋斜街、南锣鼓巷、外观钟鼓楼）。（早/午/晚餐，住宿：5*北京昆仑饭店或同级）<div class="day-images"><div class="attraction-images"><img src="BJ_天安门广场.jpg"></div><div class="attraction-images"><img src="BJ_故宫.jpg"></div><div class="attraction-images"><img src="BJ_什刹海.jpg"></div></div>',
-                        '<span class="day">第4天：北京/西安（高铁）</span> - 钟鼓楼广场，回民街。（早/晚餐，住宿：5*西安喜来登或同级）<div class="day-images"><div class="attraction-images"><img src="XA_钟鼓楼广场.jpg"></div><div class="attraction-images"><img src="XA_回民街.jpg"></div></div>',
+                        '<span class="day">第4天：北京/西安</span> - 钟鼓楼广场，回民街。（早/晚餐，住宿：5*西安喜来登或同级）<div class="day-images"><div class="attraction-images"><img src="XA_钟鼓楼广场.jpg"></div><div class="attraction-images"><img src="XA_回民街.jpg"></div></div>',
                         '<span class="day">第5天：西安</span> - 秦兵马俑，古城墙，大唐不夜城。（早/午/晚餐，住宿：5*西安喜来登或同级）<div class="day-images"><div class="attraction-images"><img src="XA_秦始皇陵兵马俑.jpg"></div><div class="attraction-images"><img src="XA_古城墙.jpg"></div><div class="attraction-images"><img src="XA_大唐不夜城.jpg"></div></div>',
-                        '<span class="day">第6天：西安/上海（飞机）</span> - 田子坊，南京路，外滩。（早/午/晚餐，住宿：4*上海丽怡酒店或同级）<div class="day-images"><div class="attraction-images"><img src="SH_田子坊.jpg"></div><div class="attraction-images"><img src="SH_南京路.jpg"></div><div class="attraction-images"><img src="SH_外滩.jpg"></div></div>',
+                        '<span class="day">第6天：西安/上海</span> - 田子坊，南京路，外滩。（早/午/晚餐，住宿：4*上海丽怡酒店或同级）<div class="day-images"><div class="attraction-images"><img src="SH_田子坊.jpg"></div><div class="attraction-images"><img src="SH_南京路.jpg"></div><div class="attraction-images"><img src="SH_外滩.jpg"></div></div>',
                         '<span class="day">第7天：上海</span> - 玉佛寺，城隍庙，豫园市场，法租界新天地。（早/午/晚餐，住宿：4*上海丽怡酒店或同级）<div class="day-images"><div class="attraction-images"><img src="SH_玉佛寺.jpg"></div><div class="attraction-images"><img src="SH_城隍庙.jpg"><img src="SH_豫园市场.jpg"></div><div class="attraction-images"><img src="SH_法租界新天地.jpg"></div></div>',
                         '<span class="day">第8天：上海/离境</span> - 按航班时间送往机场，返回甜蜜的家。（早餐）'
-                    ],
-                    price: '20人以上：$1084/人（双人房），单人房补差 $291/人<br><strong>包含：</strong> 45座以上旅游大巴、西语导游、所列景点、指定餐食（$9/人/餐，10人一桌×2桌，八菜一汤，含每桌一支大可乐+大雪碧，多选煎炸炒）、酒店住宿（北京及西安5*，上海4*，共7晚）、北京/西安高铁二等座、西安/上海经济舱机票、每日2瓶水。<br><strong>不含：</strong> 未列餐及景点、个人消费、签证/保险/国际机票、小费（$3/人/天×8天）。<br><strong>备注：</strong> 以上为2025年11-12月份淡季特价，其他日期不适用，未作任何预订，费用以我社最终确认为准。'
+                    ]
                 },
                 en: {
-                    company: 'Weekend Tour INC',
-                    title: '8-Day "Golden Triangle" Beijing-Xi’an-Shanghai Tour',
+                    company: '',
+                    title: 'Beijing-Xi’an-Shanghai',
+                    home: 'Back to Home',
+                    tours: 'Tours',
                     highlightsTitle: 'Highlights',
                     itineraryTitle: 'Itinerary',
-                    priceTitle: 'Pricing',
                     highlights: [
                         'Quality Guaranteed: Weekend Tour INC has branches across China to provide the best services for you!',
                         'Beijing: The power center of feudal dynasties for thousands of years, China’s political hub, a renowned historical and cultural city, and one of the world’s top-tier cities.',
@@ -91,15 +108,15 @@
                         '<span class="day">Day 6: Xi’an/Shanghai (Flight)</span> - Tianzifang, Nanjing Road, The Bund.<br><div class="day-images"><div class="attraction-images"><img src="SH_田子坊.jpg"></div><div class="attraction-images"><img src="SH_南京路.jpg"></div><div class="attraction-images"><img src="SH_外滩.jpg"></div></div> (B/L/D, Accommodation: 4* Liyang Hotel Shanghai or similar)',
                         '<span class="day">Day 7: Shanghai</span> - Jade Buddha Temple, City God Temple, Yuyuan Bazaar, Former French Concession Xintiandi.<br><div class="day-images"><div class="attraction-images"><img src="SH_玉佛寺.jpg"></div><div class="attraction-images"><img src="SH_城隍庙.jpg"><img src="SH_豫园市场.jpg"></div><div class="attraction-images"><img src="SH_法租界新天地.jpg"></div></div> (B/L/D, Accommodation: 4* Liyang Hotel Shanghai or similar)',
                         '<span class="day">Day 8: Shanghai/Departure</span> - Transfer to airport based on flight schedule, return home. (B)'
-                    ],
-                    price: '20+ persons: $1084/person (twin room), single supplement $291/person<br><strong>Included:</strong> 45+ seat tour bus, Spanish guide, listed attractions, meals ($9/person/meal, 10 persons per table × 2 tables, 8 dishes and 1 soup, including one large Coke and Sprite per table, featuring fried options), accommodation (Beijing & Xi’an 5*, Shanghai 4*, 7 nights total), Beijing/Xi’an high-speed rail (2nd class), Xi’an/Shanghai economy flight, 2 bottles of water daily.<br><strong>Excluded:</strong> Unlisted meals/attractions, personal expenses, visa/insurance/international flights, tips ($3/person/day × 8 days).<br><strong>Note:</strong> Special off-season pricing for November-December 2025, not applicable to other dates, no bookings made, subject to final confirmation.'
+                    ]
                 },
                 es: {
-                    company: 'Plataforma Mayorista de Viajes',
-                    title: 'Tour de 8 días "Triángulo Dorado": Pekín-Xi’an-Shanghái',
+                    company: '',
+                    title: 'Pekín-Xi’an-Shanghái',
+                    home: 'Volver al Inicio',
+                    tours: 'Viajes',
                     highlightsTitle: 'Destacados',
                     itineraryTitle: 'Itinerario',
-                    priceTitle: 'Precios',
                     highlights: [
                         'Calidad garantizada: Nuestra empresa tiene sucursales en toda China para ofrecerle los mejores servicios.',
                         'Pekín: Centro de poder de las dinastías feudales durante milenios, corazón político de China, ciudad histórica y cultural de renombre, y una de las principales urbes del mundo.',
@@ -115,21 +132,19 @@
                         '<span class="day">Día 6: Xi’an/Shanghái (Vuelo)</span> - Tianzifang, Calle Nanjing, El Bund.<br><div class="day-images"><div class="attraction-images"><img src="SH_田子坊.jpg"></div><div class="attraction-images"><img src="SH_南京路.jpg"></div><div class="attraction-images"><img src="SH_外滩.jpg"></div></div> (D/A/C, Alojamiento: 4* Liyang Hotel Shanghai o similar)',
                         '<span class="day">Día 7: Shanghái</span> - Templo del Buda de Jade, Templo del Dios de la Ciudad, Bazar Yuyuan, Xintiandi de la Antigua Concesión Francesa.<br><div class="day-images"><div class="attraction-images"><img src="SH_玉佛寺.jpg"></div><div class="attraction-images"><img src="SH_城隍庙.jpg"><img src="SH_豫园市场.jpg"></div><div class="attraction-images"><img src="SH_法租界新天地.jpg"></div></div> (D/A/C, Alojamiento: 4* Liyang Hotel Shanghai o similar)',
                         '<span class="day">Día 8: Shanghái/Salida</span> - Traslado al aeropuerto según horario de vuelo, regreso a casa. (D)'
-                    ],
-                    price: '20+ personas: $1084/persona (doble), suplemento individual $291/persona<br><strong>Incluido:</strong> Autobús de 45+ asientos, guía en español, atracciones listadas, comidas ($9/persona/comida, 10 personas por mesa × 2 mesas, 8 platos y 1 sopa, incluye una Coca-Cola grande y Sprite por mesa, con opciones fritas), alojamiento (Pekín y Xi’an 5*, Shanghái 4*, 7 noches), tren Pekín/Xi’an (2ª clase), vuelo Xi’an/Shanghái (económica), 2 botellas de agua diarias.<br><strong>No incluido:</strong> Comidas/atracciones no listadas, gastos personales, visado/seguro/vuelos internacionales, propinas ($3/persona/día × 8 días).<br><strong>Nota:</strong> Precio especial de temporada baja para noviembre-diciembre de 2025, no aplica a otras fechas, sin reservas, sujeto a confirmación final.'
+                    ]
                 }
             };
             const t = translations[lang];
-            document.getElementById('company').textContent = t.company;
             document.getElementById('tour-title').textContent = t.title;
+            document.getElementById('home').textContent = t.home;
+            document.getElementById('tours').textContent = t.tours;
             document.getElementById('highlights-title').textContent = t.highlightsTitle;
             document.getElementById('itinerary-title').textContent = t.itineraryTitle;
-            document.getElementById('price-title').textContent = t.priceTitle;
             document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
             document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item.replace(/^([^：]+)：/, '<span class="day">$1：</span>')}</li>`).join('');
-            document.getElementById('price').innerHTML = t.price;
+            document.querySelector('footer p').textContent = t.footer;
         }
-        switchLanguage(); // 初始化
     </script>
 </body>
 </html>
