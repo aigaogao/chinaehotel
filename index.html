@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
+    <title>Inicio</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
         header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
@@ -39,9 +39,18 @@
 <body>
     <header id="header"></header>
     <section class="tour-list">
+        <div class="tour-card" onclick="window.location.href='itinerary-8day-BJ-XA-SH.html'">
+            <h3>Pekín-Xi’an-Shanghái</h3>
+            <p class="days">8 días</p>
+            <div class="images">
+                <img src="BJ_居庸关长城.jpg" alt="居庸关长城">
+                <img src="XA_秦始皇陵兵马俑.jpg" alt="秦始皇陵兵马俑">
+                <img src="SH_外滩.jpg" alt="外滩">
+            </div>
+        </div>
         <div class="tour-card" onclick="window.location.href='itinerary-10day-HK-GL-GZ-FS.html'">
-            <h3>香港-桂林-广州-佛山</h3>
-            <p class="days">10天</p>
+            <h3>Hong Kong-Guilin-Guangzhou-Foshan</h3>
+            <p class="days">10 días</p>
             <div class="images">
                 <img src="HK_尖沙咀.jpg" alt="尖沙咀">
                 <img src="GL_漓江.jpg" alt="漓江">
@@ -50,22 +59,13 @@
             </div>
         </div>
         <div class="tour-card" onclick="window.location.href='itinerary-12day-HK-GL-GZ-HN.html'">
-            <h3>香港-桂林-广州-海南</h3>
-            <p class="days">12天</p>
+            <h3>Hong Kong-Guilin-Guangzhou-Hainan</h3>
+            <p class="days">12 días</p>
             <div class="images">
                 <img src="HK_尖沙咀.jpg" alt="尖沙咀">
                 <img src="GL_漓江.jpg" alt="漓江">
                 <img src="GZ_越秀公园.jpg" alt="越秀公园">
                 <img src="SY_天涯海角.jpg" alt="天涯海角">
-            </div>
-        </div>
-        <div class="tour-card" onclick="window.location.href='itinerary-8day-BJ-XA-SH.html'">
-            <h3>北京-西安-上海</h3>
-            <p class="days">8天</p>
-            <div class="images">
-                <img src="BJ_居庸关长城.jpg" alt="居庸关长城">
-                <img src="XA_秦始皇陵兵马俑.jpg" alt="秦始皇陵兵马俑">
-                <img src="SH_外滩.jpg" alt="外滩">
             </div>
         </div>
     </section>
@@ -79,8 +79,10 @@
             })
             .then(data => document.getElementById('header').innerHTML = data)
             .then(() => {
-                document.getElementById('language').addEventListener('change', switchLanguage);
-                switchLanguage();
+                const languageSelect = document.getElementById('language');
+                languageSelect.value = 'es'; // 默认西班牙语
+                languageSelect.addEventListener('change', switchLanguage);
+                switchLanguage(); // 页面加载时调用
             })
             .catch(error => console.error(error));
 
@@ -93,43 +95,43 @@
             .catch(error => console.error(error));
 
         function switchLanguage() {
-            const lang = document.getElementById('language').value;
+            const lang = document.getElementById('language').value || 'es'; // 默认es
             const translations = {
-                zh: { 
-                    title: '首页', 
-                    home: '主页',
-                    tours: '行程', 
-                    tour1: '香港-桂林-广州-佛山', 
-                    days1: '10天', 
-                    tour2: '香港-桂林-广州-海南', 
-                    days2: '12天', 
-                    tour3: '北京-西安-上海', 
-                    days3: '8天', 
-                    footer: '© 2025 版权所有。'
+                es: { 
+                    title: 'Inicio', 
+                    home: 'Inicio',
+                    tours: 'Viajes', 
+                    tour1: 'Pekín-Xi’an-Shanghái', 
+                    days1: '8 días', 
+                    tour2: 'Hong Kong-Guilin-Guangzhou-Foshan', 
+                    days2: '10 días', 
+                    tour3: 'Hong Kong-Guilin-Guangzhou-Hainan', 
+                    days3: '12 días', 
+                    footer: '© 2025 chinaehotel. Todos los derechos reservados.'
                 },
                 en: { 
                     title: 'Home', 
                     home: 'Home',
                     tours: 'Tours', 
-                    tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
-                    days1: '10 days', 
-                    tour2: 'Hong Kong-Guilin-Guangzhou-Hainan', 
-                    days2: '12 days', 
-                    tour3: 'Beijing-Xi’an-Shanghai', 
-                    days3: '8 days', 
-                    footer: '© 2025 All Rights Reserved.'
+                    tour1: 'Beijing-Xi’an-Shanghai', 
+                    days1: '8 days', 
+                    tour2: 'Hong Kong-Guilin-Guangzhou-Foshan', 
+                    days2: '10 days', 
+                    tour3: 'Hong Kong-Guilin-Guangzhou-Hainan', 
+                    days3: '12 days', 
+                    footer: '© 2025 chinaehotel. All Rights Reserved.'
                 },
-                es: { 
-                    title: 'Inicio', 
-                    home: 'Inicio',
-                    tours: 'Viajes', 
-                    tour1: 'Hong Kong-Guilin-Guangzhou-Foshan', 
-                    days1: '10 días', 
-                    tour2: 'Hong Kong-Guilin-Guangzhou-Hainan', 
-                    days2: '12 días', 
-                    tour3: 'Pekín-Xi’an-Shanghái', 
-                    days3: '8 días', 
-                    footer: '© 2025 Todos los derechos reservados.'
+                zh: { 
+                    title: '首页', 
+                    home: '主页',
+                    tours: '行程', 
+                    tour1: '北京-西安-上海', 
+                    days1: '8天', 
+                    tour2: '香港-桂林-广州-佛山', 
+                    days2: '10天', 
+                    tour3: '香港-桂林-广州-海南', 
+                    days3: '12天', 
+                    footer: '© 2025 chinaehotel 版权所有。'
                 }
             };
             const t = translations[lang];

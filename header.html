@@ -1,18 +1,36 @@
-<div class="home-btn">
-    <a href="index.html" id="home">主页</a>
-</div>
-<nav>
-    <div class="dropdown">
-        <a href="#" id="tours">行程</a>
-        <div class="dropdown-content">
-            <a href="itinerary-10day-HK-GL-GZ-FS.html">香港-桂林-广州-佛山</a>
-            <a href="itinerary-12day-HK-GL-GZ-HN.html">香港-桂林-广州-海南</a>
-            <a href="itinerary-8day-BJ-XA-SH.html">北京-西安-上海</a>
-        </div>
+<div class="header-container">
+    <div class="home-btn">
+        <a href="index.html" id="home">主页</a>
     </div>
-    <select id="language">
-        <option value="zh">中文</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-    </select>
-</nav>
+    <nav>
+        <div class="dropdown">
+            <a href="#" id="tours">行程</a>
+            <div class="dropdown-content">
+                <a href="itinerary-10day-HK-GL-GZ-FS.html">香港-桂林-广州-佛山</a>
+                <a href="itinerary-12day-HK-GL-GZ-HN.html">香港-桂林-广州-海南</a>
+                <a href="itinerary-8day-BJ-XA-SH.html">北京-西安-上海</a>
+            </div>
+        </div>
+        <select id="language">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </nav>
+</div>
+
+<style>
+    .header-container { display: flex; justify-content: center; align-items: center; gap: 20px; padding: 10px 0; }
+    .home-btn { padding: 10px; }
+    .home-btn a { color: white; text-decoration: none; font-size: 16px; }
+    .home-btn a:hover { text-decoration: underline; }
+    nav { display: flex; gap: 15px; align-items: center; }
+    nav a { color: white; text-decoration: none; font-size: 16px; }
+    nav a:hover { text-decoration: underline; }
+    select { padding: 5px; font-size: 16px; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+    .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
+    .dropdown-content a:hover { background-color: #005ea2; }
+    .dropdown:hover .dropdown-content { display: block; }
+</style>
