@@ -145,4 +145,22 @@
                         '<span class="day">Día 7: Guilin/Guangzhou</span> - Colina Fubo, Cueva de la Flauta de Caña.<br><div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
                         '<span class="day">Día 8: Guangzhou</span> - Isla Shamian, Salón Ancestral Chen, Canal Lizhiwan, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
                         '<span class="day">Día 9: Foshan</span> - Templo Zumiao, Museo Wong Fei Hung, Lingnan Tiandi, Horno Antiguo Nanfeng.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
-                        '<span class="day">Día 10: Guangzhou/Sanya</span> - Parque Forestal Tropical Paraíso de Yalong Bay.<br><div class="day-images"><div class="attraction-images"><img src="SY_亚龙湾热带天堂森林公园01.jpg"><img src="SY_亚
+                        '<span class="day">Día 10: Guangzhou/Sanya</span> - Parque Forestal Tropical Paraíso de Yalong Bay.<br><div class="day-images"><div class="attraction-images"><img src="SY_亚龙湾热带天堂森林公园01.jpg"><img src="SY_亚龙湾热带天堂森林公园02.jpg"></div></div> (D/A/C, Alojamiento: 4* Sanya Haitian Hotel o similar)',
+                        '<span class="day">Día 11: Sanya</span> - Isla Wuzhizhou.<br><div class="day-images"><div class="attraction-images"><img src="SY_蜈支洲岛.jpg"></div></div> (D/A/C, Alojamiento: 4* Sanya Haitian Hotel o similar)',
+                        '<span class="day">Día 12: Sanya/Salida</span> - Tianya Haijiao, Zona Turística Cultural Nanshan.<br><div class="day-images"><div class="attraction-images"><img src="SY_天涯海角.jpg"></div><div class="attraction-images"><img src="SY_南山文化旅游区.jpg"></div></div> (D)'
+                    ]
+                }
+            };
+            const t = translations[lang];
+            document.getElementById('tour-title').textContent = t.title;
+            document.getElementById('home').textContent = t.home;
+            document.getElementById('tours').textContent = t.tours;
+            document.getElementById('highlights-title').textContent = t.highlightsTitle;
+            document.getElementById('itinerary-title').textContent = t.itineraryTitle;
+            document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item.replace(/^([^：]+)：/, '<span class="day">$1：</span>')}</li>`).join('');
+            document.querySelector('footer p').textContent = t.footer;
+        }
+    </script>
+</body>
+</html>
