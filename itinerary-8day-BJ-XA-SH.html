@@ -31,6 +31,7 @@
         .pdf-download { margin-top: 20px; text-align: center; }
         .pdf-download a { background-color: #0078d4; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
         .pdf-download a:hover { background-color: #005ea2; }
+        .hidden { display: none; } /* 新增样式类，用于隐藏按钮 */
         @media (max-width: 768px) { 
             header { padding: 10px; justify-content: space-between; }
             nav { gap: 10px; }
@@ -47,7 +48,7 @@
         <ul id="highlights"></ul>
         <h3 id="itinerary-title">Itinerario</h3>
         <ul id="itinerary"></ul>
-        <div class="pdf-download">
+        <div class="pdf-download" id="pdf-download">
             <a href="8day-tour-es.pdf" id="pdf-link">Descargar itinerario en PDF</a>
         </div>
     </div>
@@ -155,6 +156,14 @@
             document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
             document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item.replace(/^([^：]+)：/, '<span class="day">$1：</span>')}</li>`).join('');
             document.querySelector('footer p').textContent = t.footer || '';
+
+            // 控制“下载PDF”按钮的显示与隐藏
+            const pdfDownloadDiv = document.getElementById('pdf-download');
+            if (lang === 'es') {
+                pdfDownloadDiv.classList.remove('hidden');
+            } else {
+                pdfDownloadDiv.classList.add('hidden');
+            }
         }
     </script>
 </body>
