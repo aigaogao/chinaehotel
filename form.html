@@ -16,7 +16,7 @@
             margin: 0;
             background-color: #f0f2f5;
             color: #333;
-            line-height: 1.6; /* 增加行距以提升可读性 */
+            line-height: 1.6;
         }
 
         .container {
@@ -91,7 +91,7 @@
         .content h2 {
             font-size: 20px;
             margin: 20px 0 10px;
-            color: #ff6200;
+            color: #666; /* 修改为灰色 */
         }
 
         .content p {
@@ -115,7 +115,7 @@
 
         .content ul li:before {
             content: "•";
-            color: #ff6200;
+            color: #666; /* 修改为灰色 */
             position: absolute;
             left: -15px;
         }
@@ -130,6 +130,25 @@
 
         footer p {
             margin: 0;
+        }
+
+        .download-btn {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .download-btn button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff6200;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .download-btn button:hover {
+            background-color: #e55a00;
         }
 
         @media (max-width: 768px) {
@@ -182,7 +201,7 @@
             <h1 data-lang="form-title">Formulario de Viaje</h1>
 
             <h2 data-lang="price-includes-title">EL PRECIO INCLUYE</h2>
-            <ul>
+            <ul data-lang="price-includes">
                 <li>Vuelo en viaje redondo Internacional de LAX-CHINA-LAX.</li>
                 <li>Hospedaje en hotel 3* en habitación doble, baño privado.</li>
                 <li>Transportación turística en autobús de lujo.</li>
@@ -194,7 +213,7 @@
             </ul>
 
             <h2 data-lang="price-excludes-title">EL PRECIO NO INCLUYE</h2>
-            <ul>
+            <ul data-lang="price-excludes">
                 <li>La tasa de visa China paga 730 pesos.</li>
                 <li>La Agencia de Viajes Visa China carga $20 dlls.</li>
                 <li>Seguro de médico extrapersonal — opcional.</li>
@@ -208,7 +227,7 @@
             </ul>
 
             <h2 data-lang="passenger-note-title">TERCERA NOTA DE PASAJERO</h2>
-            <ul>
+            <ul data-lang="passenger-note">
                 <li>La tasa de visa China paga 730 pesos.</li>
                 <li>La Agencia de Viajes Visa China carga $20 dlls.</li>
                 <li>Consejo de viaje de 9 días de China (conductor, conserje, mesero, guía turístico) $10 por día para un total de $80 dlls.</li>
@@ -217,23 +236,23 @@
             </ul>
 
             <h2 data-lang="registration-info-title">INFORMACIÓN DE REGISTRO</h2>
-            <ul>
+            <ul data-lang="registration-info">
                 <li>Cada delegación tiene un número mínimo de recorridos grupales básicos, y el número de personas que se registren debe alcanzar el número mínimo antes de poder realizar un viaje.</li>
                 <li>Al registrarse para viajar al extranjero, confirme que el período de validez del pasaporte es de más de seis meses a partir de la fecha de devolución de su pasaporte. El día de trabajo de la visa puede variar según la región.</li>
                 <li>Si es una mujer embarazada o sufre una enfermedad grave, regístrese directamente con el personal de servicio de la compañía e informe a la persona sobre la situación. Si no notifica por adelantado o crea otros problemas, debe asumir la责任。</li>
                 <li>Los depósitos y viajes pagados no son transferibles a otras partes ni transferidos a otras fechas de salida. Si no se pagan los aranceles de despacho vencidos, la empresa cancelará su pedido y no se reembolsará el importe abonado.</li>
                 <li>Reservación del 15 de junio antes posible.</li>
-                <li>Entregarnos la copia de pasaporte de cada pasajero y llenar la “Solicitud Para Viajes a China” y mandar por weekendtourinct@hotmail.com y enviar depósito.</li>
+                <li>Entregarnos la copia de pasaporte de cada pasajero y llenar la “Solicitud Para Viajes Angulo nos trae la “Solicitud Para Viajes a China” y mandar por weekendtourinct@hotmail.com y enviar depósito.</li>
                 <li>$300 dlls de anticipo, por pasajero, en la fecha indicada de reservación.</li>
                 <li>Del 29 junio antes de la salida para pagar la cantidad total.</li>
             </ul>
 
             <h2 data-lang="travel-insurance-title">SEGURO DE VIAJE</h2>
-            <p>Para proteger los intereses de los turistas, la compañía recomienda que se compren todos los tipos de seguro de viaje para turistas participantes, como accidentes, atención médica, compensación de equipaje y multas por la cancelación de grupos de turistas, al momento de la inscripción.</p>
+            <p data-lang="travel-insurance">Para proteger los intereses de los turistas, la compañía recomienda que se compren todos los tipos de seguro de viaje para turistas participantes, como accidentes, atención médica, compensación de equipaje y multas por la cancelación de grupos de turistas, al momento de la inscripción.</p>
 
             <h2 data-lang="cancel-reservation-title">CANCELAR RESERVA</h2>
-            <p>Las cancelaciones antes de la salida deben hacerse por escrito y de acuerdo con las siguientes normas: Si se abre el ticket, no se pueden hacer reembolsos.</p>
-            <ul>
+            <p data-lang="cancel-reservation">Las cancelaciones antes de la salida deben hacerse por escrito y de acuerdo con las siguientes normas: Si se abre el ticket, no se pueden hacer reembolsos.</p>
+            <ul data-lang="cancel-reservation-list">
                 <li>Cancela más de 35 días antes de la salida y cobra US $200 por persona.</li>
                 <li>15 - 34 días antes de la salida, la cancelación se cobrará el 25% del costo total de la excursión por persona.</li>
                 <li>Cancelación 8-14 días antes de la salida y 50% de la tarifa total de la excursión por persona.</li>
@@ -241,16 +260,20 @@
             </ul>
 
             <h2 data-lang="responsibility-issues-title">PROBLEMAS DE RESPONSABILIDAD</h2>
-            <p>Siempre con el espíritu de servicio al cliente, planeamos y organizamos cuidadosamente varios recorridos para mejorar el itinerario. Sin embargo, si el número de participantes en cada grupo es insuficiente, nuestra compañía tiene el derecho de cancelar la partida, y las tarifas de depósito y viaje pagadas por la compañía serán devueltas en su totalidad, y los pasajeros no pueden reclamar una indemnización.</p>
-            <p>En caso de circunstancias especiales, como mal tiempo, huelgas, efectos de tifones, pérdida de documentos, accidentes hoteleros locales, cancelaciones completas, cancelaciones programadas o retrasos, golpes de estado, etc., o circunstancias que escapan al control de las capacidades de la compañía, y el itinerario y el alojamiento deben modificarse o cancelarse para cualquier programa de viaje. La empresa debe organizar tanto como sea posible de acuerdo con las circunstancias y tratarlo en su totalidad. Sin embargo, la empresa no será responsable de las pérdidas incurridas en este caso. En la medida en que la aerolínea solo sea responsable de los diversos términos operativos que figuran en el boleto de avión, si el pasajero no ingresa al avión, la aerolínea no asumirá ninguna responsabilidad.</p>
+            <p data-lang="responsibility-issues-1">Siempre con el espíritu de servicio al cliente, planeamos y organizamos cuidadosamente varios recorridos para mejorar el itinerario. Sin embargo, si el número de participantes en cada grupo es insuficiente, nuestra compañía tiene el derecho de cancelar la partida, y las tarifas de depósito y viaje pagadas por la compañía serán devueltas en su totalidad, y los pasajeros no pueden reclamar una indemnización.</p>
+            <p data-lang="responsibility-issues-2">En caso de circunstancias especiales, como mal tiempo, huelgas, efectos de tifones, pérdida de documentos, accidentes hoteleros locales, cancelaciones completas, cancelaciones programadas o retrasos, golpes de estado, etc., o circunstancias que escapan al control de las capacidades de la compañía, y el itinerario y el alojamiento deben modificarse o cancelarse para cualquier programa de viaje. La empresa debe organizar tanto como sea posible de acuerdo con las circunstancias y tratarlo en su totalidad. Sin embargo, la empresa no será responsable de las pérdidas incurridas en este caso. En la medida en que la aerolínea solo sea responsable de los diversos términos operativos que figuran en el boleto de avión, si el pasajero no ingresa al avión, la aerolínea no asumirá ninguna responsabilidad.</p>
 
-            <h2 data-lang="other-title">OTRO</h2>
-            <ul>
+            <h2 data-langA="other-title">OTRO</h2>
+            <ul data-lang="other">
                 <li>Aquellos que participen en la gira deben cumplir con las leyes y regulaciones de varios países. Está estrictamente prohibido llevar ganancias privadas y artículos prohibidos. Si es rechazado por un país por razones personales o por cualquier otra razón, se desconoce el motivo, su responsabilidad no tiene nada que ver con la compañía y todas las tarifas pagadas no serán reembolsadas o transferidas o transferidas a otros grupos de viaje. Los clientes deberán pagar los costos adicionales incurridos durante el período.</li>
                 <li>Durante el recorrido, si los pasajeros interfieren con las actividades e intereses normales del líder o del grupo, o desmantelan o insultan a otros turistas y personal de servicio en acción o en voz, el líder del tour de la compañía debe tener el derecho absoluto de cancelar la membresía del grupo. Todas las acciones posteriores a la salida no estarán relacionadas con la compañía y no reembolsarán todas las tarifas pagadas.</li>
             </ul>
 
             <p data-lang="thanks">GRACIAS POR SU AMABLE COLABORACIÓN</p>
+        </div>
+
+        <div class="download-btn">
+            <button onclick="window.open('https://chinaehotel.com/TourOrderform.pdf', '_blank')" data-lang="download-btn">Descargar Formulario de Inscripción</button>
         </div>
     </div>
 
@@ -268,14 +291,25 @@
                 'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
                 'form-title': 'Formulario de Viaje',
                 'price-includes-title': 'EL PRECIO INCLUYE',
+                'price-includes': '<li>Vuelo en viaje redondo Internacional de LAX-CHINA-LAX.</li><li>Hospedaje en hotel 3* en habitación doble, baño privado.</li><li>Transportación turística en autobús de lujo.</li><li>Los alimentos por día descrito en el itinerario.</li><li>Admisiones a museos y espectáculos.</li><li>Impuesto de aeropuerto.</li><li>Seguro de vida para viajero.</li><li>Transportación turística en tren metros (Entrenar).</li>',
                 'price-excludes-title': 'EL PRECIO NO INCLUYE',
+                'price-excludes': '<li>La tasa de visa China paga 730 pesos.</li><li>La Agencia de Viajes Visa China carga $20 dlls.</li><li>Seguro de médico extrapersonal — opcional.</li><li>Gastos personales.</li><li>Cargos por exceso de equipaje.</li><li>Consejo de viaje de 9 días de China (conductor, conserje, mesero, guía turístico) $10 por día para un total de $80 dlls. Cualquier otro cargo exigido por una agencia de gobierno local, estatal o federal.</li><li>La transportación de otras ciudades a Aeropuerto Internacional de Tijuana.</li><li>El suplemento individual en habitación sencilla será de $380 dlls.</li><li>Se aplicará tarifa adicional, por paquete, si se pasa la fecha límite de reservación.</li><li>Cualquier otro cargo exigido por una agencia de gobierno local, estatal o federal.</li>',
                 'passenger-note-title': 'TERCERA NOTA DE PASAJERO',
+                'passenger-note': '<li>La tasa de visa China paga 730 pesos.</li><li>La Agencia de Viajes Visa China carga $20 dlls.</li><li>Consejo de viaje de 9 días de China (conductor, conserje, mesero, guía turístico) $10 por día para un total de $80 dlls.</li><li>En cuanto al alojamiento de la habitación para el tercer regalo, la agencia de viajes es responsable de organizar dos personas, una habitación (dos camas) para hombres y mujeres, mujeres y mujeres y dos personas que comparten la misma habitación antes de la partida. En los 30 días previos a la salida, la habitación del hotel por un total de 7 noches se pagó por $380 dlls.</li><li>Compras personales y gastos pagados.</li>',
                 'registration-info-title': 'INFORMACIÓN DE REGISTRO',
+                'registration-info': '<li>Cada delegación tiene un número mínimo de recorridos grupales básicos, y el número de personas que se registren debe alcanzar el número mínimo antes de poder realizar un viaje.</li><li>Al registrarse para viajar al extranjero, confirme que el período de validez del pasaporte es de más de seis meses a partir de la fecha de devolución de su pasaporte. El día de trabajo de la visa puede variar según la región.</li><li>Si es una mujer embarazada o sufre una enfermedad grave, regístrese directamente con el personal de servicio de la compañía e informe a la persona sobre la situación. Si no notifica por adelantado o crea otros problemas, debe asumir la责任。</li><li>Los depósitos y viajes pagados no son transferibles a otras partes ni transferidos a otras fechas de salida. Si no se pagan los aranceles de despacho vencidos, la empresa cancelará su pedido y no se reembolsará el importe abonado.</li><li>Reservación del 15 de junio antes posible.</li><li>Entregarnos la copia de pasaporte de cada pasajero y llenar la “Solicitud Para Viajes a China” y mandar por weekendtourinct@hotmail.com y enviar depósito.</li><li>$300 dlls de anticipo, por pasajero, en la fecha indicada de reservación.</li><li>Del 29 junio antes de la salida para pagar la cantidad total.</li>',
                 'travel-insurance-title': 'SEGURO DE VIAJE',
+                'travel-insurance': 'Para proteger los intereses de los turistas, la compañía recomienda que se compren todos los tipos de seguro de viaje para turistas participantes, como accidentes, atención médica, compensación de equipaje y multas por la cancelación de grupos de turistas, al momento de la inscripción.',
                 'cancel-reservation-title': 'CANCELAR RESERVA',
+                'cancel-reservation': 'Las cancelaciones antes de la salida deben hacerse por escrito y de acuerdo con las siguientes normas: Si se abre el ticket, no se pueden hacer reembolsos.',
+                'cancel-reservation-list': '<li>Cancela más de 35 días antes de la salida y cobra US $200 por persona.</li><li>15 - 34 días antes de la salida, la cancelación se cobrará el 25% del costo total de la excursión por persona.</li><li>Cancelación 8-14 días antes de la salida y 50% de la tarifa total de la excursión por persona.</li><li>Cancelación dentro de los 7 días previos a la salida o retiro del viaje, cada persona recibirá el 100% de la tarifa total del viaje.</li>',
                 'responsibility-issues-title': 'PROBLEMAS DE RESPONSABILIDAD',
+                'responsibility-issues-1': 'Siempre con el espíritu de servicio al cliente, planeamos y organizamos cuidadosamente varios recorridos para mejorar el itinerario. Sin embargo, si el número de participantes en cada grupo es insuficiente, nuestra compañía tiene el derecho de cancelar la partida, y las tarifas de depósito y viaje pagadas por la compañía serán devueltas en su totalidad, y los pasajeros no pueden reclamar una indemnización.',
+                'responsibility-issues-2': 'En caso de circunstancias especiales, como mal tiempo, huelgas, efectos de tifones, pérdida de documentos, accidentes hoteleros locales, cancelaciones completas, cancelaciones programadas o retrasos, golpes de estado, etc., o circunstancias que escapan al control de las capacidades de la compañía, y el itinerario y el alojamiento deben modificarse o cancelarse para cualquier programa de viaje. La empresa debe organizar tanto como sea posible de acuerdo con las circunstancias y tratarlo en su totalidad. Sin embargo, la empresa no será responsable de las pérdidas incurridas en este caso. En la medida en que la aerolínea solo sea responsable de los diversos términos operativos que figuran en el boleto de avión, si el pasajero no ingresa al avión, la aerolínea no asumirá ninguna responsabilidad.',
                 'other-title': 'OTRO',
-                'thanks': 'GRACIAS POR SU AMABLE COLABORACIÓN'
+                'other': '<li>Aquellos que participen en la gira deben cumplir con las leyes y regulaciones de varios países. Está estrictamente prohibido llevar ganancias privadas y artículos prohibidos. Si es rechazado por un país por razones personales o por cualquier otra razón, se desconoce el motivo, su responsabilidad no tiene nada que ver con la compañía y todas las tarifas pagadas no serán reembolsadas o transferidas o transferidas a otros grupos de viaje. Los clientes deberán pagar los costos adicionales incurridos durante el período.</li><li>Durante el recorrido, si los pasajeros interfieren con las actividades e intereses normales del líder o del grupo, o desmantelan o insultan a otros turistas y personal de servicio en acción o en voz, el líder del tour de la compañía debe tener el derecho absoluto de cancelar la membresía del grupo. Todas las acciones posteriores a la salida no estarán relacionadas con la compañía y no reembolsarán todas las tarifas pagadas.</li>',
+                'thanks': 'GRACIAS POR SU AMABLE COLABORACIÓN',
+                'download-btn': 'Descargar Formulario de Inscripción'
             },
             'en': {
                 'home': 'Home',
@@ -285,14 +319,25 @@
                 'footer': '© 2025 chinaehotel.com All rights reserved.',
                 'form-title': 'Travel Form',
                 'price-includes-title': 'THE PRICE INCLUDES',
+                'price-includes': '<li>Round-trip international flight from LAX-CHINA-LAX.</li><li>Accommodation in a 3* hotel in a double room with private bathroom.</li><li>Tourist transportation in a luxury bus.</li><li>Meals per day as described in the itinerary.</li><li>Admissions to museums and shows.</li><li>Airport tax.</li><li>Traveler life insurance.</li><li>Tourist transportation by metro train.</li>',
                 'price-excludes-title': 'THE PRICE DOES NOT INCLUDE',
+                'price-excludes': '<li>Chinese visa fee of 730 pesos.</li><li>Visa China Travel Agency fee of $20 USD.</li><li>Optional extra personal medical insurance.</li><li>Personal expenses.</li><li>Excess baggage charges.</li><li>9-day China travel tip (driver, concierge, waiter, tour guide) $10 per day for a total of $80 USD. Any other fees required by a local, state, or federal government agency.</li><li>Transportation from other cities to Tijuana International Airport.</li><li>The single room supplement will be $380 USD.</li><li>An additional fee per package will apply if the reservation deadline is missed.</li><li>Any other fees required by a local, state, or federal government agency.</li>',
                 'passenger-note-title': 'THIRD PASSENGER NOTE',
+                'passenger-note': '<li>Chinese visa fee of 730 pesos.</li><li>Visa China Travel Agency fee of $20 USD.</li><li>9-day China travel tip (driver, concierge, waiter, tour guide) $10 per day for a total of $80 USD.</li><li>Regarding third-party room accommodation, the travel agency is responsible for arranging two people per room (two beds) for men and women, women and women, and two people sharing the same room before departure. Within 30 days prior to departure, the hotel room for a total of 7 nights is paid at $380 USD.</li><li>Personal shopping and paid expenses.</li>',
                 'registration-info-title': 'REGISTRATION INFORMATION',
+                'registration-info': '<li>Each delegation has a minimum number of basic group tours, and the number of registered people must reach the minimum before a trip can be made.</li><li>When registering to travel abroad, confirm that the passport validity period is more than six months from the return date of your passport. Visa processing days may vary by region.</li><li>If you are a pregnant woman or suffer from a serious illness, register directly with the company’s service staff and inform them of the situation. If you fail to notifyVida notifica por adelantado o crea otros problemas, debe asumir la responsabilidad。</li><li>Paid deposits and trips are non-transferable to other parties or other departure dates. If overdue clearance fees are not paid, the company will cancel your order, and the paid amount will not be refunded.</li><li>Reservation by June 15 as soon as possible.</li><li>Provide us with a copy of each passenger’s passport, fill out the “China Travel Application” and send it to weekendtourinct@hotmail.com along with the deposit.</li><li>$300 USD deposit per passenger on the specified reservation date.</li><li>Full payment due by June 29 before departure.</li>',
                 'travel-insurance-title': 'TRAVEL INSURANCE',
+                'travel-insurance': 'To protect the interests of tourists, the company recommends purchasing all types of travel insurance for participating tourists, such as accidents, medical care, luggage compensation, and fines for group cancellation, at the time of registration.',
                 'cancel-reservation-title': 'CANCEL RESERVATION',
+                'cancel-reservation': 'Cancellations before departure must be made in writing and in accordance with the following rules: If the ticket is issued, no refunds can be made.',
+                'cancel-reservation-list': '<li>Cancel more than 35 days before departure and charge US $200 per person.</li><li>15 - 34 days before departure, cancellation will be charged 25% of the total tour cost per person.</li><li>Cancellation 8-14 days before departure and 50% of the total tour fee per person.</li><li>Cancellation within 7 days prior to departure or withdrawal from the trip, each person will incur 100% of the total trip fee.</li>',
                 'responsibility-issues-title': 'LIABILITY ISSUES',
+                'responsibility-issues-1': 'Always with the spirit of customer service, we carefully plan and organize various tours to improve the itinerary. However, if the number of participants in each group is insufficient, our company has the right to cancel the departure, and the deposit and trip fees paid by the company will be fully refunded, and passengers cannot claim compensation.',
+                'responsibility-issues-2': 'In case of special circumstances, such as bad weather, strikes, typhoon effects, loss of documents, local hotel accidents, full cancellations, scheduled cancellations or delays, coups, etc., or circumstances beyond the company’s control, and the itinerary and accommodation must be modified or canceled for any travel program. The company must arrange as much as possible according to the circumstances and handle it fully. However, the company will not be liable for losses incurred in this case. To the extent that the airline is only responsible for the various operational terms listed on the plane ticket, if the passenger does not board the plane, the airline will not assume any responsibility.',
                 'other-title': 'OTHER',
-                'thanks': 'THANK YOU FOR YOUR KIND COOPERATION'
+                'other': '<li>Those participating in the tour must comply with the laws and regulations of various countries. It is strictly prohibited to carry private profits and prohibited items. If rejected by a country for personal reasons or any other reason, the reason is unknown, your responsibility has nothing to do with the company, and all paid fees will not be refunded or transferred to other travel groups. Customers will have to pay the additional costs incurred during the period.</li><li>During the tour, if passengers interfere with the normal activities and interests of the leader or the group, or dismantle or insult other tourists and service personnel in action or voice, the company’s tour leader must have the absolute right to cancel the group membership. All subsequent actions after departure will not be related to the company and will not refund all paid fees.</li>',
+                'thanks': 'THANK YOU FOR YOUR KIND COOPERATION',
+                'download-btn': 'Download Registration Form'
             },
             'zh': {
                 'home': '主页',
@@ -302,38 +347,39 @@
                 'footer': '© 2025 chinaehotel.com 版权所有。',
                 'form-title': '旅行表格',
                 'price-includes-title': '价格包括',
+                'price-includes': '<li>从LAX到中国的国际往返航班。</li><li>3星级酒店双人房住宿，带私人浴室。</li><li>豪华巴士旅游交通。</li><li>行程中描述的每日膳食。</li><li>博物馆和演出门票。</li><li>机场税。</li><li>旅行者人寿保险。</li><li>地铁火车旅游交通。</li>',
                 'price-excludes-title': '价格不包括',
+                'price-excludes': '<li>中国签证费730比索。</li><li>中国签证旅行社费用20美元。</li><li>可选的额外个人医疗保险。</li><li>个人费用。</li><li>超重行李费。</li><li>9天中国旅行小费（司机、礼宾员、服务员、导游）每天10美元，总计80美元。地方、州或联邦政府机构要求的任何其他费用。</li><li>从其他城市到蒂华纳国际机场的交通。</li><li>单人房附加费为380美元。</li><li>如果错过预订截止日期，将按套餐收取额外费用。</li><li>地方、州或联邦政府机构要求的任何其他费用。</li>',
                 'passenger-note-title': '乘客第三须知',
+                'passenger-note': '<li>中国签证费730比索。</li><li>中国签证旅行社费用20美元。</li><li>9天中国旅行小费（司机、礼宾员、服务员、导游）每天10美元，总计80美元。</li><li>关于第三方房间住宿，旅行社负责在出发前为男性和女性、女性和女性以及两人共用同一房间安排两人一间房（两张床）。在出发前30天内，酒店房间共7晚的费用为380美元。</li><li>个人购物和已支付费用。</li>',
                 'registration-info-title': '注册信息',
+                'registration-info': '<li>每个代表团都有最少的基本团体游览次数，注册人数必须达到最低人数才能进行旅行。</li><li>在注册出国旅行时，确认护照有效期自返回之日起超过六个月。签证处理天数可能因地区而异。</li><li>如果您是孕妇或患有严重疾病，请直接与公司的服务人员注册并告知其情况。如果您未提前通知或造成其他问题，您必须承担责任。</li><li>已支付的存款和旅行费用不可转让给其他方或转移到其他出发日期。如果未支付逾期清关费用，公司将取消您的订单，且已支付的金额不予退还。</li><li>6月15日前尽早预订。</li><li>向我们提供每位乘客的护照副本，填写“中国旅行申请”并通过weekendtourinct@hotmail.com发送，并寄送存款。</li><li>每位乘客在指定预订日期预付300美元。</li><li>出发前6月29日之前支付全额费用。</li>',
                 'travel-insurance-title': '旅行保险',
+                'travel-insurance': '为了保护游客的利益，公司建议在注册时为参与的游客购买所有类型的旅行保险，如意外、医疗、行李赔偿和团体取消罚款。',
                 'cancel-reservation-title': '取消预订',
+                'cancel-reservation': '出发前的取消必须以书面形式进行，并符合以下规定：如果机票已开出，则无法退款。',
+                'cancel-reservation-list': '<li>出发前35天以上取消，每人收取200美元。</li><li>出发前15-34天取消，将收取每人旅游总费用的25%。</li><li>出发前8-14天取消，每人收取旅游总费用的50%。</li><li>出发前7天内取消或退出旅行，每人将承担旅行总费用的100%。</li>',
                 'responsibility-issues-title': '责任问题',
+                'responsibility-issues-1': '始终本着客户服务的精神，我们精心计划和组织各种游览以改善行程。然而，如果每个团体的参与人数不足，我们公司有权取消出发，公司支付的存款和旅行费用将全额退还，乘客不得要求赔偿。',
+                'responsibility-issues-2': '如遇特殊情况，如恶劣天气、罢工、台风影响、文件丢失、当地酒店事故、完全取消、计划取消或延误、政变等，或公司无法控制的情况，且行程和住宿必须为任何旅行计划修改或取消。公司必须根据情况尽可能安排并全面处理。然而，在这种情况下，公司不对由此产生的损失负责。在航空公司仅对机票上列明的各种运营条款负责的范围内，如果乘客未登机，航空公司不承担任何责任。',
                 'other-title': '其他',
-                'thanks': '感谢您的友好合作'
+                'other': '<li>参加游览的人必须遵守各国的法律法规。严禁携带私人利润和违禁物品。如果因个人原因或任何其他原因被某国拒绝，原因不明，您的责任与公司无关，所有已支付的费用将不予退还或转移到其他旅行团。客户必须支付在此期间产生的额外费用。</li><li>在游览期间，如果乘客干扰领队或团体的正常活动和利益，或以行动或言语拆除或侮辱其他游客和服务人员，公司旅游领队必须有绝对权利取消团体成员资格。出发后的所有后续行动将与公司无关，且不退还所有已支付的费用。</li>',
+                'thanks': '感谢您的友好合作',
+                'download-btn': '下载报名表'
             }
         };
 
         function changeLanguage(lang) {
-            const t = translations[lang];
-            document.getElementById('form-title').textContent = t['form-title'];
-            document.getElementById('price-includes-title').textContent = t['price-includes-title'];
-            document.getElementById('price-excludes-title').textContent = t['price-excludes-title'];
-            document.getElementById('passenger-note-title').textContent = t['passenger-note-title'];
-            document.getElementById('registration-info-title').textContent = t['registration-info-title'];
-            document.getElementById('travel-insurance-title').textContent = t['travel-insurance-title'];
-            document.getElementById('cancel-reservation-title').textContent = t['cancel-reservation-title'];
-            document.getElementById('responsibility-issues-title').textContent = t['responsibility-issues-title'];
-            document.getElementById('other-title').textContent = t['other-title'];
-            document.querySelector('p[data-lang="thanks"]').textContent = t['thanks'];
-
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
-                element.innerHTML = translations[lang][key];
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
             });
-
             document.documentElement.lang = lang;
         }
 
+        // 默认加载西班牙语
         changeLanguage('es');
     </script>
 </body>
