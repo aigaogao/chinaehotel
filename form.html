@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - chinaehotel.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6; /* 增加行距以提升可读性 */
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: #ff6200;
+        }
+
+        .content p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .content ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+            position: relative;
+        }
+
+        .content ul li:before {
+            content: "•";
+            color: #ff6200;
+            position: absolute;
+            left: -15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h1 {
+                font-size: 20px;
+            }
+
+            .content h2 {
+                font-size: 18px;
+            }
+
+            .content p, .content ul li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h1 data-lang="form-title">Formulario de Viaje</h1>
+
+            <h2 data-lang="price-includes-title">EL PRECIO INCLUYE</h2>
+            <ul>
+                <li>Vuelo en viaje redondo Internacional de LAX-CHINA-LAX.</li>
+                <li>Hospedaje en hotel 3* en habitación doble, baño privado.</li>
+                <li>Transportación turística en autobús de lujo.</li>
+                <li>Los alimentos por día descrito en el itinerario.</li>
+                <li>Admisiones a museos y espectáculos.</li>
+                <li>Impuesto de aeropuerto.</li>
+                <li>Seguro de vida para viajero.</li>
+                <li>Transportación turística en tren metros (Entrenar).</li>
+            </ul>
+
+            <h2 data-lang="price-excludes-title">EL PRECIO NO INCLUYE</h2>
+            <ul>
+                <li>La tasa de visa China paga 730 pesos.</li>
+                <li>La Agencia de Viajes Visa China carga $20 dlls.</li>
+                <li>Seguro de médico extrapersonal — opcional.</li>
+                <li>Gastos personales.</li>
+                <li>Cargos por exceso de equipaje.</li>
+                <li>Consejo de viaje de 9 días de China (conductor, conserje, mesero, guía turístico) $10 por día para un total de $80 dlls. Cualquier otro cargo exigido por una agencia de gobierno local, estatal o federal.</li>
+                <li>La transportación de otras ciudades a Aeropuerto Internacional de Tijuana.</li>
+                <li>El suplemento individual en habitación sencilla será de $380 dlls.</li>
+                <li>Se aplicará tarifa adicional, por paquete, si se pasa la fecha límite de reservación.</li>
+                <li>Cualquier otro cargo exigido por una agencia de gobierno local, estatal o federal.</li>
+            </ul>
+
+            <h2 data-lang="passenger-note-title">TERCERA NOTA DE PASAJERO</h2>
+            <ul>
+                <li>La tasa de visa China paga 730 pesos.</li>
+                <li>La Agencia de Viajes Visa China carga $20 dlls.</li>
+                <li>Consejo de viaje de 9 días de China (conductor, conserje, mesero, guía turístico) $10 por día para un total de $80 dlls.</li>
+                <li>En cuanto al alojamiento de la habitación para el tercer regalo, la agencia de viajes es responsable de organizar dos personas, una habitación (dos camas) para hombres y mujeres, mujeres y mujeres y dos personas que comparten la misma habitación antes de la partida. En los 30 días previos a la salida, la habitación del hotel por un total de 7 noches se pagó por $380 dlls.</li>
+                <li>Compras personales y gastos pagados.</li>
+            </ul>
+
+            <h2 data-lang="registration-info-title">INFORMACIÓN DE REGISTRO</h2>
+            <ul>
+                <li>Cada delegación tiene un número mínimo de recorridos grupales básicos, y el número de personas que se registren debe alcanzar el número mínimo antes de poder realizar un viaje.</li>
+                <li>Al registrarse para viajar al extranjero, confirme que el período de validez del pasaporte es de más de seis meses a partir de la fecha de devolución de su pasaporte. El día de trabajo de la visa puede variar según la región.</li>
+                <li>Si es una mujer embarazada o sufre una enfermedad grave, regístrese directamente con el personal de servicio de la compañía e informe a la persona sobre la situación. Si no notifica por adelantado o crea otros problemas, debe asumir la责任。</li>
+                <li>Los depósitos y viajes pagados no son transferibles a otras partes ni transferidos a otras fechas de salida. Si no se pagan los aranceles de despacho vencidos, la empresa cancelará su pedido y no se reembolsará el importe abonado.</li>
+                <li>Reservación del 15 de junio antes posible.</li>
+                <li>Entregarnos la copia de pasaporte de cada pasajero y llenar la “Solicitud Para Viajes a China” y mandar por weekendtourinct@hotmail.com y enviar depósito.</li>
+                <li>$300 dlls de anticipo, por pasajero, en la fecha indicada de reservación.</li>
+                <li>Del 29 junio antes de la salida para pagar la cantidad total.</li>
+            </ul>
+
+            <h2 data-lang="travel-insurance-title">SEGURO DE VIAJE</h2>
+            <p>Para proteger los intereses de los turistas, la compañía recomienda que se compren todos los tipos de seguro de viaje para turistas participantes, como accidentes, atención médica, compensación de equipaje y multas por la cancelación de grupos de turistas, al momento de la inscripción.</p>
+
+            <h2 data-lang="cancel-reservation-title">CANCELAR RESERVA</h2>
+            <p>Las cancelaciones antes de la salida deben hacerse por escrito y de acuerdo con las siguientes normas: Si se abre el ticket, no se pueden hacer reembolsos.</p>
+            <ul>
+                <li>Cancela más de 35 días antes de la salida y cobra US $200 por persona.</li>
+                <li>15 - 34 días antes de la salida, la cancelación se cobrará el 25% del costo total de la excursión por persona.</li>
+                <li>Cancelación 8-14 días antes de la salida y 50% de la tarifa total de la excursión por persona.</li>
+                <li>Cancelación dentro de los 7 días previos a la salida o retiro del viaje, cada persona recibirá el 100% de la tarifa total del viaje.</li>
+            </ul>
+
+            <h2 data-lang="responsibility-issues-title">PROBLEMAS DE RESPONSABILIDAD</h2>
+            <p>Siempre con el espíritu de servicio al cliente, planeamos y organizamos cuidadosamente varios recorridos para mejorar el itinerario. Sin embargo, si el número de participantes en cada grupo es insuficiente, nuestra compañía tiene el derecho de cancelar la partida, y las tarifas de depósito y viaje pagadas por la compañía serán devueltas en su totalidad, y los pasajeros no pueden reclamar una indemnización.</p>
+            <p>En caso de circunstancias especiales, como mal tiempo, huelgas, efectos de tifones, pérdida de documentos, accidentes hoteleros locales, cancelaciones completas, cancelaciones programadas o retrasos, golpes de estado, etc., o circunstancias que escapan al control de las capacidades de la compañía, y el itinerario y el alojamiento deben modificarse o cancelarse para cualquier programa de viaje. La empresa debe organizar tanto como sea posible de acuerdo con las circunstancias y tratarlo en su totalidad. Sin embargo, la empresa no será responsable de las pérdidas incurridas en este caso. En la medida en que la aerolínea solo sea responsable de los diversos términos operativos que figuran en el boleto de avión, si el pasajero no ingresa al avión, la aerolínea no asumirá ninguna responsabilidad.</p>
+
+            <h2 data-lang="other-title">OTRO</h2>
+            <ul>
+                <li>Aquellos que participen en la gira deben cumplir con las leyes y regulaciones de varios países. Está estrictamente prohibido llevar ganancias privadas y artículos prohibidos. Si es rechazado por un país por razones personales o por cualquier otra razón, se desconoce el motivo, su responsabilidad no tiene nada que ver con la compañía y todas las tarifas pagadas no serán reembolsadas o transferidas o transferidas a otros grupos de viaje. Los clientes deberán pagar los costos adicionales incurridos durante el período.</li>
+                <li>Durante el recorrido, si los pasajeros interfieren con las actividades e intereses normales del líder o del grupo, o desmantelan o insultan a otros turistas y personal de servicio en acción o en voz, el líder del tour de la compañía debe tener el derecho absoluto de cancelar la membresía del grupo. Todas las acciones posteriores a la salida no estarán relacionadas con la compañía y no reembolsarán todas las tarifas pagadas.</li>
+            </ul>
+
+            <p data-lang="thanks">GRACIAS POR SU AMABLE COLABORACIÓN</p>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'form-title': 'Formulario de Viaje',
+                'price-includes-title': 'EL PRECIO INCLUYE',
+                'price-excludes-title': 'EL PRECIO NO INCLUYE',
+                'passenger-note-title': 'TERCERA NOTA DE PASAJERO',
+                'registration-info-title': 'INFORMACIÓN DE REGISTRO',
+                'travel-insurance-title': 'SEGURO DE VIAJE',
+                'cancel-reservation-title': 'CANCELAR RESERVA',
+                'responsibility-issues-title': 'PROBLEMAS DE RESPONSABILIDAD',
+                'other-title': 'OTRO',
+                'thanks': 'GRACIAS POR SU AMABLE COLABORACIÓN'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'form-title': 'Travel Form',
+                'price-includes-title': 'THE PRICE INCLUDES',
+                'price-excludes-title': 'THE PRICE DOES NOT INCLUDE',
+                'passenger-note-title': 'THIRD PASSENGER NOTE',
+                'registration-info-title': 'REGISTRATION INFORMATION',
+                'travel-insurance-title': 'TRAVEL INSURANCE',
+                'cancel-reservation-title': 'CANCEL RESERVATION',
+                'responsibility-issues-title': 'LIABILITY ISSUES',
+                'other-title': 'OTHER',
+                'thanks': 'THANK YOU FOR YOUR KIND COOPERATION'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'form-title': '旅行表格',
+                'price-includes-title': '价格包括',
+                'price-excludes-title': '价格不包括',
+                'passenger-note-title': '乘客第三须知',
+                'registration-info-title': '注册信息',
+                'travel-insurance-title': '旅行保险',
+                'cancel-reservation-title': '取消预订',
+                'responsibility-issues-title': '责任问题',
+                'other-title': '其他',
+                'thanks': '感谢您的友好合作'
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('form-title').textContent = t['form-title'];
+            document.getElementById('price-includes-title').textContent = t['price-includes-title'];
+            document.getElementById('price-excludes-title').textContent = t['price-excludes-title'];
+            document.getElementById('passenger-note-title').textContent = t['passenger-note-title'];
+            document.getElementById('registration-info-title').textContent = t['registration-info-title'];
+            document.getElementById('travel-insurance-title').textContent = t['travel-insurance-title'];
+            document.getElementById('cancel-reservation-title').textContent = t['cancel-reservation-title'];
+            document.getElementById('responsibility-issues-title').textContent = t['responsibility-issues-title'];
+            document.getElementById('other-title').textContent = t['other-title'];
+            document.querySelector('p[data-lang="thanks"]').textContent = t['thanks'];
+
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.innerHTML = translations[lang][key];
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
