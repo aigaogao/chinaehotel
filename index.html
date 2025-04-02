@@ -3,150 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>chinaehotel</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
-        .logo { width: 100px; height: 50px; background: #ccc; }
-        nav { display: flex; gap: 15px; align-items: center; }
-        nav a { color: white; text-decoration: none; font-size: 16px; }
-        nav a:hover { text-decoration: underline; }
-        select { padding: 5px; font-size: 16px; }
-        .tour-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
-        .tour-card { background: white; border-radius: 10px; padding: 15px; width: 300px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; cursor: pointer; transition: transform 0.2s; }
-        .tour-card:hover { transform: translateY(-5px); }
-        .tour-card h3 { margin: 0; color: #0078d4; font-size: 18px; }
-        .tour-card .days { font-size: 16px; color: #0078d4; margin: 5px 0; font-family: Arial, sans-serif; }
-        .tour-card .images { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 10px 0; }
-        .tour-card img { width: 100%; max-width: 150px; height: 150px; object-fit: cover; border-radius: 5px; }
-        footer { background-color: #333; color: white; text-align: center; padding: 10px; font-size: 14px; width: 100%; }
-        .home-btn { padding: 10px; }
-        .home-btn a { color: white; text-decoration: none; font-size: 16px; }
-        .home-btn a:hover { text-decoration: underline; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
-        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
-        .dropdown-content a:hover { background-color: #005ea2; }
-        .dropdown:hover .dropdown-content { display: block; }
-        @media (max-width: 768px) { 
-            header { padding: 10px; justify-content: space-between; }
-            nav { gap: 10px; }
-            .home-btn, .dropdown, select { font-size: 14px; }
-            .tour-card { width: 100%; max-width: 300px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%; /* 调整为 100%，由外层 .card-link 控制宽度 */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .card-content .price {
+            font-size: 18px;
+            color: #ff6200;
+            font-weight: bold;
+        }
+
+        .content .card-link:last-child:nth-child(odd) {
+            width: 45%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%;
+            }
+
+            .content .card-link:last-child:nth-child(odd) {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <header id="header"></header>
-    <section class="tour-list">
-        <div class="tour-card" onclick="window.location.href='itinerary-8day-BJ-XA-SH.html'">
-            <h3>Pekín-Xi’an-Shanghái</h3>
-            <p class="days">8 días</p>
-            <div class="images">
-                <img src="BJ_居庸关长城.jpg" alt="居庸关长城">
-                <img src="XA_秦始皇陵兵马俑.jpg" alt="秦始皇陵兵马俑">
-                <img src="SH_外滩.jpg" alt="外滩">
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
             </div>
+        </nav>
+
+        <div class="content">
+            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="BJ_居庸关长城.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour1-title">Oferta especial para estudiantes: 8 días en China</h3>
+                        <p data-lang="tour1-desc">Beijing - Xi'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
+                        <div class="price" data-lang="tour1-price">$1999+ (Recomendado hoy)</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="BJ_鸟巢.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour2-title">Vacaciones doradas: 8 días en China</h3>
+                        <p data-lang="tour2-desc">Beijing - Xi'an - Shanghai (Junio, Julio, Agosto, Septiembre, Diciembre 2025)</p>
+                        <div class="price" data-lang="tour2-price">$2999+</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="BJ_故宫.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour3-title">Oferta familiar: 8 días en China</h3>
+                        <p data-lang="tour3-desc">Beijing - Tianjin - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
+                        <div class="price" data-lang="tour3-price">$2500+</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="XA_秦始皇陵兵马俑.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour4-title">Clásico familiar: 8 días en China</h3>
+                        <p data-lang="tour4-desc">Beijing - Tianjin - Shanghai (Junio, Julio, Agosto, Septiembre, Diciembre 2025)</p>
+                        <div class="price" data-lang="tour4-price">$3100+</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="HK_浅水湾.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour5-title">Oferta especial: 10 días en el sur de China</h3>
+                        <p data-lang="tour5-desc">Hong Kong - Guilin - Guangzhou - Foshan (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
+                        <div class="price" data-lang="tour5-price">$2999+</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="HK_星光大道.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour6-title">Clásico: 10 días en el sur de China</h3>
+                        <p data-lang="tour6-desc">Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre 2025)</p>
+                        <div class="price" data-lang="tour6-price">$3600+</div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html" class="card-link">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="SY_天涯海角.jpg" alt="景点图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="tour7-title">Exclusivo: 12 días en ciudades famosas del sur de China</h3>
+                        <p data-lang="tour7-desc">Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan (2025)</p>
+                        <div class="price" data-lang="tour7-price">$3800+</div>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="tour-card" onclick="window.location.href='itinerary-10day-HK-GL-GZ-FS.html'">
-            <h3>Hong Kong-Guilin-Guangzhou-Foshan</h3>
-            <p class="days">10 días</p>
-            <div class="images">
-                <img src="HK_尖沙咀.jpg" alt="尖沙咀">
-                <img src="GL_漓江.jpg" alt="漓江">
-                <img src="GZ_越秀公园.jpg" alt="越秀公园">
-                <img src="FS_祖庙.jpg" alt="祖庙">
-            </div>
-        </div>
-        <div class="tour-card" onclick="window.location.href='itinerary-12day-HK-GL-GZ-HN.html'">
-            <h3>Hong Kong-Guilin-Guangzhou-Hainan</h3>
-            <p class="days">12 días</p>
-            <div class="images">
-                <img src="HK_尖沙咀.jpg" alt="尖沙咀">
-                <img src="GL_漓江.jpg" alt="漓江">
-                <img src="GZ_越秀公园.jpg" alt="越秀公园">
-                <img src="SY_天涯海角.jpg" alt="天涯海角">
-            </div>
-        </div>
-    </section>
-    <footer id="footer"></footer>
+    </div>
 
     <script>
-        fetch('header.html')
-            .then(response => {
-                if (!response.ok) throw new Error('无法加载 header.html');
-                return response.text();
-            })
-            .then(data => document.getElementById('header').innerHTML = data)
-            .then(() => {
-                const languageSelect = document.getElementById('language');
-                languageSelect.value = 'es'; // 默认西班牙语
-                languageSelect.addEventListener('change', switchLanguage);
-                switchLanguage(); // 页面加载时调用
-            })
-            .catch(error => console.error(error));
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'tour1-title': 'Oferta especial para estudiantes: 8 días en China',
+                'tour1-desc': 'Beijing - Xi\'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
+                'tour1-price': '$1999+ (Recomendado hoy)',
+                'tour2-title': 'Vacaciones doradas: 8 días en China',
+                'tour2-desc': 'Beijing - Xi\'an - Shanghai (Junio, Julio, Agosto, Septiembre, Diciembre 2025)',
+                'tour2-price': '$2999+',
+                'tour3-title': 'Oferta familiar: 8 días en China',
+                'tour3-desc': 'Beijing - Tianjin - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
+                'tour3-price': '$2500+',
+                'tour4-title': 'Clásico familiar: 8 días en China',
+                'tour4-desc': 'Beijing - Tianjin - Shanghai (Junio, Julio, Agosto, Septiembre, Diciembre 2025)',
+                'tour4-price': '$3100+',
+                'tour5-title': 'Oferta especial: 10 días en el sur de China',
+                'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
+                'tour5-price': '$2999+',
+                'tour6-title': 'Clásico: 10 días en el sur de China',
+                'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre 2025)',
+                'tour6-price': '$3600+',
+                'tour7-title': 'Exclusivo: 12 días en ciudades famosas del sur de China',
+                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan (2025)',
+                'tour7-price': '$3800+'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'tour1-title': 'Student Special: 8-Day China Tour',
+                'tour1-desc': 'Beijing - Xi\'an - Shanghai (March, April, May, October, November 2025)',
+                'tour1-price': 'From $1999 (Today\'s Recommendation)',
+                'tour2-title': 'Golden Holiday: 8-Day China Tour',
+                'tour2-desc': 'Beijing - Xi\'an - Shanghai (June, July, August, September, December 2025)',
+                'tour2-price': 'From $2999',
+                'tour3-title': 'Family Special: 8-Day China Tour',
+                'tour3-desc': 'Beijing - Tianjin - Shanghai (March, April, May, October, November 2025)',
+                'tour3-price': 'From $2500',
+                'tour4-title': 'Family Classic: 8-Day China Tour',
+                'tour4-desc': 'Beijing - Tianjin - Shanghai (June, July, August, September, December 2025)',
+                'tour4-price': 'From $3100',
+                'tour5-title': 'Special Offer: 10-Day South China Tour',
+                'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (March, April, May, October, November 2025)',
+                'tour5-price': 'From $2999',
+                'tour6-title': 'Classic: 10-Day South China Tour',
+                'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (June, July, August, September, December 2025)',
+                'tour6-price': 'From $3600',
+                'tour7-title': 'Exclusive: 12-Day Famous South China Cities Tour',
+                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Hainan Island (2025)',
+                'tour7-price': 'From $3800'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'tour1-title': '学生特价8天中国游',
+                'tour1-desc': '北京-西安-上海（2025年3、4、5、10、11月）',
+                'tour1-price': '$1999起（今日推荐）',
+                'tour2-title': '黄金假期8天中国游',
+                'tour2-desc': '北京-西安-上海（2025年6、7、8、9、12月）',
+                'tour2-price': '$2999起',
+                'tour3-title': '家庭8天中国特惠游',
+                'tour3-desc': '北京-西安-上海（2025年3、4、5、10、11月）',
+                'tour3-price': '$2500起',
+                'tour4-title': '家庭8天中国经典游',
+                'tour4-desc': '北京-西安-上海（2025年6、7、8、9、12月）',
+                'tour4-price': '$3100起',
+                'tour5-title': '10天中国南方特价游',
+                'tour5-desc': '香港-桂林-广州-佛山（2025年3、4、5、10、11月）',
+                'tour5-price': '$2999起',
+                'tour6-title': '10天中国南方经典游',
+                'tour6-desc': '香港-桂林-广州-佛山（2025年6、7、8、9、12月）',
+                'tour6-price': '$3600起',
+                'tour7-title': '独家定制12天中国南方名城',
+                'tour7-desc': '香港-桂林-广州-佛山-海南岛（2025）',
+                'tour7-price': '$3800起'
+            }
+        };
 
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('无法加载 footer.html');
-                return response.text();
-            })
-            .then(data => document.getElementById('footer').innerHTML = data)
-            .catch(error => console.error(error));
-
-        function switchLanguage() {
-            const lang = document.getElementById('language').value || 'es'; // 默认es
-            const translations = {
-                es: { 
-                    title: 'Inicio', 
-                    home: 'Inicio',
-                    tours: 'Viajes', 
-                    tour1: 'Pekín-Xi’an-Shanghái', 
-                    days1: '8 días', 
-                    tour2: 'Hong Kong-Guilin-Guangzhou-Foshan', 
-                    days2: '10 días', 
-                    tour3: 'Hong Kong-Guilin-Guangzhou-Hainan', 
-                    days3: '12 días', 
-                    footer: '© 2025 chinaehotel. Todos los derechos reservados.'
-                },
-                en: { 
-                    title: 'Home', 
-                    home: 'Home',
-                    tours: 'Tours', 
-                    tour1: 'Beijing-Xi’an-Shanghai', 
-                    days1: '8 days', 
-                    tour2: 'Hong Kong-Guilin-Guangzhou-Foshan', 
-                    days2: '10 days', 
-                    tour3: 'Hong Kong-Guilin-Guangzhou-Hainan', 
-                    days3: '12 days', 
-                    footer: '© 2025 chinaehotel. All Rights Reserved.'
-                },
-                zh: { 
-                    title: '首页', 
-                    home: '主页',
-                    tours: '行程', 
-                    tour1: '北京-西安-上海', 
-                    days1: '8天', 
-                    tour2: '香港-桂林-广州-佛山', 
-                    days2: '10天', 
-                    tour3: '香港-桂林-广州-海南', 
-                    days3: '12天', 
-                    footer: '© 2025 chinaehotel 版权所有。'
-                }
-            };
-            const t = translations[lang];
-            document.title = t.title;
-            document.getElementById('home').textContent = t.home;
-            document.getElementById('tours').textContent = t.tours;
-            const cards = document.querySelectorAll('.tour-card');
-            cards[0].querySelector('h3').textContent = t.tour1;
-            cards[0].querySelector('.days').textContent = t.days1;
-            cards[1].querySelector('h3').textContent = t.tour2;
-            cards[1].querySelector('.days').textContent = t.days2;
-            cards[2].querySelector('h3').textContent = t.tour3;
-            cards[2].querySelector('.days').textContent = t.days3;
-            document.querySelector('footer p').textContent = t.footer;
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
         }
+
+        changeLanguage('es');
     </script>
 </body>
 </html>

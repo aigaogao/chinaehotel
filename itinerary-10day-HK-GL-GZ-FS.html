@@ -1,157 +1,316 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>香港-桂林-广州-佛山</title>
+    <title>chinaehotel.com</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        header { background-color: #0078d4; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
-        .logo { width: 100px; height: 50px; background: #ccc; }
-        nav { display: flex; gap: 15px; align-items: center; }
-        nav a { color: white; text-decoration: none; font-size: 16px; }
-        nav a:hover { text-decoration: underline; }
-        select { padding: 5px; font-size: 16px; }
-        .content { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h2 { color: #0078d4; margin-top: 20px; }
-        ul { list-style: none; padding: 0; }
-        li { margin: 15px 0; }
-        .day { font-weight: bold; }
-        .day-images { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; justify-content: center; }
-        .attraction-images { display: flex; gap: 10px; }
-        img { width: 100%; max-width: 200px; height: 150px; object-fit: cover; border-radius: 5px; }
-        footer { background-color: #333; color: white; text-align: center; padding: 10px; font-size: 14px; width: 100%; }
-        .home-btn { padding: 10px; }
-        .home-btn a { color: white; text-decoration: none; font-size: 16px; }
-        .home-btn a:hover { text-decoration: underline; }
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #0078d4; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; }
-        .dropdown-content a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
-        .dropdown-content a:hover { background-color: #005ea2; }
-        .dropdown:hover .dropdown-content { display: block; }
-        @media (max-width: 768px) { 
-            header { padding: 10px; justify-content: space-between; }
-            nav { gap: 10px; }
-            .home-btn, .dropdown, select { font-size: 14px; }
-            .content { margin: 10px; padding: 15px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ff6200;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .day {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .day-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .attraction-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content h3 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+            img {
+                max-width: 150px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <header id="header"></header>
-    <div class="content">
-        <h2 id="tour-title">香港-桂林-广州-佛山</h2>
-        <h3 id="highlights-title">亮点</h3>
-        <ul id="highlights"></ul>
-        <h3 id="itinerary-title">行程安排</h3>
-        <ul id="itinerary"></ul>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">主页</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">联系</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">表格</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">语言</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h2 id="tour-title">香港-桂林-广州-佛山</h2>
+            <h3 id="highlights-title">亮点</h3>
+            <ul id="highlights"></ul>
+            <h3 id="itinerary-title">行程安排</h3>
+            <ul id="itinerary"></ul>
+        </div>
     </div>
-    <footer id="footer"></footer>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com 版权所有。</p>
+    </footer>
 
     <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header').innerHTML = data)
-            .then(() => {
-                document.getElementById('language').addEventListener('change', switchLanguage);
-                switchLanguage();
-            });
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
+        const translations = {
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'title': '香港-桂林-广州-佛山',
+                'highlightsTitle': '亮点',
+                'itineraryTitle': '行程安排',
+                'highlights': [
+                    '品质保证：锦山行旅游公司在全国设有分支机构，为您提供最佳服务！',
+                    '香港：被誉为“东方之珠”的香港是一座高度繁荣的自由港和国际大都市，全球第三大金融中心，中西文化交融之地。',
+                    '桂林：“桂林山水甲天下”，以其独特的喀斯特地貌和秀美的自然风光而闻名，宛如一幅水墨画。',
+                    '广州：充满活力和魅力的国家中心城市，海上丝绸之路起点之一，被誉为“千年商都”，广府文化发祥地。'
+                ],
+                'itinerary': [
+                    '<span class="day">第1天：抵达香港</span> - 接机，送酒店。（无餐，住宿：4*香港都会海逸酒店或同级）',
+                    '<span class="day">第2天：香港</span> - 太平山顶（含单程缆车）、浅水湾、香港仔（舢板游）、赤柱市场。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div>',
+                    '<span class="day">第3天：香港</span> - 昂坪大佛、星光大道、尖沙咀、黄大仙祠。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div>',
+                    '<span class="day">第4天：香港/桂林</span> - 象鼻山。（早/晚餐，住宿：5*桂林漓江大瀑布酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div>',
+                    '<span class="day">第5天：桂林</span> - 漓江游船、阳朔西街、印象刘三姐。（早/午/晚餐，住宿：4*阳朔新西街大酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div>',
+                    '<span class="day">第6天：桂林</span> - 龙脊梯田、平安壮寨、黄瑶长发村。（早/午/晚餐，住宿：5*桂林漓江大瀑布酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div>',
+                    '<span class="day">第7天：桂林/广州</span> - 伏波山、芦笛岩。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div>',
+                    '<span class="day">第8天：广州</span> - 沙面、陈家祠、荔枝湾涌、永庆坊。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div>',
+                    '<span class="day">第9天：佛山</span> - 祖庙、黄飞鸿纪念馆、岭南新天地、南风古灶。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div>',
+                    '<span class="day">第10天：广州/离境</span> - 越秀公园、镇海楼、花城广场、外观广州塔、天河商圈。（早/午餐）<div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div>'
+                ]
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'title': 'Hong Kong-Guilin-Guangzhou-Foshan',
+                'highlightsTitle': 'Highlights',
+                'itineraryTitle': 'Itinerary',
+                'highlights': [
+                    'Quality Guaranteed: Weekend Tour INC has branches across China to provide the best services for you!',
+                    'Hong Kong: Known as the "Pearl of the Orient," a thriving free port and global metropolis, the world’s third-largest financial hub.',
+                    'Guilin: "Guilin’s scenery is unmatched," famous for its unique karst landscape and stunning natural beauty.',
+                    'Guangzhou: A vibrant national hub, a starting point of the Maritime Silk Road, dubbed the "Thousand-Year Commercial Capital."'
+                ],
+                'itinerary': [
+                    '<span class="day">Day 1: Arrive in Hong Kong</span> - Airport pickup, hotel check-in. (No meals, Accommodation: 4* Harbour Plaza Metropolis or similar)',
+                    '<span class="day">Day 2: Hong Kong</span> - Victoria Peak (one-way cable car), Repulse Bay, Aberdeen (sampan ride), Stanley Market.<br><div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div> (B/L/D, Accommodation: 4* Harbour Plaza Metropolis or similar)',
+                    '<span class="day">Day 3: Hong Kong</span> - Ngong Ping Big Buddha, Avenue of Stars, Tsim Sha Tsui, Wong Tai Sin Temple.<br><div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div> (B/L/D, Accommodation: 4* Harbour Plaza Metropolis or similar)',
+                    '<span class="day">Day 4: Hong Kong/Guilin</span> - Elephant Trunk Hill.<br><div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div> (B/D, Accommodation: 5* Lijiang Waterfall Hotel or similar)',
+                    '<span class="day">Day 5: Guilin</span> - Li River cruise, Yangshuo West Street, "Impression Liu Sanjie" show.<br><div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div> (B/L/D, Accommodation: 4* New West Street Hotel or similar)',
+                    '<span class="day">Day 6: Guilin</span> - Longji Rice Terraces, Ping’an Zhuang Village, Huangluo Long-Hair Village.<br><div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div> (B/L/D, Accommodation: 5* Lijiang Waterfall Hotel or similar)',
+                    '<span class="day">Day 7: Guilin/Guangzhou</span> - Fubo Hill, Reed Flute Cave.<br><div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
+                    '<span class="day">Day 8: Guangzhou</span> - Shamian Island, Chen Clan Ancestral Hall, Lizhiwan Canal, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
+                    '<span class="day">Day 9: Foshan</span> - Zumiao Temple, Wong Fei Hung Memorial Hall, Lingnan Tiandi, Nanfeng Ancient Kiln.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
+                    '<span class="day">Day 10: Guangzhou/Departure</span> - Yuexiu Park, Zhenhai Tower, Huacheng Square, exterior view of Guangzhou Tower, Tianhe shopping.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (B/L)'
+                ]
+            },
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'title': 'Hong Kong-Guilin-Guangzhou-Foshan',
+                'highlightsTitle': 'Destacados',
+                'itineraryTitle': 'Itinerario',
+                'highlights': [
+                    'Calidad garantizada: Nuestra empresa tiene sucursales en toda China para ofrecerle los mejores servicios.',
+                    'Hong Kong: Conocida como la "Perla del Oriente," un puerto libre próspero y metrópoli global, tercer centro financiero mundial.',
+                    'Guilin: "El paisaje de Guilin es incomparable," famosa por su paisaje kárstico único y belleza natural.',
+                    'Guangzhou: Ciudad nacional vibrante, inicio de la Ruta de la Seda Marítima, conocida como la "Capital Comercial Milenaria."'
+                ],
+                'itinerary': [
+                    '<span class="day">Día 1: Llegada a Hong Kong</span> - Recogida en aeropuerto, registro en hotel. (Sin comidas, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
+                    '<span class="day">Día 2: Hong Kong</span> - Pico Victoria (funicular de ida), Repulse Bay, Aberdeen (paseo en sampán), Mercado Stanley.<br><div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div> (D/A/C, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
+                    '<span class="day">Día 3: Hong Kong</span> - Buda Gigante Ngong Ping, Avenida de las Estrellas, Tsim Sha Tsui, Templo Wong Tai Sin.<br><div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div> (D/A/C, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
+                    '<span class="day">Día 4: Hong Kong/Guilin</span> - Colina Trompa de Elefante.<br><div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div> (D/C, Alojamiento: 5* Lijiang Waterfall Hotel o similar)',
+                    '<span class="day">Día 5: Guilin</span> - Crucero por el río Li, Calle Oeste Yangshuo, espectáculo "Impresión Liu Sanjie".<br><div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div> (D/A/C, Alojamiento: 4* New West Street Hotel o similar)',
+                    '<span class="day">Día 6: Guilin</span> - Terrazas de arroz Longji, Aldea Ping’an Zhuang, Aldea Huangluo de Cabello Largo.<br><div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div> (D/A/C, Alojamiento: 5* Lijiang Waterfall Hotel o similar)',
+                    '<span class="day">Día 7: Guilin/Guangzhou</span> - Colina Fubo, Cueva de la Flauta de Caña.<br><div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
+                    '<span class="day">Día 8: Guangzhou</span> - Isla Shamian, Salón Ancestral Chen, Canal Lizhiwan, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
+                    '<span class="day">Día 9: Foshan</span> - Templo Zumiao, Museo Wong Fei Hung, Lingnan Tiandi, Horno Antiguo Nanfeng.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
+                    '<span class="day">Día 10: Guangzhou/Salida</span> - Parque Yuexiu, Torre Zhenhai, Plaza Huacheng, vista exterior Torre Guangzhou, compras Tianhe.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (D/A)'
+                ]
+            }
+        };
 
-        function switchLanguage() {
-            const lang = document.getElementById('language').value;
-            const translations = {
-                zh: {
-                    company: '',
-                    title: '香港-桂林-广州-佛山',
-                    home: '主页',
-                    tours: '行程',
-                    highlightsTitle: '亮点',
-                    itineraryTitle: '行程安排',
-                    highlights: [
-                        '品质保证：锦山行旅游公司在全国设有分支机构，为您提供最佳服务！',
-                        '香港：被誉为“东方之珠”的香港是一座高度繁荣的自由港和国际大都市，全球第三大金融中心，中西文化交融之地。',
-                        '桂林：“桂林山水甲天下”，以其独特的喀斯特地貌和秀美的自然风光而闻名，宛如一幅水墨画。',
-                        '广州：充满活力和魅力的国家中心城市，海上丝绸之路起点之一，被誉为“千年商都”，广府文化发祥地。'
-                    ],
-                    itinerary: [
-                        '<span class="day">第1天：抵达香港</span> - 接机，送酒店。（无餐，住宿：4*香港都会海逸酒店或同级）',
-                        '<span class="day">第2天：香港</span> - 太平山顶（含单程缆车）、浅水湾、香港仔（舢板游）、赤柱市场。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div>',
-                        '<span class="day">第3天：香港</span> - 昂坪大佛、星光大道、尖沙咀、黄大仙祠。（早/午/晚餐，住宿：4*香港都会海逸酒店或同级）<div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div>',
-                        '<span class="day">第4天：香港/桂林</span> - 象鼻山。（早/晚餐，住宿：5*桂林漓江大瀑布酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div>',
-                        '<span class="day">第5天：桂林</span> - 漓江游船、阳朔西街、印象刘三姐。（早/午/晚餐，住宿：4*阳朔新西街大酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div>',
-                        '<span class="day">第6天：桂林</span> - 龙脊梯田、平安壮寨、黄瑶长发村。（早/午/晚餐，住宿：5*桂林漓江大瀑布酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div>',
-                        '<span class="day">第7天：桂林/广州</span> - 伏波山、芦笛岩。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div>',
-                        '<span class="day">第8天：广州</span> - 沙面、陈家祠、荔枝湾涌、永庆坊。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div>',
-                        '<span class="day">第9天：佛山</span> - 祖庙、黄飞鸿纪念馆、岭南新天地、南风古灶。（早/午/晚餐，住宿：4*戴斯酒店或同级）<div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div>',
-                        '<span class="day">第10天：广州/离境</span> - 越秀公园、镇海楼、花城广场、外观广州塔、天河商圈。（早/午餐）<div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div>'
-                    ]
-                },
-                en: {
-                    company: '',
-                    title: 'Hong Kong-Guilin-Guangzhou-Foshan',
-                    home: 'Home',
-                    tours: 'Tours',
-                    highlightsTitle: 'Highlights',
-                    itineraryTitle: 'Itinerary',
-                    highlights: [
-                        'Quality Guaranteed: Weekend Tour INC has branches across China to provide the best services for you!',
-                        'Hong Kong: Known as the "Pearl of the Orient," a thriving free port and global metropolis, the world’s third-largest financial hub.',
-                        'Guilin: "Guilin’s scenery is unmatched," famous for its unique karst landscape and stunning natural beauty.',
-                        'Guangzhou: A vibrant national hub, a starting point of the Maritime Silk Road, dubbed the "Thousand-Year Commercial Capital."'
-                    ],
-                    itinerary: [
-                        '<span class="day">Day 1: Arrive in Hong Kong</span> - Airport pickup, hotel check-in. (No meals, Accommodation: 4* Harbour Plaza Metropolis or similar)',
-                        '<span class="day">Day 2: Hong Kong</span> - Victoria Peak (one-way cable car), Repulse Bay, Aberdeen (sampan ride), Stanley Market.<br><div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div> (B/L/D, Accommodation: 4* Harbour Plaza Metropolis or similar)',
-                        '<span class="day">Day 3: Hong Kong</span> - Ngong Ping Big Buddha, Avenue of Stars, Tsim Sha Tsui, Wong Tai Sin Temple.<br><div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div> (B/L/D, Accommodation: 4* Harbour Plaza Metropolis or similar)',
-                        '<span class="day">Day 4: Hong Kong/Guilin</span> - Elephant Trunk Hill.<br><div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div> (B/D, Accommodation: 5* Lijiang Waterfall Hotel or similar)',
-                        '<span class="day">Day 5: Guilin</span> - Li River cruise, Yangshuo West Street, "Impression Liu Sanjie" show.<br><div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div> (B/L/D, Accommodation: 4* New West Street Hotel or similar)',
-                        '<span class="day">Day 6: Guilin</span> - Longji Rice Terraces, Ping’an Zhuang Village, Huangluo Long-Hair Village.<br><div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div> (B/L/D, Accommodation: 5* Lijiang Waterfall Hotel or similar)',
-                        '<span class="day">Day 7: Guilin/Guangzhou</span> - Fubo Hill, Reed Flute Cave.<br><div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
-                        '<span class="day">Day 8: Guangzhou</span> - Shamian Island, Chen Clan Ancestral Hall, Lizhiwan Canal, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
-                        '<span class="day">Day 9: Foshan</span> - Zumiao Temple, Wong Fei Hung Memorial Hall, Lingnan Tiandi, Nanfeng Ancient Kiln.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (B/L/D, Accommodation: 4* Days Hotel or similar)',
-                        '<span class="day">Day 10: Guangzhou/Departure</span> - Yuexiu Park, Zhenhai Tower, Huacheng Square, exterior view of Guangzhou Tower, Tianhe shopping.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (B/L)'
-                    ]
-                },
-                es: {
-                    company: '',
-                    title: 'Hong Kong-Guilin-Guangzhou-Foshan',
-                    home: 'Inicio',
-                    tours: 'Viajes',
-                    highlightsTitle: 'Destacados',
-                    itineraryTitle: 'Itinerario',
-                    highlights: [
-                        'Calidad garantizada: Nuestra empresa tiene sucursales en toda China para ofrecerle los mejores servicios.',
-                        'Hong Kong: Conocida como la "Perla del Oriente," un puerto libre próspero y metrópoli global, tercer centro financiero mundial.',
-                        'Guilin: "El paisaje de Guilin es incomparable," famosa por su paisaje kárstico único y belleza natural.',
-                        'Guangzhou: Ciudad nacional vibrante, inicio de la Ruta de la Seda Marítima, conocida como la "Capital Comercial Milenaria."'
-                    ],
-                    itinerary: [
-                        '<span class="day">Día 1: Llegada a Hong Kong</span> - Recogida en aeropuerto, registro en hotel. (Sin comidas, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
-                        '<span class="day">Día 2: Hong Kong</span> - Pico Victoria (funicular de ida), Repulse Bay, Aberdeen (paseo en sampán), Mercado Stanley.<br><div class="day-images"><div class="attraction-images"><img src="HK_太平山顶.jpg"></div><div class="attraction-images"><img src="HK_浅水湾.jpg"></div><div class="attraction-images"><img src="HK_香港仔.jpg"><img src="HK_赤柱市场.jpg"></div></div> (D/A/C, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
-                        '<span class="day">Día 3: Hong Kong</span> - Buda Gigante Ngong Ping, Avenida de las Estrellas, Tsim Sha Tsui, Templo Wong Tai Sin.<br><div class="day-images"><div class="attraction-images"><img src="HK_天坛大佛01.jpg"><img src="HK_天坛大佛02.jpg"></div><div class="attraction-images"><img src="HK_星光大道.jpg"></div><div class="attraction-images"><img src="HK_尖沙咀.jpg"><img src="HK_黄大仙祠.jpg"></div></div> (D/A/C, Alojamiento: 4* Harbour Plaza Metropolis o similar)',
-                        '<span class="day">Día 4: Hong Kong/Guilin</span> - Colina Trompa de Elefante.<br><div class="day-images"><div class="attraction-images"><img src="GL_象鼻山.jpg"></div></div> (D/C, Alojamiento: 5* Lijiang Waterfall Hotel o similar)',
-                        '<span class="day">Día 5: Guilin</span> - Crucero por el río Li, Calle Oeste Yangshuo, espectáculo "Impresión Liu Sanjie".<br><div class="day-images"><div class="attraction-images"><img src="GL_漓江.jpg"></div><div class="attraction-images"><img src="GL_西街.jpg"></div><div class="attraction-images"><img src="GL_印象刘三姐.jpg"></div></div> (D/A/C, Alojamiento: 4* New West Street Hotel o similar)',
-                        '<span class="day">Día 6: Guilin</span> - Terrazas de arroz Longji, Aldea Ping’an Zhuang, Aldea Huangluo de Cabello Largo.<br><div class="day-images"><div class="attraction-images"><img src="GL_龙脊梯田01.jpg"><img src="GL_龙脊梯田02.jpg"></div><div class="attraction-images"><img src="GL_黄瑶长发村.jpg"></div></div> (D/A/C, Alojamiento: 5* Lijiang Waterfall Hotel o similar)',
-                        '<span class="day">Día 7: Guilin/Guangzhou</span> - Colina Fubo, Cueva de la Flauta de Caña.<br><div class="day-images"><div class="attraction-images"><img src="GL_伏波山.jpg"></div><div class="attraction-images"><img src="GL_芦笛岩.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
-                        '<span class="day">Día 8: Guangzhou</span> - Isla Shamian, Salón Ancestral Chen, Canal Lizhiwan, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><img src="GZ_沙面.jpg"></div><div class="attraction-images"><img src="GZ_陈家祠.jpg"></div><div class="attraction-images"><img src="GZ_荔枝湾涌.jpg"><img src="GZ_永庆坊.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
-                        '<span class="day">Día 9: Foshan</span> - Templo Zumiao, Museo Wong Fei Hung, Lingnan Tiandi, Horno Antiguo Nanfeng.<br><div class="day-images"><div class="attraction-images"><img src="FS_祖庙.jpg"></div><div class="attraction-images"><img src="FS_黄飞鸿纪念馆.jpg"></div><div class="attraction-images"><img src="FS_岭南新天地.jpg"><img src="FS_南风古灶.jpg"></div></div> (D/A/C, Alojamiento: 4* Days Hotel o similar)',
-                        '<span class="day">Día 10: Guangzhou/Salida</span> - Parque Yuexiu, Torre Zhenhai, Plaza Huacheng, vista exterior Torre Guangzhou, compras Tianhe.<br><div class="day-images"><div class="attraction-images"><img src="GZ_越秀公园.jpg"></div><div class="attraction-images"><img src="GZ_镇海楼.jpg"></div><div class="attraction-images"><img src="GZ_花城广场.jpg"></div></div> (D/A)'
-                    ]
-                }
-            };
+        function changeLanguage(lang) {
             const t = translations[lang];
             document.getElementById('tour-title').textContent = t.title;
-            document.getElementById('home').textContent = t.home;
-            document.getElementById('tours').textContent = t.tours;
             document.getElementById('highlights-title').textContent = t.highlightsTitle;
             document.getElementById('itinerary-title').textContent = t.itineraryTitle;
             document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
-            document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item.replace(/^([^：]+)：/, '<span class="day">$1：</span>')}</li>`).join('');
-            document.querySelector('footer p').textContent = t.footer;
+            document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item}</li>`).join('');
+
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.innerHTML = translations[lang][key];
+            });
+
+            document.documentElement.lang = lang;
         }
+
+        changeLanguage('es');
     </script>
 </body>
 </html>
