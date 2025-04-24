@@ -13,17 +13,16 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* 移除浏览器默认的 margin */
+            margin: 0;
+            background-color: #f0f2f5;
         }
 
-        /* 统一容器 */
         .container {
             max-width: 1200px;
             width: 90%;
             margin: 0 auto;
         }
 
-        /* 导航栏 */
         nav {
             background-color: #fff;
             border-bottom: 1px solid #ddd;
@@ -71,26 +70,38 @@
             display: block;
         }
 
-        /* 内容区域 */
         .content {
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 140px); /* 确保内容区域占满屏幕高度，减去导航栏和 Footer 的高度 */
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff6200; /* 与模板中“Destacados”颜色相同 */
+            text-align: center;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ff6200;
         }
 
         .contact-section {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
+            margin: 30px 0; /* 与第四行间距一致 */
+            text-align: center; /* 居中对齐 */
         }
 
         .contact-section h2 {
             font-size: 24px;
             margin-bottom: 20px;
-            color: #333;
-            font-family: Arial, sans-serif; /* 保留原标题字体 */
+            color: #333; /* 与原contact.html标题颜色一致 */
         }
 
         .contact-info {
@@ -101,15 +112,30 @@
             font-size: 16px;
             color: #666;
             margin-bottom: 10px;
-            font-family: Arial, sans-serif; /* 保留原正文字体 */
         }
 
         .contact-info p span {
-            color: #333; /* 使标签（如 "WeChat:"、"email:"）颜色更深 */
+            color: #333;
             font-weight: bold;
         }
 
-        /* Footer 样式 */
+        .day-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0; /* 与第三行和第四行间距一致 */
+            justify-content: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer; /* 鼠标悬停时显示可点击 */
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -120,10 +146,8 @@
 
         footer p {
             margin: 0;
-            font-family: Arial, sans-serif; /* 保留原 Footer 字体 */
         }
 
-        /* 响应式设计 */
         @media (max-width: 768px) {
             .container {
                 width: 100%;
@@ -135,12 +159,26 @@
                 justify-content: space-around;
             }
 
-            .contact-section h2 {
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h2 {
                 font-size: 20px;
+            }
+
+            .content h3 {
+                font-size: 18px;
             }
 
             .contact-info p {
                 font-size: 14px;
+            }
+
+            img {
+                max-width: 150px;
+                height: 120px;
             }
         }
     </style>
@@ -162,8 +200,14 @@
         </nav>
 
         <div class="content">
+            <h2 id="main-title">¡En 2025 voy a China!</h2>
+            <div class="day-images">
+                <a href="https://chinaehotel.com/TourGroup1.jpg" target="_blank"><img src="TourGroup1.jpg" alt="Tour Group 1"></a>
+                <a href="https://chinaehotel.com/TourGroup2.jpg" target="_blank"><img src="TourGroup2.jpg" alt="Tour Group 2"></a>
+                <a href="https://chinaehotel.com/TourGroup3.jpg" target="_blank"><img src="TourGroup3.jpg" alt="Tour Group 3"></a>
+            </div>
             <div class="contact-section">
-                <h2 data-lang="title">Contáctenos</h2>
+                <h2 data-lang="contact-title">Contáctenos</h2>
                 <div class="contact-info">
                     <p><span data-lang="company-label">Compañía:</span> <span data-lang="company">Weekend Tour Inc</span></p>
                     <p><span data-lang="wechat-label">WeChat:</span> <span data-lang="wechat">liuwilly168</span></p>
@@ -172,22 +216,28 @@
                     <p><span data-lang="email-label">Correo:</span> <span data-lang="email">chinaehotel@gmail.com</span></p>
                 </div>
             </div>
+            <div class="day-images">
+                <a href="https://chinaehotel.com/TourGroup4.jpg" target="_blank"><img src="TourGroup4.jpg" alt="Tour Group 4"></a>
+                <a href="https://chinaehotel.com/TourGroup5.jpg" target="_blank"><img src="TourGroup5.jpg" alt="Tour Group 5"></a>
+                <a href="https://chinaehotel.com/TourGroup6.jpg" target="_blank"><img src="TourGroup6.jpg" alt="Tour Group 6"></a>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p data-lang="footer">© 2025 chinaehotel. Todos los derechos reservados.</p>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
     </footer>
 
     <script>
         const translations = {
             'zh': {
-                'title': '联系我们',
                 'home': '主页',
                 'contact': '联系',
                 'form': '表格',
                 'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'main-title': '2025年我要去中国！',
+                'contact-title': '联系我们',
                 'company-label': '公司:',
                 'company': '锦山行旅游',
                 'wechat-label': '微信:',
@@ -197,15 +247,16 @@
                 'phone-label': '电话（美国）:',
                 'phone': '1-626-675-7887',
                 'email-label': '邮箱:',
-                'email': 'chinaehotel@gmail.com',
-                'footer': '© 2025 chinaehotel. 版权所有。'
+                'email': 'chinaehotel@gmail.com'
             },
             'en': {
-                'title': 'Contact Us',
                 'home': 'Home',
                 'contact': 'Contact',
                 'form': 'Form',
                 'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'main-title': 'In 2025, I’m going to China!',
+                'contact-title': 'Contact Us',
                 'company-label': 'Company:',
                 'company': 'Weekend Tour',
                 'wechat-label': 'WeChat:',
@@ -215,15 +266,16 @@
                 'phone-label': 'Phone (USA):',
                 'phone': '1-626-675-7887',
                 'email-label': 'email:',
-                'email': 'chinaehotel@gmail.com',
-                'footer': '© 2025 chinaehotel. All Rights Reserved.'
+                'email': 'chinaehotel@gmail.com'
             },
             'es': {
-                'title': 'Contáctenos',
                 'home': 'Inicio',
                 'contact': 'Contacto',
                 'form': 'Formulario',
                 'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'main-title': '¡En 2025 voy a China!',
+                'contact-title': 'Contáctenos',
                 'company-label': 'Compañía:',
                 'company': 'Weekend Tour',
                 'wechat-label': 'WeChat:',
@@ -233,13 +285,13 @@
                 'phone-label': 'Teléfono (EE.UU.):',
                 'phone': '1-626-675-7887',
                 'email-label': 'Correo:',
-                'email': 'chinaehotel@gmail.com',
-                'footer': '© 2025 chinaehotel. Todos los derechos reservados.'
+                'email': 'chinaehotel@gmail.com'
             }
         };
 
         function changeLanguage(lang) {
-            // 更新文本内容
+            const t = translations[lang];
+            document.getElementById('main-title').textContent = t['main-title'];
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
                 element.innerHTML = translations[lang][key];
@@ -248,7 +300,6 @@
             document.documentElement.lang = lang;
         }
 
-        // 默认加载西班牙语
         changeLanguage('es');
     </script>
 </body>
