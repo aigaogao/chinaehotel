@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Luoyang Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200; /* 与 index.html 价格颜色一致 */
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto; /* 自适应高度 */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%; /* 与 index.html 一致 */
+            margin: 0 auto; /* 居中 */
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px; /* 固定图片高度，与 index.html 一致 */
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px; /* 最小高度，容纳2行描述 */
+            overflow: hidden; /* 截断超长文本 */
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%; /* 移动设备上占满宽度 */
+            }
+
+            .card-image {
+                height: 200px; /* 移动设备上图片高度 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Luoyang</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="shaolin-kung-fu">
+                    <div class="card-image">
+                        <a href="LY_少林寺1.jpg" target="_blank"><img src="LY_少林寺1.jpg" alt="Shaolin Kung Fu"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Kung Fu de Shaolin</h3>
+                        <p data-lang="attraction1-desc">También llamado artes marciales Shaolin, se basa en la fe budista, refleja la sabiduría zen y se expresa en el kung fu practicado por monjes de Shaolin.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="shaolin-temple">
+                    <div class="card-image">
+                        <a href="LY_少林寺2.jpg" target="_blank"><img src="LY_少林寺2.jpg" alt="Shaolin Temple"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Templo Shaolin</h3>
+                        <p data-lang="attraction2-desc">Cuna del budismo zen y del kung fu chino, famoso mundialmente por el kung fu desarrollado por los monjes de Shaolin.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="luoyang-ancient-city">
+                    <div class="card-image">
+                        <a href="LY_洛阳古城.jpg" target="_blank"><img src="LY_洛阳古城.jpg" alt="Luoyang Ancient City"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction3-title">Ciudad Antigua de Luoyang</h3>
+                        <p data-lang="attraction3-desc">Punto de partida de la Ruta de la Seda y centro del Gran Canal Sui-Tang. Capital por más de 530 años, conocida como Tokio, Dongdu, Luoyanggong, Shendu y Xijing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Luoyang',
+                'attraction1-title': 'Kung Fu de Shaolin',
+                'attraction1-desc': 'También llamado artes marciales Shaolin, se basa en la fe budista, refleja la sabiduría zen y se expresa en el kung fu practicado por monjes de Shaolin.',
+                'attraction2-title': 'Templo Shaolin',
+                'attraction2-desc': 'Cuna del budismo zen y del kung fu chino, famoso mundialmente por el kung fu desarrollado por los monjes de Shaolin.',
+                'attraction3-title': 'Ciudad Antigua de Luoyang',
+                'attraction3-desc': 'Punto de partida de la Ruta de la Seda y centro del Gran Canal Sui-Tang. Capital por más de 530 años, conocida como Tokio, Dongdu, Luoyanggong, Shendu y Xijing.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Luoyang',
+                'attraction1-title': 'Shaolin Kung Fu',
+                'attraction1-desc': 'Also known as Shaolin martial arts, it is rooted in Buddhist faith, embodies Zen wisdom, and is expressed through kung fu practiced by Shaolin monks.',
+                'attraction2-title': 'Shaolin Temple',
+                'attraction2-desc': 'Birthplace of Zen Buddhism and Chinese kung fu, renowned globally for the kung fu developed by Shaolin monks.',
+                'attraction3-title': 'Luoyang Ancient City',
+                'attraction3-desc': 'Starting point of the Silk Road and hub of the Sui-Tang Grand Canal. Capital for over 530 years, known as Tokyo, Dongdu, Luoyanggong, Shendu, and Xijing.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '洛阳',
+                'attraction1-title': '少林功夫',
+                'attraction1-desc': '又称少林武术，是指以佛教神力信仰为基础，充分体现佛教禅宗智慧，并以少林寺僧人演练的功夫为主要表现形式。',
+                'attraction2-title': '少林寺',
+                'attraction2-desc': '少林寺不仅是禅宗的发祥地，还是中国功夫的发祥地，因其历代少林武僧潜心研创和不断发展的少林功夫而名扬天下。',
+                'attraction3-title': '洛阳古城',
+                'attraction3-desc': '是丝绸之路的东方起点，隋唐大运河的中心枢纽。自隋炀帝迁都，该城先后被称作东京、东都、洛阳宫、神都、西京，历经隋、唐、五代、北宋，跨越了中国封建社会的最鼎盛时期，前后沿用530多年。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>

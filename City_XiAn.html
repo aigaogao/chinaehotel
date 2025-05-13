@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Xi’an Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200; /* 与 index.html 价格颜色一致 */
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto; /* 自适应高度 */
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%; /* 与 index.html 一致 */
+            margin: 0 auto; /* 居中 */
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px; /* 固定图片高度，与 index.html 一致 */
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px; /* 最小高度，容纳2行描述 */
+            overflow: hidden; /* 截断超长文本 */
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%; /* 移动设备上占满宽度 */
+            }
+
+            .card-image {
+                height: 200px; /* 移动设备上图片高度 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Xi’an</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="terracotta-army">
+                    <div class="card-image">
+                        <a href="XA_秦始皇陵兵马俑.jpg" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg" alt="Terracotta Army"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Ejército de Terracota</h3>
+                        <p data-lang="attraction1-desc">El mayor “museo militar subterráneo” del mundo. Uno de los mayores hallazgos arqueológicos, llamado la “octava maravilla”.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="longmen-grottoes">
+                    <div class="card-image">
+                        <a href="XA_龙门石窟.jpg" target="_blank"><img src="XA_龙门石窟.jpg" alt="Longmen Grottoes"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Grutas de Longmen</h3>
+                        <p data-lang="attraction2-desc">Las Grutas de Longmen son el mayor tesoro de arte rupestre del mundo, nombradas por la UNESCO “cúspide del arte chino”.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="bell-drum-tower-square">
+                    <div class="card-image">
+                        <a href="XA_钟鼓楼广场.jpg" target="_blank"><img src="XA_钟鼓楼广场.jpg" alt="Bell and Drum Tower Square"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction3-title">Plaza de la Torre de la Campana y el Tambor</h3>
+                        <p data-lang="attraction3-desc">Torres de la Campana y el Tambor, íconos de Xi’an, joyas Ming mejor conservadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="datang-everbright-city">
+                    <div class="card-image">
+                        <a href="XA_大唐不夜城.jpg" target="_blank"><img src="XA_大唐不夜城.jpg" alt="Datang Everbright City"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction4-title">Ciudad Siempre Brillante Datang</h3>
+                        <p data-lang="attraction4-desc">De día Xi’an, de noche Chang’an. Su calle con esculturas y shows revive la gloria Tang.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="ancient-city-wall">
+                    <div class="card-image">
+                        <a href="XA_古城墙.jpg" target="_blank"><img src="XA_古城墙.jpg" alt="Ancient City Wall"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction5-title">Muralla Antigua</h3>
+                        <p data-lang="attraction5-desc">Muralla construida sobre la ciudad Tang, con 600 años, la mejor conservada de China.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="muslim-quarter">
+                    <div class="card-image">
+                        <a href="XA_回民街.jpg" target="_blank"><img src="XA_回民街.jpg" alt="Muslim Quarter"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction6-title">Barrio Musulmán</h3>
+                        <p data-lang="attraction6-desc">Un barrio musulmán con siglos de historia, lleno de mezquitas y aperitivos de Xi’an.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="xian-museum">
+                    <div class="card-image">
+                        <a href="XA_西安博物院.jpg" target="_blank"><img src="XA_西安博物院.jpg" alt="Xi’an Museum"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction7-title">Museo de Xi’an</h3>
+                        <p data-lang="attraction7-desc">Formado por el museo, el Templo Jianfu de Tang y la Pequeña Pagoda del Ganso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Xi’an',
+                'attraction1-title': 'Ejército de Terracota',
+                'attraction1-desc': 'El mayor “museo militar subterráneo” del mundo. Uno de los mayores hallazgos arqueológicos, llamado la “octava maravilla”.',
+                'attraction2-title': 'Grutas de Longmen',
+                'attraction2-desc': 'Las Grutas de Longmen son el mayor tesoro de arte rupestre del mundo, nombradas por la UNESCO “cúspide del arte chino”.',
+                'attraction3-title': 'Plaza de la Torre de la Campana y el Tambor',
+                'attraction3-desc': 'Torres de la Campana y el Tambor, íconos de Xi’an, joyas Ming mejor conservadas.',
+                'attraction4-title': 'Ciudad Siempre Brillante Datang',
+                'attraction4-desc': 'De día Xi’an, de noche Chang’an. Su calle con esculturas y shows revive la gloria Tang.',
+                'attraction5-title': 'Muralla Antigua',
+                'attraction5-desc': 'Muralla construida sobre la ciudad Tang, con 600 años, la mejor conservada de China.',
+                'attraction6-title': 'Barrio Musulmán',
+                'attraction6-desc': 'Un barrio musulmán con siglos de historia, lleno de mezquitas y aperitivos de Xi’an.',
+                'attraction7-title': 'Museo de Xi’an',
+                'attraction7-desc': 'Formado por el museo, el Templo Jianfu de Tang y la Pequeña Pagoda del Ganso.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Xi’an',
+                'attraction1-title': 'Terracotta Army',
+                'attraction1-desc': 'The world’s largest “underground military museum.” A major archaeological find, dubbed the “eighth wonder of the world.”',
+                'attraction2-title': 'Longmen Grottoes',
+                'attraction2-desc': 'Longmen Grottoes, the world’s largest stone art treasury, named by UNESCO as the “pinnacle of Chinese rock art”.',
+                'attraction3-title': 'Bell and Drum Tower Square',
+                'attraction3-desc': 'Bell and Drum Towers, Xi’an icons, are China’s best-preserved Ming towers.',
+                'attraction4-title': 'Datang Everbright City',
+                'attraction4-desc': 'By day Xi’an, by night Chang’an. Its sculpted street and shows revive Tang glory.',
+                'attraction5-title': 'Ancient City Wall',
+                'attraction5-desc': 'Wall built on Tang city foundations, 600 years old, China’s best-preserved ancient wall.',
+                'attraction6-title': 'Muslim Quarter',
+                'attraction6-desc': 'A centuries-old Muslim quarter with mosques and nearly all of Xi’an’s famous snacks.',
+                'attraction7-title': 'Xi’an Museum',
+                'attraction7-desc': 'Comprising the museum, Tang Jianfu Temple site, and Small Wild Goose Pagoda.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '西安',
+                'attraction1-title': '秦始皇陵兵马俑',
+                'attraction1-desc': '世界上最大的“地下军事博物馆”。世界考古史上最伟大的发现之一，这群栩栩如生的地下军团，被称为“世界第八大奇迹”。',
+                'attraction2-title': '龙门石窟',
+                'attraction2-desc': '龙门石窟是世界上造像最多、规模最大的石刻艺术宝库，被联合国教科文组织评为“中国石刻艺术的最高峰”。',
+                'attraction3-title': '钟鼓楼广场',
+                'attraction3-desc': '钟楼与鼓楼相距200米，是明代建筑瑰宝，西安地标，钟楼为中国现存最大钟楼。',
+                'attraction4-title': '大唐不夜城',
+                'attraction4-desc': '白天是西安，夜晚是长安。大唐不夜城以雕塑步行街和精彩演出再现盛唐夜景。',
+                'attraction5-title': '古城墙',
+                'attraction5-desc': '建于唐皇城基础上的古城墙，600多年历史，是中国现存最完整的古代城垣建筑。',
+                'attraction6-title': '回民街',
+                'attraction6-desc': '百年回民街区，充满穆斯林文化，有多座清真寺，可品尝几乎所有西安小吃。',
+                'attraction7-title': '西安博物院',
+                'attraction7-desc': '由博物馆、唐荐福寺遗址、小雁塔三部分组成。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
