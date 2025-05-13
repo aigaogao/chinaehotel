@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ff6200;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .day {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .day-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .attraction-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content h3 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+            img {
+                max-width: 150px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h2 id="tour-title">Shanghai-Luoyang-Shaolin-Xi’an-Beijing</h2>
+            <h3 id="highlights-title">Destacados</h3>
+            <ul id="highlights"></ul>
+            <h3 id="itinerary-title">Itinerario</h3>
+            <ul id="itinerary"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'title': 'Shanghai-Luoyang-Shaolin-Xi’an-Beijing',
+                'highlightsTitle': 'Destacados',
+                'itineraryTitle': 'Itinerario',
+                'highlights': [
+                    'Beijing: Centro de poder de las dinastías feudales durante milenios, corazón político de China, ciudad histórica y cultural de renombre, y una de las principales urbes del mundo.',
+                    'Xi’an: Un vistazo a mil años de historia, Xi’an es una de las cunas de la civilización china y el punto de partida de la antigua Ruta de la Seda. Conocida como "museo histórico natural", es una de las cuatro grandes capitales antiguas del mundo y hogar de trece dinastías.',
+                    'Shanghai: Una metrópoli internacional vibrante y mágica que combina el encanto oriental con modernidad, centro financiero y económico de China, y una de las ciudades más dinámicas de Asia.',
+                    'Luoyang: Con más de 5000 años de historia de civilización, 4000 años como ciudad y 1500 años como capital, es una de las cunas de la civilización china. La ciudad con más dinastías y la más antigua en establecerse como capital, punto de partida oriental de la Ruta de la Seda y centro del Gran Canal Sui-Tang. Hogar de sitios como Erlitou, las Grutas de Longmen y tres patrimonios mundiales, además de ser el lugar de origen del taoísmo, el florecimiento del confucianismo y la introducción del budismo, conocida como una de las "cuatro ciudades santas del mundo".',
+                    'Shaolin de Songshan: Cuna del budismo zen y origen de las artes marciales Shaolin, con reconocimientos como patrimonio cultural mundial y memoria del mundo, conocida como "el templo más famoso del mundo".'
+                ],
+                'itinerary': [
+                    '<span class="day">Día 1: Los Ángeles/Shanghai</span> - Llegada a Shanghai, bienvenida por nuestro guía en el aeropuerto y traslado al hotel. Cena organizada. (C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br>',
+                    '<span class="day">Día 2: Shanghai</span> - Visita al Templo del Buda de Jade, Templo del Dios de la Ciudad, Mercado Yuyuan (sin entrar al jardín), Xintiandi en la antigua concesión francesa. (D/A/C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br><div class="day-images"><div class="attraction-images"><a href="SH_玉佛寺.jpg" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="SH_城隍庙.jpg" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="SH_豫园市场.jpg" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="SH_法租界新天地.jpg" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
+                    '<span class="day">Día 3: Shanghai</span> - Visita a Tianzifang, Calle Nanjing, El Bund. (D/A/C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br><div class="day-images"><div class="attraction-images"><a href="SH_田子坊.jpg" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="SH_南京路.jpg" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="SH_外滩.jpg" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
+                    '<span class="day">Día 4: Shanghai/Luoyang (Tren de Alta Velocidad)</span> - Traslado a la estación de tren para tomar el tren de alta velocidad a Luoyang (6.5-7.5 horas). Almuerzo por cuenta propia en el tren. Llegada, traslado al hotel y cena. (D/C, Alojamiento: 3* Vienna Hotel Luoyang o similar)<br>',
+                    '<span class="day">Día 5: Luoyang</span> - Visita al Templo Shaolin en Songshan, Talin, espectáculo de artes marciales Shaolin. Regreso a Luoyang para visitar la Ciudad Antigua. (D/A/C, Alojamiento: 3* Vienna Hotel Luoyang o similar)<br><div class="day-images"><div class="attraction-images"><a href="LY_少林寺1.jpg" target="_blank"><img src="LY_少林寺1.jpg"></a><a href="LY_少林寺2.jpg" target="_blank"><img src="LY_少林寺2.jpg"></a></div><div class="attraction-images"><a href="LY_洛阳古城.jpg" target="_blank"><img src="LY_洛阳古城.jpg"></a></div></div>',
+                    '<span class="day">Día 6: Luoyang/Xi’an (Tren de Alta Velocidad)</span> - Visita a las Grutas de Longmen. Por la tarde, tren de alta velocidad a Xi’an (1.5 horas). Llegada, traslado al hotel y cena. (D/A/C, Alojamiento: 3* Minxing Boutique Hotel Xi’an o similar)<br><div class="day-images"><div class="attraction-images"><a href="LY_龙门石窟.jpg" target="_blank"><img src="LY_龙门石窟.jpg"></a></div></div>',
+                    '<span class="day">Día 7: Xi’an</span> - Visita al Museo de los Guerreros y Caballos de Terracota (incluye carrito eléctrico y auriculares). Regreso a Xi’an para visitar la Muralla Antigua y la Ciudad Siempre Brillante de Datang. (D/A/C, Alojamiento: 3* Minxing Boutique Hotel Xi’an o similar)<br><div class="day-images"><div class="attraction-images"><a href="XA_秦始皇陵兵马俑.jpg" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="XA_古城墙.jpg" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="XA_大唐不夜城.jpg" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div>',
+                    '<span class="day">Día 8: Xi’an</span> - Visita a la Plaza de las Torres de la Campana y el Tambor, Calle Huimin, Museo de Xi’an, Pequeña Pagoda del Ganso Salvaje. (D/A/C, Alojamiento: 3* Minxing Boutique Hotel Xi’an o similar)<br><div class="day-images"><div class="attraction-images"><a href="XA_钟鼓楼广场.jpg" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="XA_回民街.jpg" target="_blank"><img src="XA_回民街.jpg"></a></div><div class="attraction-images"><a href="XA_西安博物院.jpg" target="_blank"><img src="XA_西安博物院.jpg"></a></div></div>',
+                    '<span class="day">Día 9: Xi’an/Beijing (Tren de Alta Velocidad)</span> - Traslado a la estación de tren para tomar el tren de alta velocidad a Beijing (4.5 horas). Almuerzo por cuenta propia en el tren. Llegada, visita a la calle peatonal Wangfujing y cena. (D/C, Alojamiento: 3* Holiday Inn Express Beijing Qianmen o similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_王府井.jpg" target="_blank"><img src="BJ_王府井.jpg"></a></div></div>',
+                    '<span class="day">Día 10: Beijing</span> - Visita a la Plaza Tiananmen, Palacio Imperial (Ciudad Prohibida), Jardín de Verano (Palacio de Verano). (D/A/C, Alojamiento: 3* Holiday Inn Express Beijing Qianmen o similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_天安门广场.jpg" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="BJ_故宫.jpg" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="BJ_颐和园.jpg" target="_blank"><img src="BJ_颐和园.jpg"></a></div></div>',
+                    '<span class="day">Día 11: Beijing</span> - Visita a la Gran Muralla de Juyongguan. Regreso a Beijing para una vista exterior de los Estadios Olímpicos Nido de Pájaro y Cubo de Agua. (D/A/C, Alojamiento: 3* Holiday Inn Express Beijing Qianmen o similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_居庸关长城.jpg" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="BJ_鸟巢.jpg" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="BJ_水立方.jpg" target="_blank"><img src="BJ_水立方.jpg"></a></div></div>',
+                    '<span class="day">Día 12: Beijing/Los Ángeles</span> - Si el horario del vuelo lo permite, visita a Shichahai (paseo por Yandai Xiejie y Nanluoguxiang, vista exterior de las Torres de la Campana y el Tambor). Traslado al aeropuerto para el vuelo de regreso a Los Ángeles. (D)<br><div class="day-images"><div class="attraction-images"><a href="BJ_什刹海.jpg" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div>',
+                    '<span class="day">Nota:</span> La compañía se reserva el derecho de realizar ajustes finales al itinerario.'
+                ]
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'title': 'Shanghai-Luoyang-Shaolin-Xi’an-Beijing',
+                'highlightsTitle': 'Highlights',
+                'itineraryTitle': 'Itinerary',
+                'highlights': [
+                    'Beijing: The power center of feudal dynasties for thousands of years, China’s political hub, a renowned historical and cultural city, and one of the world’s top-tier cities.',
+                    'Xi’an: A glimpse into a thousand years of history, Xi’an is one of the cradles of Chinese civilization and the starting point of the ancient Silk Road. Known as a "natural history museum," it is one of the world’s four ancient capitals and home to thirteen dynasties.',
+                    'Shanghai: A vibrant, magical international metropolis blending Eastern charm and modernity, China’s financial and economic hub, and one of Asia’s most dynamic cities.',
+                    'Luoyang: With over 5,000 years of civilization, 4,000 years as a city, and 1,500 years as a capital, it is a cradle of Chinese civilization. The earliest and longest-serving capital with the most dynasties, it is the eastern starting point of the Silk Road and the center of the Sui-Tang Grand Canal. Home to sites like Erlitou, Longmen Grottoes, and three UNESCO World Heritage sites, it is also the birthplace of Taoism, the flourishing ground of Confucianism, and the entry point of Buddhism, known as one of the "four holy cities of the world".',
+                    'Songshan Shaolin: The cradle of Zen Buddhism and the origin of Shaolin martial arts, recognized as a UNESCO World Heritage site and part of the World Memory Register, known as "the most famous temple in the world".'
+                ],
+                'itinerary': [
+                    '<span class="day">Day 1: Los Angeles/Shanghai</span> - Airport pickup, hotel check-in, dinner arranged. (D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br>',
+                    '<span class="day">Day 2: Shanghai</span> - Jade Buddha Temple, City God Temple, Yuyuan Market (without entering the garden), Former French Concession Xintiandi. (B/L/D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br><div class="day-images"><div class="attraction-images"><a href="SH_玉佛寺.jpg" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="SH_城隍庙.jpg" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="SH_豫园市场.jpg" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="SH_法租界新天地.jpg" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
+                    '<span class="day">Day 3: Shanghai</span> - Tianzifang, Nanjing Road, The Bund. (B/L/D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br><div class="day-images"><div class="attraction-images"><a href="SH_田子坊.jpg" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="SH_南京路.jpg" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="SH_外滩.jpg" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
+                    '<span class="day">Day 4: Shanghai/Luoyang (High-Speed Rail)</span> - Transfer to the train station for high-speed rail to Luoyang (6.5-7.5 hours). Lunch on your own on the train. Arrival, hotel check-in, dinner. (B/D, Accommodation: 3* Vienna Hotel Luoyang or similar)<br>',
+                    '<span class="day">Day 5: Luoyang</span> - Shaolin Temple in Songshan, Talin, Shaolin martial arts performance. Return to Luoyang to visit the Old City. (B/L/D, Accommodation: 3* Vienna Hotel Luoyang or similar)<br><div class="day-images"><div class="attraction-images"><a href="LY_少林寺1.jpg" target="_blank"><img src="LY_少林寺1.jpg"></a><a href="LY_少林寺2.jpg" target="_blank"><img src="LY_少林寺2.jpg"></a></div><div class="attraction-images"><a href="LY_洛阳古城.jpg" target="_blank"><img src="LY_洛阳古城.jpg"></a></div></div>',
+                    '<span class="day">Day 6: Luoyang/Xi’an (High-Speed Rail)</span> - Visit Longmen Grottoes. Afternoon high-speed rail to Xi’an (1.5 hours). Arrival, hotel check-in, dinner. (B/L/D, Accommodation: 3* Minxing Boutique Hotel Xi’an or similar)<br><div class="day-images"><div class="attraction-images"><a href="LY_龙门石窟.jpg" target="_blank"><img src="LY_龙门石窟.jpg"></a></div></div>',
+                    '<span class="day">Day 7: Xi’an</span> - Terracotta Warriors Museum (includes shuttle and earphones). Return to Xi’an to visit the Ancient City Wall and Datang Everbright City. (B/L/D, Accommodation: 3* Minxing Boutique Hotel Xi’an or similar)<br><div class="day-images"><div class="attraction-images"><a href="XA_秦始皇陵兵马俑.jpg" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="XA_古城墙.jpg" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="XA_大唐不夜城.jpg" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div>',
+                    '<span class="day">Day 8: Xi’an</span> - Bell and Drum Tower Square, Huimin Street, Xi’an Museum, Small Wild Goose Pagoda. (B/L/D, Accommodation: 3* Minxing Boutique Hotel Xi’an or similar)<br><div class="day-images"><div class="attraction-images"><a href="XA_钟鼓楼广场.jpg" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="XA_回民街.jpg" target="_blank"><img src="XA_回民街.jpg"></a></div><div class="attraction-images"><a href="XA_西安博物院.jpg" target="_blank"><img src="XA_西安博物院.jpg"></a></div></div>',
+                    '<span class="day">Day 9: Xi’an/Beijing (High-Speed Rail)</span> - Transfer to the train station for high-speed rail to Beijing (4.5 hours). Lunch on your own on the train. Arrival, visit Wangfujing Pedestrian Street, dinner. (B/D, Accommodation: 3* Holiday Inn Express Beijing Qianmen or similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_王府井.jpg" target="_blank"><img src="BJ_王府井.jpg"></a></div></div>',
+                    '<span class="day">Day 10: Beijing</span> - Tiananmen Square, Forbidden City, Summer Palace. (B/L/D, Accommodation: 3* Holiday Inn Express Beijing Qianmen or similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_天安门广场.jpg" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="BJ_故宫.jpg" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="BJ_颐和园.jpg" target="_blank"><img src="BJ_颐和园.jpg"></a></div></div>',
+                    '<span class="day">Day 11: Beijing</span> - Juyongguan Great Wall. Return to Beijing for an exterior view of the Bird’s Nest and Water Cube. (B/L/D, Accommodation: 3* Holiday Inn Express Beijing Qianmen or similar)<br><div class="day-images"><div class="attraction-images"><a href="BJ_居庸关长城.jpg" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="BJ_鸟巢.jpg" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="BJ_水立方.jpg" target="_blank"><img src="BJ_水立方.jpg"></a></div></div>',
+                    '<span class="day">Day 12: Beijing/Los Angeles</span> - If flight schedule allows, visit Shichahai (stroll along Yandai Xiejie and Nanluoguxiang, exterior view of Bell and Drum Towers). Transfer to the airport for the flight back to Los Angeles. (B)<br><div class="day-images"><div class="attraction-images"><a href="BJ_什刹海.jpg" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div>',
+                    '<span class="day">Note:</span> The company reserves the right to make final itinerary adjustments.'
+                ]
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'title': '上海-洛阳-少林寺-西安-北京',
+                'highlightsTitle': '亮点',
+                'itineraryTitle': '行程安排',
+                'highlights': [
+                    '北京：数千年来的封建皇朝权力中心，政治中心。中国历史文化名城和古都之一，世界一线城市。',
+                    '西安：一眼千年，古都西安。它是中华文明和中华民族的重要发祥地之一，是古丝绸之路的起点。“天然历史博物馆”世界四大古都之一、中国十三个王朝在此建都的历史文化名城。',
+                    '上海：一座充满着东方魅力与现代气息的繁华、魔幻国际化大都市。中国的金融、经济中心，也是中国乃至亚洲最具活力的城市之一。',
+                    '洛阳：5000多年文明史、4000多年城市史、1500多年建都史，是华夏文明发祥地之一，是中国建都最早、历时最长、朝代最多的城市。作为丝绸之路东方起点和隋唐大运河中心，拥有二里头遗址、龙门石窟等5大都城遗址和3项世界文化遗产。同时是道学发源地、儒学兴盛地、佛学首传地，被誉为“世界四大圣城”之一。',
+                    '嵩山少林：禅宗祖庭和少林武术发源地，拥有世界文化遗产、世界记忆名录等多项国际殊荣，被誉为“天下第一名刹”。'
+                ],
+                'itinerary': [
+                    '<span class="day">第1天：洛杉矶/上海</span> - 接机，送酒店，安排晚餐。（晚餐，住宿：3*上海镇坪智选假日或同级）<br>',
+                    '<span class="day">第2天：上海</span> - 玉佛寺，城隍庙，豫园市场（不进园），法租界新天地。（早/午/晚餐，住宿：3*上海镇坪智选假日或同级）<br><div class="day-images"><div class="attraction-images"><a href="SH_玉佛寺.jpg" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="SH_城隍庙.jpg" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="SH_豫园市场.jpg" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="SH_法租界新天地.jpg" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
+                    '<span class="day">第3天：上海</span> - 田子坊，南京路，外滩。（早/午/晚餐，住宿：3*上海镇坪智选假日或同级）<br><div class="day-images"><div class="attraction-images"><a href="SH_田子坊.jpg" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="SH_南京路.jpg" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="SH_外滩.jpg" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
+                    '<span class="day">第4天：上海/洛阳</span> - 早餐后前往高铁站，搭乘高铁前往洛阳（6.5-7.5小时车程）。午餐火车上自理。抵达后导游接站，晚餐，入住酒店。（早/晚餐，住宿：3*洛阳维也纳酒店或同级）<br>',
+                    '<span class="day">第5天：嵩山少林寺</span> - 早餐后前往嵩山少林寺，游览塔林，欣赏少林武术表演。返回洛阳，游览洛阳古城。（早/午/晚餐，住宿：3*洛阳维也纳酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="LY_少林寺1.jpg" target="_blank"><img src="LY_少林寺1.jpg"></a><a href="LY_少林寺2.jpg" target="_blank"><img src="LY_少林寺2.jpg"></a></div><div class="attraction-images"><a href="LY_洛阳古城.jpg" target="_blank"><img src="LY_洛阳古城.jpg"></a></div></div>',
+                    '<span class="day">第6天：洛阳/西安</span> - 早餐后前往龙门石窟游览，下午乘坐高铁前往西安（1.5小时车程）。抵达后导游接站，晚餐，入住酒店。（早/午/晚餐，住宿：3*西安民幸精品酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="LY_龙门石窟.jpg" target="_blank"><img src="LY_龙门石窟.jpg"></a></div></div>',
+                    '<span class="day">第7天：西安</span> - 早餐后驱车前往临潼（车程约1小时），参观秦始皇帝陵博物馆（含电瓶车，耳机），下午返回西安，游览古城墙，大唐不夜城。（早/午/晚餐，住宿：3*西安民幸精品酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="XA_秦始皇陵兵马俑.jpg" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="XA_古城墙.jpg" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="XA_大唐不夜城.jpg" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div>',
+                    '<span class="day">第8天：西安</span> - 游览钟鼓楼广场，回民街，西安博物院，小雁塔。（早/午/晚餐，住宿：3*西安民幸精品酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="XA_钟鼓楼广场.jpg" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="XA_回民街.jpg" target="_blank"><img src="XA_回民街.jpg"></a></div><div class="attraction-images"><a href="XA_西安博物院.jpg" target="_blank"><img src="XA_西安博物院.jpg"></a></div></div>',
+                    '<span class="day">第9天：西安/北京</span> - 早餐后前往高铁站，搭乘高铁去北京（约4.5小时车程）。午餐火车上自理。抵达后导游接站，游览王府井步行街。晚餐，入住酒店。（早/晚餐，住宿：3*北京前门富力智选假日酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="BJ_王府井.jpg" target="_blank"><img src="BJ_王府井.jpg"></a></div></div>',
+                    '<span class="day">第10天：北京</span> - 早餐后参观天安门广场，故宫，颐和园。（早/午/晚餐，住宿：3*北京前门富力智选假日酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="BJ_天安门广场.jpg" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="BJ_故宫.jpg" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="BJ_颐和园.jpg" target="_blank"><img src="BJ_颐和园.jpg"></a></div></div>',
+                    '<span class="day">第11天：北京</span> - 早餐后前往游览居庸关长城，午餐。返回市区，外观鸟巢和水立方。（早/午/晚餐，住宿：3*北京前门富力智选假日酒店或同级）<br><div class="day-images"><div class="attraction-images"><a href="BJ_居庸关长城.jpg" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="BJ_鸟巢.jpg" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="BJ_水立方.jpg" target="_blank"><img src="BJ_水立方.jpg"></a></div></div>',
+                    '<span class="day">第12天：北京/洛杉矶</span> - 如航班时间允许，游览什刹海，步行烟袋斜街、南锣鼓巷、外观钟鼓楼。送往机场，返回洛杉矶。（早餐）<br><div class="day-images"><div class="attraction-images"><a href="BJ_什刹海.jpg" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div>',
+                    '<span class="day">备注：</span> 本公司保留行程最终调整的权力。'
+                ]
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('tour-title').textContent = t.title;
+            document.getElementById('highlights-title').textContent = t.highlightsTitle;
+            document.getElementById('itinerary-title').textContent = t.itineraryTitle;
+            document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item}</li>`).join('');
+
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.innerHTML = translations[lang][key];
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
