@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .content h2 .subtitle {
+            font-size: 20px;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ff6200;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .day {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .day-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .attraction-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content h2 .subtitle {
+                font-size: 16px;
+            }
+
+            .content h3 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+            img {
+                max-width: 150px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h2 id="tour-title">香港-桂林-广州-中山<span class="subtitle">（12天退休人士）</span></h2>
+            <h3 id="highlights-title">Destacados</h3>
+            <ul id="highlights"></ul>
+            <h3 id="itinerary-title">Itinerario</h3>
+            <ul id="itinerary"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados。</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'title': '香港-桂林-广州-中山<span class="subtitle">（12天退休人士）</span>',
+                'highlightsTitle': '亮点',
+                'itineraryTitle': '行程安排',
+                'highlights': [
+                    '香港：被誉为“东方之珠”的香港是一座高度繁荣的自由港和国际大都市，全球第三大金融中心，中西文化交融之地。',
+                    '桂林：“桂林山水甲天下”，以其独特的喀斯特地貌和秀美的自然风光而闻名，宛如一幅水墨画。',
+                    '广州：充满活力和魅力的国家中心城市，海上丝绸之路起点之一，被誉为“千年商都”，广府文化发祥地之一。',
+                    '中山：国父孙中山先生故乡，温泉资源丰富。'
+                ],
+                'itinerary': [
+                    '<span class="day">第1天：香港</span> - 接机，入住酒店。（无餐，住宿：香港4*酒店）',
+                    '<span class="day">第2天：香港</span> - 早餐后前往游太平山顶（含单程缆车），之后前往浅水湾，香港仔（含舢板游体验），赤柱市场。（早/午/晚餐，住宿：香港4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_香港仔.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div>',
+                    '<span class="day">第3天：香港</span> - 早餐后，前往大屿山搭乘昂坪360缆车参观天坛大佛，返回市区游览星光大道，尖沙咀，黄大仙祠。（早/午/晚餐，住宿：香港4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div>',
+                    '<span class="day">第4天：香港/桂林（高铁）</span> - 早餐后，出发前往高铁站，搭乘高铁前往桂林（车程约3小时）。抵达后接站，游览象鼻山。（早/午/晚餐，住宿：桂林4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_象鼻山.jpg"></a></div></div>',
+                    '<span class="day">第5天：桂林/阳朔</span> - 早餐后，搭乘游船游漓江（约4小时，船上自助午餐），抵达阳朔，在西街上自由闲逛。晚上观赏“印象刘三姐”。（早/午/晚餐，住宿：桂林4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_漓江.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_西街.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_印象刘三姐.jpg"></a></div></div>',
+                    '<span class="day">第6天：桂林/龙胜</span> - 早餐后驱车前往龙胜，游览龙脊梯田，参观平安壮寨以及黄瑶长发村。返回桂林。（早/午/晚餐，住宿：桂林4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田01.jpg"></a><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_黄瑶长发村.jpg"></a></div></div>',
+                    '<span class="day">第7天：桂林/广州（高铁）</span> - 早餐后，游览伏波山，芦笛岩。后送站，搭乘高铁前往广州（约3小时）。接站后送酒店入住。（早/午/晚餐，住宿：广州4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_伏波山.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_芦笛岩.jpg"></a></div></div>',
+                    '<span class="day">第8天：广州</span> - 早餐后游览广州西关，包括漫步沙面，陈家祠，闲逛荔枝湾涌，永庆坊。（早/午/晚餐，住宿：广州4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_沙面.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_陈家祠.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_荔枝湾涌.jpg"></a><a href="https://china部长ehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_永庆坊.jpg"></a></div></div>',
+                    '<span class="day">第9天：广州/佛山</span> - 早餐后，出发前往佛山。参观祖庙，黄飞鸿纪念馆观赏醒狮表演（如下雨取消），岭南新天地，南风古灶。后返回广州。（早/午/晚餐，住宿：广州4*酒店）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_祖庙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_黄飞鸿纪念馆.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_岭南新天地.jpg"></a><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_南风古灶.jpg"></a></div></div>',
+                    '<span class="day">第10天：广州/中山</span> - 早餐后，送往中山，游览孙中山故居，詹园。（早/午/晚餐，住宿：中山温泉宾馆）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_孙中山故居.jpg"></a><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_中山詹园.jpg"></a></div></div>',
+                    '<span class="day">第11天：中山</span> - 自由活动。（早餐，住宿：中山温泉宾馆）',
+                    '<span class="day">第12天：中山/香港机场离境</span> - 前往中山港，搭船直达香港国际机场，接驳国际航班返回。（早餐）',
+                    '<span class="day">备注：</span> 本公司保留行程最终调整的权力。'
+                ]
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'title': 'Hong Kong-Guilin-Guangzhou-Zhongshan<span class="subtitle">(12-Day Retirees)</span>',
+                'highlightsTitle': 'Highlights',
+                'itineraryTitle': 'Itinerary',
+                'highlights': [
+                    'Hong Kong: Known as the "Pearl of the Orient," a thriving free port and global metropolis, the world’s third-largest financial hub, blending Eastern and Western cultures.',
+                    'Guilin: "Guilin’s scenery is unmatched," famous for its unique karst landscape and stunning natural beauty, resembling a traditional Chinese ink painting.',
+                    'Guangzhou: A vibrant national hub, a starting point of the Maritime Silk Road, dubbed the "Thousand-Year Commercial Capital," and a cradle of Cantonese culture.',
+                    'Zhongshan: Hometown of Dr. Sun Yat-sen, the founding father of modern China, renowned for its abundant hot spring resources.'
+                ],
+                'itinerary': [
+                    '<span class="day">Day 1: Hong Kong</span> - Airport pickup, hotel check-in. (No meals, Accommodation: 4* Hong Kong Hotel)',
+                    '<span class="day">Day 2: Hong Kong</span> - After breakfast, visit Victoria Peak (one-way cable car), then proceed to Repulse Bay, Aberdeen (sampan ride included), Stanley Market.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_香港仔.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div> (B/L/D, Accommodation: 4* Hong Kong Hotel)',
+                    '<span class="day">Day 3: Hong Kong</span> - After breakfast, take the Ngong Ping 360 cable car to visit the Big Buddha, return to downtown to tour the Avenue of Stars, Tsim Sha Tsui, Wong Tai Sin Temple.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div> (B/L/D, Accommodation: 4* Hong Kong Hotel)',
+                    '<span class="day">Day 4: Hong Kong/Guilin (High-Speed Rail)</span> - After breakfast, proceed to the high-speed rail station, take the train to Guilin (approx. 3 hours). Upon arrival, transfer and visit Elephant Trunk Hill.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_象鼻山.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guilin Hotel)',
+                    '<span class="day">Day 5: Guilin/Yangshuo</span> - After breakfast, take a Li River cruise (approx. 4 hours, buffet lunch on board), arrive in Yangshuo, stroll along West Street. Evening performance of "Impression Liu Sanjie".<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_漓江.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_西街.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_印象刘三姐.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guilin Hotel)',
+                    '<span class="day">Day 6: Guilin/Longsheng</span> - After breakfast, drive to Longsheng, visit Longji Rice Terraces, Ping’an Zhuang Village, Huangluo Long-Hair Village. Return to Guilin.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田01.jpg"></a><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_黄瑶长发村.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guilin Hotel)',
+                    '<span class="day">Day 7: Guilin/Guangzhou (High-Speed Rail)</span> - After breakfast, visit Fubo Hill, Reed Flute Cave. Transfer to the high-speed rail station, take the train to Guangzhou (approx. 3 hours). Upon arrival, transfer to hotel.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_伏波山.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_芦笛岩.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guangzhou Hotel)',
+                    '<span class="day">Day 8: Guangzhou</span> - After breakfast, tour Guangzhou’s Xiguan area, including a stroll on Shamian Island, Chen Clan Ancestral Hall, Lizhiwan Canal, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_沙面.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_陈家祠.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_荔枝湾涌.jpg"></a><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_永庆坊.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guangzhou Hotel)',
+                    '<span class="day">Day 9: Guangzhou/Foshan</span> - After breakfast, depart for Foshan. Visit Zumiao Temple, Wong Fei Hung Memorial Hall for a lion dance performance (canceled if raining), Lingnan Tiandi, Nanfeng Ancient Kiln. Return to Guangzhou.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_祖庙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_黄飞鸿纪念馆.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_岭南新天地.jpg"></a><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_南风古灶.jpg"></a></div></div> (B/L/D, Accommodation: 4* Guangzhou Hotel)',
+                    '<span class="day">Day 10: Guangzhou/Zhongshan</span> - After breakfast, transfer to Zhongshan, visit Sun Yat-sen’s Former Residence, Zhongshan James Garden.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_孙中山故居.jpg"></a><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_中山詹园.jpg"></a></div></div> (B/L/D, Accommodation: Zhongshan Hot Spring Hotel)',
+                    '<span class="day">Day 11: Zhongshan</span> - Free time. (B, Accommodation: Zhongshan Hot Spring Hotel)',
+                    '<span class="day">Day 12: Zhongshan/Hong Kong Airport Departure</span> - Proceed to Zhongshan Port, take a ferry to Hong Kong International Airport, connect to international flight. (B)',
+                    '<span class="day">Note:</span> The company reserves the right to make final itinerary adjustments.'
+                ]
+            },
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados。',
+                'title': 'Hong Kong-Guilin-Guangzhou-Zhongshan<span class="subtitle">(12 Días para Jubilados)</span>',
+                'highlightsTitle': 'Destacados',
+                'itineraryTitle': 'Itinerario',
+                'highlights': [
+                    'Hong Kong: Conocida como la "Perla del Oriente," un puerto libre próspero y metrópoli global, tercer centro financiero mundial, fusión de culturas orientales y occidentales.',
+                    'Guilin: "El paisaje de Guilin es incomparable," famosa por su paisaje kárstico único y belleza natural, como una pintura china tradicional.',
+                    'Guangzhou: Ciudad nacional vibrante, inicio de la Ruta de la Seda Marítima, conocida como la "Capital Comercial Milenaria," cuna de la cultura cantonesa.',
+                    'Zhongshan: Tierra natal de Sun Yat-sen, padre fundador de la China moderna, famosa por sus abundantes recursos de aguas termales.'
+                ],
+                'itinerary': [
+                    '<span class="day">Día 1: Hong Kong</span> - Recogida en aeropuerto, registro en hotel. (Sin comidas, Alojamiento: Hotel 4* Hong Kong)',
+                    '<span class="day">Día 2: Hong Kong</span> - Después del desayuno, visitar el Pico Victoria (funicular de ida), luego dirigirse a Repulse Bay, Aberdeen (paseo en sampán incluido), Mercado Stanley.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_香港仔.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Hong Kong)',
+                    '<span class="day">Día 3: Hong Kong</span> - Después del desayuno, tomar el teleférico Ngong Ping 360 para visitar el Buda Gigante, regresar al centro para recorrer la Avenida de las Estrellas, Tsim Sha Tsui, Templo Wong Tai Sin.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="https://chinaehotel.com/City_HongKong.html" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Hong Kong)',
+                    '<span class="day">Día 4: Hong Kong/Guilin (Tren de Alta Velocidad)</span> - Después del desayuno, dirigirse a la estación de tren de alta velocidad, tomar el tren a Guilin (aprox. 3 horas). A la llegada, traslado y visita a la Colina Trompa de Elefante.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_象鼻山.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guilin)',
+                    '<span class="day">Día 5: Guilin/Yangshuo</span> - Después del desayuno, tomar un crucero por el río Li (aprox. 4 horas, almuerzo buffet a bordo), llegar a Yangshuo, pasear por la Calle Oeste. Espectáculo nocturno "Impresión Liu Sanjie".<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_漓江.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_西街.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_印象刘三姐.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guilin)',
+                    '<span class="day">Día 6: Guilin/Longsheng</span> - Después del desayuno, conducir a Longsheng, visitar las Terrazas de arroz Longji, la Aldea Ping’an Zhuang, la Aldea Huangluo de Cabello Largo. Regreso a Guilin.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田01.jpg"></a><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_龙脊梯田02.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_黄瑶长发村.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guilin)',
+                    '<span class="day">Día 7: Guilin/Guangzhou (Tren de Alta Velocidad)</span> - Después del desayuno, visitar la Colina Fubo, Cueva de la Flauta de Caña. Traslado a la estación de tren de alta velocidad, tomar el tren a Guangzhou (aprox. 3 horas). A la llegada, traslado al hotel.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_伏波山.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuiLin.html" target="_blank"><img src="GL_芦笛岩.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guangzhou)',
+                    '<span class="day">Día 8: Guangzhou</span> - Después del desayuno, recorrer el área de Xiguan en Guangzhou, incluyendo un paseo por la Isla Shamian, Salón Ancestral Chen, Canal Lizhiwan, Yongqingfang.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_沙面.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_陈家祠.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_荔枝湾涌.jpg"></a><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="GZ_永庆坊.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guangzhou)',
+                    '<span class="day">Día 9: Guangzhou/Foshan</span> - Después del desayuno, partir hacia Foshan. Visitar el Templo Zumiao, Museo Wong Fei Hung para un espectáculo de danza del león (cancelado si llueve), Lingnan Tiandi, Horno Antiguo Nanfeng. Regreso a Guangzhou.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_祖庙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_黄飞鸿纪念馆.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_岭南新天地.jpg"></a><a href="https://chinaehotel.com/City_GuangZhou.html" target="_blank"><img src="FS_南风古灶.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel 4* Guangzhou)',
+                    '<span class="day">Día 10: Guangzhou/Zhongshan</span> - Después del desayuno, traslado a Zhongshan, visitar la Residencia de Sun Yat-sen, Jardín James de Zhongshan.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_孙中山故居.jpg"></a><a href="https://chinaehotel.com/City_ZhongShan.html" target="_blank"><img src="ZS_中山詹园.jpg"></a></div></div> (D/A/C, Alojamiento: Hotel Termal Zhongshan)',
+                    '<span class="day">Día 11: Zhongshan</span> - Tiempo libre. (D, Alojamiento: Hotel Termal Zhongshan)',
+                    '<span class="day">Día 12: Zhongshan/Aeropuerto de Hong Kong/Salida</span> - Dirigirse al puerto de Zhongshan, tomar un ferry al Aeropuerto Internacional de Hong Kong, conectar con vuelo internacional. (D)',
+                    '<span class="day">Nota:</span> La compañía se reserva el derecho de realizar ajustes finales al itinerario.'
+                ]
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            document.getElementById('tour-title').innerHTML = t.title;
+            document.getElementById('highlights-title').textContent = t.highlightsTitle;
+            document.getElementById('itinerary-title').textContent = t.itineraryTitle;
+            document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item}</li>`).join('');
+
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.innerHTML = translations[lang][key];
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
