@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Foshan Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%;
+            margin: 0 auto;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
+                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
+                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Foshan</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="zumiao-temple">
+                    <div class="card-image">
+                        <a href="FS_祖庙.jpg" target="_blank"><img src="FS_祖庙.jpg" alt="Zumiao Temple"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Templo Zumiao</h3>
+                        <p data-lang="attraction1-desc">Conocido como el "Palacio del Arte Popular Oriental", es un tesoro cultural de Lingnan. Este templo tiene casi mil años de historia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="huang-feihong-memorial">
+                    <div class="card-image">
+                        <a href="FS_黄飞鸿纪念馆.jpg" target="_blank"><img src="FS_黄飞鸿纪念馆.jpg" alt="Huang Feihong Memorial Hall"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Memorial Huang Feihong</h3>
+                        <p data-lang="attraction2-desc">Dedicado al maestro de artes marciales de Lingnan, ofrece espectaculares actuaciones de danza del león.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="lingnan-tiandi">
+                    <div class="card-image">
+                        <a href="FS_岭南新天地.jpg" target="_blank"><img src="FS_岭南新天地.jpg" alt="Lingnan Tiandi"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction3-title">Lingnan Tiandi</h3>
+                        <p data-lang="attraction3-desc">Un área renovada con 22 edificios patrimoniales y calles históricas, preservando la herencia cultural de Foshan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="nanfeng-ancient-kiln">
+                    <div class="card-image">
+                        <a href="FS_南风古灶.jpg" target="_blank"><img src="FS_南风古灶.jpg" alt="Nanfeng Ancient Kiln"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction4-title">Horno Antiguo Nanfeng</h3>
+                        <p data-lang="attraction4-desc">Con 500 años de producción ininterrumpida, es el horno de dragón más antiguo y mejor conservado del mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Foshan',
+                'attraction1-title': 'Templo Zumiao',
+                'attraction1-desc': 'Conocido como el "Palacio del Arte Popular Oriental", es un tesoro cultural de Lingnan. Este templo tiene casi mil años de historia.',
+                'attraction2-title': 'Memorial Huang Feihong',
+                'attraction2-desc': 'Dedicado al maestro de artes marciales de Lingnan, ofrece espectaculares actuaciones de danza del león.',
+                'attraction3-title': 'Lingnan Tiandi',
+                'attraction3-desc': 'Un área renovada con 22 edificios patrimoniales y calles históricas, preservando la herencia cultural de Foshan.',
+                'attraction4-title': 'Horno Antiguo Nanfeng',
+                'attraction4-desc': 'Con 500 años de producción ininterrumpida, es el horno de dragón más antiguo y mejor conservado del mundo.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Foshan',
+                'attraction1-title': 'Zumiao Temple',
+                'attraction1-desc': 'Known as the “Palace of Oriental Folk Art,” it is a cultural gem of Lingnan. This temple has nearly 1,000 years of history.',
+                'attraction2-title': 'Huang Feihong Memorial Hall',
+                'attraction2-desc': 'Dedicated to the Lingnan martial arts master, it features spectacular lion dance performances.',
+                'attraction3-title': 'Lingnan Tiandi',
+                'attraction3-desc': 'A revitalized area with 22 heritage buildings and historic streets, preserving Foshan’s cultural legacy.',
+                'attraction4-title': 'Nanfeng Ancient Kiln',
+                'attraction4-desc': 'With 500 years of continuous operation, it’s the world’s oldest and best-preserved dragon kiln still in use.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '佛山',
+                'attraction1-title': '祖庙',
+                'attraction1-desc': '被誉为“东方民间艺术之宫”，是岭南地区庙会文化的瑰宝。这座庙宇已有近千年历史。',
+                'attraction2-title': '黄飞鸿纪念馆',
+                'attraction2-desc': '他是岭南武术界的一代宗师，在黄飞鸿纪念馆，有精彩绝伦的舞狮表演。',
+                'attraction3-title': '岭南新天地',
+                'attraction3-desc': '改造片区内的22幢文物建筑及众多的优秀历史建筑，延续历史街巷。',
+                'attraction4-title': '南风古灶',
+                'attraction4-desc': '五百年来窑火不绝，生产不断，完好保存至今，是中国乃至世界上年代最久远、保存最完好且延续使用至今最古老的龙窑。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        // Check for language query parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+        }
+    </script>
+</body>
+</html>
