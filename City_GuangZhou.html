@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Guangzhou Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%;
+            margin: 0 auto;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Guangzhou</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="shamian-island">
+                    <div class="card-image">
+                        <a href="GZ_沙面.jpg" target="_blank"><img src="GZ_沙面.jpg" alt="Shamian Island"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Isla Shamian</h3>
+                        <p data-lang="attraction1-desc">Antiguo centro comercial de Guangzhou, con edificios europeos de estilo colonial, es conocida como un "museo al aire libre".</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="chen-clan-ancestral-hall">
+                    <div class="card-image">
+                        <a href="GZ_陈家祠.jpg" target="_blank"><img src="GZ_陈家祠.jpg" alt="Chen Clan Ancestral Hall"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Templo Ancestral del Clan Chen</h3>
+                        <p data-lang="attraction2-desc">Clasificado como Museo Nacional de Primera Categoría, es considerado la "Perla del Arte Arquitectónico de Lingnan".</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="lizhiwan-yong">
+                    <div class="card-image">
+                        <a href="GZ_荔枝湾涌.jpg" target="_blank"><img src="GZ_荔枝湾涌.jpg" alt="Lizhiwan Yong"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction3-title">Canal Lizhiwan</h3>
+                        <p data-lang="attraction3-desc">Un lugar para experimentar el encanto de Xiguan y el paisaje acuático de estilo veneciano en el distrito de Liwan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="yongqing-fang">
+                    <div class="card-image">
+                        <a href="GZ_永庆坊.jpg" target="_blank"><img src="GZ_永庆坊.jpg" alt="Yongqing Fang"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction4-title">Yongqing Fang</h3>
+                        <p data-lang="attraction4-desc">Un distrito histórico que combina arquitectura tradicional, arte, ocio internacional y tendencias modernas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="yuexiu-mountain">
+                    <div class="card-image">
+                        <a href="GZ_越秀公园.jpg" target="_blank"><img src="GZ_越秀公园.jpg" alt="Yuexiu Mountain"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction5-title">Montaña Yuexiu</h3>
+                        <p data-lang="attraction5-desc">El principal monte de la antigua Guangzhou, famoso por su paisaje, la Torre Zhenhai y la escultura de las Cinco Cabras.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="zhenhai-tower">
+                    <div class="card-image">
+                        <a href="GZ_镇海楼.jpg" target="_blank"><img src="GZ_镇海楼.jpg" alt="Zhenhai Tower"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction6-title">Torre Zhenhai</h3>
+                        <p data-lang="attraction6-desc">Construida en 1380 en la montaña Yuexiu, alberga el Museo de Guangzhou y tiene más de 600 años de historia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="huacheng-square">
+                    <div class="card-image">
+                        <a href="GZ_花城广场.jpg" target="_blank"><img src="GZ_花城广场.jpg" alt="Huacheng Square"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction7-title">Plaza Huacheng</h3>
+                        <p data-lang="attraction7-desc">Ubicada en el nuevo eje de Guangzhou, rodeada de flores, rascacielos y sitios culturales como la Ópera y el Museo Provincial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Guangzhou',
+                'attraction1-title': 'Isla Shamian',
+                'attraction1-desc': 'Antiguo centro comercial de Guangzhou, con edificios europeos de estilo colonial, es conocida como un "museo al aire libre".',
+                'attraction2-title': 'Templo Ancestral del Clan Chen',
+                'attraction2-desc': 'Clasificado como Museo Nacional de Primera Categoría, es considerado la "Perla del Arte Arquitectónico de Lingnan".',
+                'attraction3-title': 'Canal Lizhiwan',
+                'attraction3-desc': 'Un lugar para experimentar el encanto de Xiguan y el paisaje acuático de estilo veneciano en el distrito de Liwan.',
+                'attraction4-title': 'Yongqing Fang',
+                'attraction4-desc': 'Un distrito histórico que combina arquitectura tradicional, arte, ocio internacional y tendencias modernas.',
+                'attraction5-title': 'Montaña Yuexiu',
+                'attraction5-desc': 'El principal monte de la antigua Guangzhou, famoso por su paisaje, la Torre Zhenhai y la escultura de las Cinco Cabras.',
+                'attraction6-title': 'Torre Zhenhai',
+                'attraction6-desc': 'Construida en 1380 en la montaña Yuexiu, alberga el Museo de Guangzhou y tiene más de 600 años de historia.',
+                'attraction7-title': 'Plaza Huacheng',
+                'attraction7-desc': 'Ubicada en el nuevo eje de Guangzhou, rodeada de flores, rascacielos y sitios culturales como la Ópera y el Museo Provincial.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Guangzhou',
+                'attraction1-title': 'Shamian Island',
+                'attraction1-desc': 'Once a key trading hub, its European-style colonial buildings make it an "open-air museum" of Guangzhou’s history.',
+                'attraction2-title': 'Chen Clan Ancestral Hall',
+                'attraction2-desc': 'Rated a National First-Class Museum, it’s hailed as the "Pearl of Lingnan Architectural Art".',
+                'attraction3-title': 'Lizhiwan Canal',
+                'attraction3-desc': 'Experience the charm of Xiguan and a Venetian-style water town in Guangzhou’s Liwan district.',
+                'attraction4-title': 'Yongqing Fang',
+                'attraction4-desc': 'A historic district blending traditional architecture, art, international leisure, and modern trends.',
+                'attraction5-title': 'Yuexiu Mountain',
+                'attraction5-desc': 'Guangzhou’s ancient main hill, renowned for its scenery, Zhenhai Tower, and the Five Rams statue.',
+                'attraction6-title': 'Zhenhai Tower',
+                'attraction6-desc': 'Built in 1380 on Yuexiu Mountain, it houses the Guangzhou Museum and boasts over 600 years of history.',
+                'attraction7-title': 'Huacheng Square',
+                'attraction7-desc': 'Located on Guangzhou’s new central axis, surrounded by flowers, skyscrapers, and cultural landmarks like the Opera House.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '广州',
+                'attraction1-title': '沙面',
+                'attraction1-desc': '沙面曾是广州的重要商埠，岛内设立过多个国家领事馆，是广州最具异国情调的欧洲建筑群，被称为“露天博物馆”。',
+                'attraction2-title': '陈家祠',
+                'attraction2-desc': '2017年被中国博物馆协会评为“国家一级博物馆”。被誉为“岭南建筑艺术明珠”。',
+                'attraction3-title': '荔枝湾涌',
+                'attraction3-desc': '体验西关风貌、威尼斯水城般的荔湾水乡。',
+                'attraction4-title': '永庆坊',
+                'attraction4-desc': '融汇了人文古建、传统艺术、国际休闲、时尚潮流的广州核心历史文化街区。',
+                'attraction5-title': '越秀山',
+                'attraction5-desc': '在古代是广州的主山，以秀丽的湖光山色取胜，兼有镇海楼和五羊雕塑两座广州的标志性建筑。',
+                'attraction6-title': '镇海楼',
+                'attraction6-desc': '位于越秀山上，建于1380年，迄今600多年历史，内有广州博物馆。',
+                'attraction7-title': '花城广场',
+                'attraction7-desc': '位于广州市城市新中轴线珠江新城核心节点，周围繁花锦簇，高楼大厦林立，周边有广州大剧院、省博物馆、广州图书馆。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
