@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Zhongshan Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%;
+            margin: 0 auto;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
+                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
+                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Zhongshan</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="sun-yat-sen-residence">
+                    <div class="card-image">
+                        <a href="ZS_孙中山故居.jpg" target="_blank"><img src="ZS_孙中山故居.jpg" alt="Sun Yat-sen's Former Residence"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Antigua Residencia de Sun Yat-sen</h3>
+                        <p data-lang="attraction1-desc">Ubicada en Cuiheng, Zhongshan, esta casa de 500 m² fue construida en 1892 con fondos de Sun Mei, hermano de Sun Yat-sen, bajo su supervisión.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="zhan-garden">
+                    <div class="card-image">
+                        <a href="ZS_中山詹园.jpg" target="_blank"><img src="ZS_中山詹园.jpg" alt="Zhan Garden"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Jardín Zhan</h3>
+                        <p data-lang="attraction2-desc">El mayor jardín privado de Lingnan, construido en 5 años por Huang Yuanxin como un refugio elegante para sus padres.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Zhongshan',
+                'attraction1-title': 'Antigua Residencia de Sun Yat-sen',
+                'attraction1-desc': 'Ubicada en Cuiheng, Zhongshan, esta casa de 500 m² fue construida en 1892 con fondos de Sun Mei, hermano de Sun Yat-sen, bajo su supervisión.',
+                'attraction2-title': 'Jardín Zhan',
+                'attraction2-desc': 'El mayor jardín privado de Lingnan, construido en 5 años por Huang Yuanxin como un refugio elegante para sus padres.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Zhongshan',
+                'attraction1-title': 'Sun Yat-sen’s Former Residence',
+                'attraction1-desc': 'Located in Cuiheng, Zhongshan, this 500 m² house was built in 1892 with funds from Sun Mei, Sun Yat-sen’s brother, under his supervision.',
+                'attraction2-title': 'Zhan Garden',
+                'attraction2-desc': 'The largest private garden in Lingnan, built over 5 years by Huang Yuanxin as an elegant retreat for his parents.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '中山',
+                'attraction1-title': '孙中山故居',
+                'attraction1-desc': '孙中山故居位于广东省中山市翠亨村，坐东向西，占地500平方米，建筑面积340平方米。清光绪十八年（1892年），孙中山兄长孙眉从檀香山汇款回来，由孙中山主持修建而成的。',
+                'attraction2-title': '詹园',
+                'attraction2-desc': '中山詹园，又名“中山大宅门”，是中国岭南地区最大的古典私家园林，由园主黄远新先生历时5年建造而成，旨在为父母修建一处淡雅精致、颐养天年的静心居所。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        // Check for language query parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+        }
+    </script>
+</body>
+</html>
