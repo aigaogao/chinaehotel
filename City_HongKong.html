@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Hong Kong Attractions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .city-title {
+            font-size: 24px;
+            color: #ff6200;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 45%;
+            margin: 0 auto;
+        }
+
+        .card-link:hover .card {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            min-height: 100px;
+            overflow: hidden;
+        }
+
+        .card-content h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .card-link {
+                width: 100%;
+            }
+
+            .card-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Hong Kong</h1>
+
+        <div class="content">
+            <div class="card-link">
+                <div class="card" id="victoria-peak">
+                    <div class="card-image">
+                        <a href="HK_太平山顶.jpg" target="_blank"><img src="HK_太平山顶.jpg" alt="Victoria Peak"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction1-title">Pico Victoria</h3>
+                        <p data-lang="attraction1-desc">Situado a 428 metros sobre el nivel del mar, este mirador ofrece vistas panorámicas de la ciudad, brindando una sensación de grandeza y dominio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="repulse-bay">
+                    <div class="card-image">
+                        <a href="HK_浅水湾.jpg" target="_blank"><img src="HK_浅水湾.jpg" alt="Repulse Bay"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction2-title">Bahía Repulse</h3>
+                        <p data-lang="attraction2-desc">Conocida como la "Primera Bahía del Mundo" y apodada la "Hawái Oriental", es una de las bahías más representativas de Hong Kong.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="aberdeen">
+                    <div class="card-image">
+                        <a href="HK_香港仔.jpg" target="_blank"><img src="HK_香港仔.jpg" alt="Aberdeen"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction3-title">Aberdeen</h3>
+                        <p data-lang="attraction3-desc">Famoso por su encanto de pueblo pesquero y su oferta de mariscos, Aberdeen es un destino turístico reconocido a nivel mundial.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="stanley-market">
+                    <div class="card-image">
+                        <a href="HK_赤柱市场.jpg" target="_blank"><img src="HK_赤柱市场.jpg" alt="Stanley Market"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction4-title">Mercado de Stanley</h3>
+                        <p data-lang="attraction4-desc">Edificios coloridos y una amplia variedad de productos, desde souvenirs para turistas hasta artesanías chinas tradicionales, ropa de moda y pinturas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="tian-tan-buddha">
+                    <div class="card-image">
+                        <a href="HK_天坛大佛01.jpg" target="_blank"><img src="HK_天坛大佛01.jpg" alt="Tian Tan Buddha"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction5-title">Buda Tian Tan</h3>
+                        <p data-lang="attraction5-desc">El Buda Tian Tan es la estatua de bronce al aire libre más alta del mundo, representando una figura icónica de Hong Kong.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="avenue-of-stars">
+                    <div class="card-image">
+                        <a href="HK_星光大道.jpg" target="_blank"><img src="HK_星光大道.jpg" alt="Avenue of Stars"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction6-title">Avenida de las Estrellas</h3>
+                        <p data-lang="attraction6-desc">Inspirada en el Paseo de la Fama de Hollywood, esta avenida honra a figuras destacadas del cine con placas conmemorativas y huellas de manos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="tsim-sha-tsui">
+                    <div class="card-image">
+                        <a href="HK_尖沙咀.jpg" target="_blank"><img src="HK_尖沙咀.jpg" alt="Tsim Sha Tsui"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction7-title">Tsim Sha Tsui</h3>
+                        <p data-lang="attraction7-desc">La joya de Kowloon, con restaurantes gourmet, tiendas de lujo y vistas nocturnas al Puerto Victoria que lo convierten en un punto focal de Hong Kong.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="wong-tai-sin-temple">
+                    <div class="card-image">
+                        <a href="HK_黄大仙祠.jpg" target="_blank"><img src="HK_黄大仙祠.jpg" alt="Wong Tai Sin Temple"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction8-title">Templo Wong Tai Sin</h3>
+                        <p data-lang="attraction8-desc">Uno de los templos más famosos de Hong Kong, conocido por ser un lugar donde los deseos se cumplen, atrayendo a numerosos devotos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Hong Kong',
+                'attraction1-title': 'Pico Victoria',
+                'attraction1-desc': 'Situado a 428 metros sobre el nivel del mar, este mirador ofrece vistas panorámicas de la ciudad, brindando una sensación de grandeza y dominio.',
+                'attraction2-title': 'Bahía Repulse',
+                'attraction2-desc': 'Conocida como la "Primera Bahía del Mundo" y apodada la "Hawái Oriental", es una de las bahías más representativas de Hong Kong.',
+                'attraction3-title': 'Aberdeen',
+                'attraction3-desc': 'Famoso por su encanto de pueblo pesquero y su oferta de mariscos, Aberdeen es un destino turístico reconocido a nivel mundial.',
+                'attraction4-title': 'Mercado de Stanley',
+                'attraction4-desc': 'Edificios coloridos y una amplia variedad de productos, desde souvenirs para turistas hasta artesanías chinas tradicionales, ropa de moda y pinturas.',
+                'attraction5-title': 'Buda Tian Tan',
+                'attraction5-desc': 'El Buda Tian Tan es la estatua de bronce al aire libre más alta del mundo, representando una figura icónica de Hong Kong.',
+                'attraction6-title': 'Avenida de las Estrellas',
+                'attraction6-desc': 'Inspirada en el Paseo de la Fama de Hollywood, esta avenida honra a figuras destacadas del cine con placas conmemorativas y huellas de manos.',
+                'attraction7-title': 'Tsim Sha Tsui',
+                'attraction7-desc': 'La joya de Kowloon, con restaurantes gourmet, tiendas de lujo y vistas nocturnas al Puerto Victoria que lo convierten en un punto focal de Hong Kong.',
+                'attraction8-title': 'Templo Wong Tai Sin',
+                'attraction8-desc': 'Uno de los templos más famosos de Hong Kong, conocido por ser un lugar donde los deseos se cumplen, atrayendo a numerosos devotos.'
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'city-title': 'Hong Kong',
+                'attraction1-title': 'Victoria Peak',
+                'attraction1-desc': 'Perched at 428 meters above sea level, this unrivaled vantage point offers breathtaking city views, evoking a sense of grandeur.',
+                'attraction2-title': 'Repulse Bay',
+                'attraction2-desc': 'Known as the "World’s First Bay" and dubbed the "Oriental Hawaii," it is one of Hong Kong’s most iconic bays.',
+                'attraction3-title': 'Aberdeen',
+                'attraction3-desc': 'Renowned for its fishing village charm and seafood, Aberdeen is a world-famous tourist attraction.',
+                'attraction4-title': 'Stanley Market',
+                'attraction4-desc': 'Colorful buildings and a vast array of goods, from tourist souvenirs to traditional Chinese crafts, fashionable clothing, and fine paintings.',
+                'attraction5-title': 'Tian Tan Buddha',
+                'attraction5-desc': 'The Tian Tan Buddha is the world’s tallest outdoor bronze seated Buddha, an iconic symbol of Hong Kong.',
+                'attraction6-title': 'Avenue of Stars',
+                'attraction6-desc': 'Modeled after Hollywood’s Walk of Fame, it honors prominent film industry figures with commemorative plaques and handprints.',
+                'attraction7-title': 'Tsim Sha Tsui',
+                'attraction7-desc': 'The jewel of Kowloon, with gourmet restaurants, luxury boutiques, and vibrant Victoria Harbour views, making it a focal point of Hong Kong.',
+                'attraction8-title': 'Wong Tai Sin Temple',
+                'attraction8-desc': 'One of Hong Kong’s most famous temples, renowned for granting wishes and attracting countless devotees.'
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'city-title': '香港',
+                'attraction1-title': '太平山顶',
+                'attraction1-desc': '位于海拔428米的无敌观景台，尽览醉人都会景致，令人有君临天下之感。',
+                'attraction2-title': '浅水湾',
+                'attraction2-desc': '号称“天下第一湾”，有“东方夏威夷”之美誉，是香港最具代表性的海湾。',
+                'attraction3-title': '香港仔',
+                'attraction3-desc': '香港仔以其渔村风味及海鲜，成为闻名中外的旅游景点。',
+                'attraction4-title': '赤柱市场',
+                'attraction4-desc': '色彩斑斓的建筑和琳琅满目的商品，从外国游客纪念品到中国传统手工艺品、时尚成衣到精美油画，应有尽有。',
+                'attraction5-title': '天坛大佛',
+                'attraction5-desc': '天坛大佛是全球最高的户外青铜坐佛，是香港的标志性象征。',
+                'attraction6-title': '星光大道',
+                'attraction6-desc': '仿效好莱坞星光大道，杰出电影工作者的芳名与手掌印镶嵌在纪念牌匾上，按年代排列。',
+                'attraction7-title': '尖沙咀',
+                'attraction7-desc': '九龙的明珠，白天美食餐厅与精品店游客如织，夜里维多利亚港的星光大道灯火璀璨，成为香江焦点。',
+                'attraction8-title': '黄大仙祠',
+                'attraction8-desc': '香港最著名的庙宇之一，享誉海内外，相传“有求必应”，香火鼎盛。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                element.textContent = translations[lang][key];
+            });
+            document.documentElement.lang = lang;
+        }
+
+        changeLanguage('es');
+    </script>
+</body>
+</html>
