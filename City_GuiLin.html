@@ -178,9 +178,9 @@
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="changeLanguage('es')">Español</a>
-                    <a href="#" onclick="changeLanguage('en')">English</a>
-                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
+                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
+                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
                 </div>
             </div>
         </nav>
@@ -355,7 +355,7 @@
                 'attraction7-title': '伏波山',
                 'attraction7-desc': '每年春夏，江水暴涨，山麓遏阻急浪狂澜，使江水倒转回旋，有降伏波涛之力。',
                 'attraction8-title': '芦笛岩',
-                'attraction8-desc': '洞内有大量绮丽多姿、玲珑剔透的石笋、石乳、石柱、石幔、石花，琳� Holder 满目，令游客目不暇接，如同仙境，被誉为 “ 大自然的艺术之宫 ” 。'
+                'attraction8-desc': '洞内有大量绮丽多姿、玲珑剔透的石笋、石乳、石柱、石幔、石花，琳琅满目，令游客目不暇接，如同仙境，被誉为 “ 大自然的艺术之宫 ” 。'
             }
         };
 
@@ -367,7 +367,14 @@
             document.documentElement.lang = lang;
         }
 
-        changeLanguage('es');
+        // Check for language query parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+        }
     </script>
 </body>
 </html>

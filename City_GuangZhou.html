@@ -178,9 +178,9 @@
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="changeLanguage('es')">Español</a>
-                    <a href="#" onclick="changeLanguage('en')">English</a>
-                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
+                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
+                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
                 </div>
             </div>
         </nav>
@@ -350,7 +350,14 @@
             document.documentElement.lang = lang;
         }
 
-        changeLanguage('es');
+        // Check for language query parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+        }
     </script>
 </body>
 </html>

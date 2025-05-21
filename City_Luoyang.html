@@ -71,7 +71,7 @@
 
         .city-title {
             font-size: 24px;
-            color: #ff6200; /* 与 index.html 价格颜色一致 */
+            color: #ff6200;
             text-align: center;
             margin: 20px 0;
         }
@@ -86,7 +86,7 @@
 
         .card {
             width: 100%;
-            height: auto; /* 自适应高度 */
+            height: auto;
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
@@ -97,8 +97,8 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            width: 45%; /* 与 index.html 一致 */
-            margin: 0 auto; /* 居中 */
+            width: 45%;
+            margin: 0 auto;
         }
 
         .card-link:hover .card {
@@ -107,21 +107,21 @@
 
         .card-image {
             width: 100%;
-            height: 300px; /* 固定图片高度，与 index.html 一致 */
+            height: 300px;
             overflow: hidden;
         }
 
         .card img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+            object-fit: cover;
             display: block;
         }
 
         .card-content {
             padding: 15px;
-            min-height: 100px; /* 最小高度，容纳2行描述 */
-            overflow: hidden; /* 截断超长文本 */
+            min-height: 100px;
+            overflow: hidden;
         }
 
         .card-content h3 {
@@ -160,11 +160,11 @@
             }
 
             .card-link {
-                width: 100%; /* 移动设备上占满宽度 */
+                width: 100%;
             }
 
             .card-image {
-                height: 200px; /* 移动设备上图片高度 */
+                height: 200px;
             }
         }
     </style>
@@ -178,9 +178,9 @@
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="changeLanguage('es')">Español</a>
-                    <a href="#" onclick="changeLanguage('en')">English</a>
-                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
+                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
+                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
                 </div>
             </div>
         </nav>
@@ -189,35 +189,79 @@
 
         <div class="content">
             <div class="card-link">
-                <div class="card" id="shaolin-kung-fu">
+                <div class="card" id="longmen-grottoes">
                     <div class="card-image">
-                        <a href="LY_少林寺1.jpg" target="_blank"><img src="LY_少林寺1.jpg" alt="Shaolin Kung Fu"></a>
+                        <a href="LY_龙门石窟.jpg" target="_blank"><img src="LY_龙门石窟.jpg" alt="Longmen Grottoes"></a>
                     </div>
                     <div class="card-content">
-                        <h3 data-lang="attraction1-title">Kung Fu de Shaolin</h3>
-                        <p data-lang="attraction1-desc">También llamado artes marciales Shaolin, se basa en la fe budista, refleja la sabiduría zen y se expresa en el kung fu practicado por monjes de Shaolin.</p>
+                        <h3 data-lang="attraction1-title">Grutas de Longmen</h3>
+                        <p data-lang="attraction1-desc">Un sitio del Patrimonio Mundial de la UNESCO con miles de estatuas budistas talladas en roca, que representan el arte antiguo chino.</p>
                     </div>
                 </div>
             </div>
             <div class="card-link">
-                <div class="card" id="shaolin-temple">
+                <div class="card" id="white-horse-temple">
                     <div class="card-image">
-                        <a href="LY_少林寺2.jpg" target="_blank"><img src="LY_少林寺2.jpg" alt="Shaolin Temple"></a>
+                        <a href="LY_白马寺.jpg" target="_blank"><img src="LY_白马寺.jpg" alt="White Horse Temple"></a>
                     </div>
                     <div class="card-content">
-                        <h3 data-lang="attraction2-title">Templo Shaolin</h3>
-                        <p data-lang="attraction2-desc">Cuna del budismo zen y del kung fu chino, famoso mundialmente por el kung fu desarrollado por los monjes de Shaolin.</p>
+                        <h3 data-lang="attraction2-title">Templo del Caballo Blanco</h3>
+                        <p data-lang="attraction2-desc">Considerado el primer templo budista de China, fundado en el siglo I, es un centro espiritual histórico.</p>
                     </div>
                 </div>
             </div>
             <div class="card-link">
-                <div class="card" id="luoyang-ancient-city">
+                <div class="card" id="luoyang-museum">
                     <div class="card-image">
-                        <a href="LY_洛阳古城.jpg" target="_blank"><img src="LY_洛阳古城.jpg" alt="Luoyang Ancient City"></a>
+                        <a href="LY_洛阳博物馆.jpg" target="_blank"><img src="LY_洛阳博物馆.jpg" alt="Luoyang Museum"></a>
                     </div>
                     <div class="card-content">
-                        <h3 data-lang="attraction3-title">Ciudad Antigua de Luoyang</h3>
-                        <p data-lang="attraction3-desc">Punto de partida de la Ruta de la Seda y centro del Gran Canal Sui-Tang. Capital por más de 530 años, conocida como Tokio, Dongdu, Luoyanggong, Shendu y Xijing.</p>
+                        <h3 data-lang="attraction3-title">Museo de Luoyang</h3>
+                        <p data-lang="attraction3-desc">Exhibe artefactos de la rica historia de Luoyang, una de las capitales antiguas de China, con reliquias de varias dinastías.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="guanlin-temple">
+                    <div class="card-image">
+                        <a href="LY_关林庙.jpg" target="_blank"><img src="LY_关林庙.jpg" alt="Guanlin Temple"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction4-title">Templo Guanlin</h3>
+                        <p data-lang="attraction4-desc">Dedicado al héroe Guan Yu, este templo combina arquitectura tradicional y significado cultural.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="luoyang-old-town">
+                    <div class="card-image">
+                        <a href="LY_洛阳老城.jpg" target="_blank"><img src="LY_洛阳老城.jpg" alt="Luoyang Old Town"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction5-title">Ciudad Vieja de Luoyang</h3>
+                        <p data-lang="attraction5-desc">Un distrito histórico con calles tradicionales, tiendas y arquitectura que refleja el pasado imperial de Luoyang.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="sui-tang-luoyang-city">
+                    <div class="card-image">
+                        <a href="LY_隋唐洛阳城.jpg" target="_blank"><img src="LY_隋唐洛阳城.jpg" alt="Sui-Tang Luoyang City"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction6-title">Ciudad de Luoyang Sui-Tang</h3>
+                        <p data-lang="attraction6-desc">Un sitio arqueológico restaurado que muestra los restos de la ciudad de las dinastías Sui y Tang.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-link">
+                <div class="card" id="wangcheng-park">
+                    <div class="card-image">
+                        <a href="LY_王城公园.jpg" target="_blank"><img src="LY_王城公园.jpg" alt="Wangcheng Park"></a>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="attraction7-title">Parque Wangcheng</h3>
+                        <p data-lang="attraction7-desc">Famoso por su Festival de la Peonía, este parque ofrece hermosos jardines y vistas culturales.</p>
                     </div>
                 </div>
             </div>
@@ -237,12 +281,20 @@
                 'language': 'Idioma',
                 'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
                 'city-title': 'Luoyang',
-                'attraction1-title': 'Kung Fu de Shaolin',
-                'attraction1-desc': 'También llamado artes marciales Shaolin, se basa en la fe budista, refleja la sabiduría zen y se expresa en el kung fu practicado por monjes de Shaolin.',
-                'attraction2-title': 'Templo Shaolin',
-                'attraction2-desc': 'Cuna del budismo zen y del kung fu chino, famoso mundialmente por el kung fu desarrollado por los monjes de Shaolin.',
-                'attraction3-title': 'Ciudad Antigua de Luoyang',
-                'attraction3-desc': 'Punto de partida de la Ruta de la Seda y centro del Gran Canal Sui-Tang. Capital por más de 530 años, conocida como Tokio, Dongdu, Luoyanggong, Shendu y Xijing.'
+                'attraction1-title': 'Grutas de Longmen',
+                'attraction1-desc': 'Un sitio del Patrimonio Mundial de la UNESCO con miles de estatuas budistas talladas en roca, que representan el arte antiguo chino.',
+                'attraction2-title': 'Templo del Caballo Blanco',
+                'attraction2-desc': 'Considerado el primer templo budista de China, fundado en el siglo I, es un centro espiritual histórico.',
+                'attraction3-title': 'Museo de Luoyang',
+                'attraction3-desc': 'Exhibe artefactos de la rica historia de Luoyang, una de las capitales antiguas de China, con reliquias de varias dinastías.',
+                'attraction4-title': 'Templo Guanlin',
+                'attraction4-desc': 'Dedicado al héroe Guan Yu, este templo combina arquitectura tradicional y significado cultural.',
+                'attraction5-title': 'Ciudad Vieja de Luoyang',
+                'attraction5-desc': 'Un distrito histórico con calles tradicionales, tiendas y arquitectura que refleja el pasado imperial de Luoyang.',
+                'attraction6-title': 'Ciudad de Luoyang Sui-Tang',
+                'attraction6-desc': 'Un sitio arqueológico restaurado que muestra los restos de la ciudad de las dinastías Sui y Tang.',
+                'attraction7-title': 'Parque Wangcheng',
+                'attraction7-desc': 'Famoso por su Festival de la Peonía, este parque ofrece hermosos jardines y vistas culturales.'
             },
             'en': {
                 'home': 'Home',
@@ -251,12 +303,20 @@
                 'language': 'Language',
                 'footer': '© 2025 chinaehotel.com All rights reserved.',
                 'city-title': 'Luoyang',
-                'attraction1-title': 'Shaolin Kung Fu',
-                'attraction1-desc': 'Also known as Shaolin martial arts, it is rooted in Buddhist faith, embodies Zen wisdom, and is expressed through kung fu practiced by Shaolin monks.',
-                'attraction2-title': 'Shaolin Temple',
-                'attraction2-desc': 'Birthplace of Zen Buddhism and Chinese kung fu, renowned globally for the kung fu developed by Shaolin monks.',
-                'attraction3-title': 'Luoyang Ancient City',
-                'attraction3-desc': 'Starting point of the Silk Road and hub of the Sui-Tang Grand Canal. Capital for over 530 years, known as Tokyo, Dongdu, Luoyanggong, Shendu, and Xijing.'
+                'attraction1-title': 'Longmen Grottoes',
+                'attraction1-desc': 'A UNESCO World Heritage Site with thousands of rock-carved Buddhist statues, showcasing ancient Chinese art.',
+                'attraction2-title': 'White Horse Temple',
+                'attraction2-desc': 'Regarded as China’s first Buddhist temple, founded in the 1st century, it’s a historic spiritual center.',
+                'attraction3-title': 'Luoyang Museum',
+                'attraction3-desc': 'Displays artifacts from Luoyang’s rich history as an ancient capital, with relics from multiple dynasties.',
+                'attraction4-title': 'Guanlin Temple',
+                'attraction4-desc': 'Dedicated to the hero Guan Yu, this temple blends traditional architecture and cultural significance.',
+                'attraction5-title': 'Luoyang Old Town',
+                'attraction5-desc': 'A historic district with traditional streets, shops, and architecture reflecting Luoyang’s imperial past.',
+                'attraction6-title': 'Sui-Tang Luoyang City',
+                'attraction6-desc': 'A restored archaeological site showcasing the remains of the Sui and Tang dynasty city.',
+                'attraction7-title': 'Wangcheng Park',
+                'attraction7-desc': 'Famous for its Peony Festival, this park offers beautiful gardens and cultural sights.'
             },
             'zh': {
                 'home': '主页',
@@ -265,12 +325,20 @@
                 'language': '语言',
                 'footer': '© 2025 chinaehotel.com 版权所有。',
                 'city-title': '洛阳',
-                'attraction1-title': '少林功夫',
-                'attraction1-desc': '又称少林武术，是指以佛教神力信仰为基础，充分体现佛教禅宗智慧，并以少林寺僧人演练的功夫为主要表现形式。',
-                'attraction2-title': '少林寺',
-                'attraction2-desc': '少林寺不仅是禅宗的发祥地，还是中国功夫的发祥地，因其历代少林武僧潜心研创和不断发展的少林功夫而名扬天下。',
-                'attraction3-title': '洛阳古城',
-                'attraction3-desc': '是丝绸之路的东方起点，隋唐大运河的中心枢纽。自隋炀帝迁都，该城先后被称作东京、东都、洛阳宫、神都、西京，历经隋、唐、五代、北宋，跨越了中国封建社会的最鼎盛时期，前后沿用530多年。'
+                'attraction1-title': '龙门石窟',
+                'attraction1-desc': '联合国教科文组织世界遗产，拥有数万尊石刻佛像，展示了中国古代艺术的辉煌。',
+                'attraction2-title': '白马寺',
+                'attraction2-desc': '被认为是中国的第一座佛教寺庙，始建于公元1世纪，是历史悠久的精神中心。',
+                'attraction3-title': '洛阳博物馆',
+                'attraction3-desc': '展示洛阳作为古代都城的丰富历史，展品包括多个朝代的文物。',
+                'attraction4-title': '关林庙',
+                'attraction4-desc': '献给英雄关羽，这座寺庙融合了传统建筑和文化意义。',
+                'attraction5-title': '洛阳老城',
+                'attraction5-desc': '历史区域，拥有传统街道、商店和反映洛阳帝国过去的建筑。',
+                'attraction6-title': '隋唐洛阳城',
+                'attraction6-desc': '修复的考古遗址，展示隋唐时期洛阳城的遗迹。',
+                'attraction7-title': '王城公园',
+                'attraction7-desc': '以牡丹节闻名，这个公园提供美丽的花园和文化景观。'
             }
         };
 
@@ -282,7 +350,14 @@
             document.documentElement.lang = lang;
         }
 
-        changeLanguage('es');
+        // Check for language query parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+        }
     </script>
 </body>
 </html>

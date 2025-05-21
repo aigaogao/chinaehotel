@@ -342,7 +342,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chinaehotel.com/City_GuangZhou.html" class="city-card-link" target="_blank">
+            <a href="https://chinaehotel.com/City_GuangZhou.html?lang=es" class="city-card-link" data-city="guangzhou" target="_blank">
                 <div class="card">
                     <div class="city-card-image">
                         <img src="GZ_越秀公园.jpg" alt="广州">
@@ -352,7 +352,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chinaehotel.com/City_Luoyang.html" class="city-card-link" target="_blank">
+            <a href="https://chinaehotel.com/City_Luoyang.html?lang=es" class="city-card-link" data-city="luoyang" target="_blank">
                 <div class="card">
                     <div class="city-card-image">
                         <img src="LY_少林寺1.jpg" alt="洛阳">
@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chinaehotel.com/City_GuiLin.html" class="city-card-link" target="_blank">
+            <a href="https://chinaehotel.com/City_GuiLin.html?lang=es" class="city-card-link" data-city="guilin" target="_blank">
                 <div class="card">
                     <div class="city-card-image">
                         <img src="GL_漓江.jpg" alt="桂林">
@@ -554,8 +554,11 @@
             });
             document.documentElement.lang = lang;
 
-            // 更新三亚、佛山、中山的城市链接
+            // 更新洛阳、广州、桂林、三亚、佛山、中山的城市链接
             const cityLinks = {
+                'luoyang': 'https://chinaehotel.com/City_Luoyang.html',
+                'guangzhou': 'https://chinaehotel.com/City_GuangZhou.html',
+                'guilin': 'https://chinaehotel.com/City_GuiLin.html',
                 'sanya': 'https://chinaehotel.com/City_SanYa.html',
                 'foshan': 'https://chinaehotel.com/City_FoShan.html',
                 'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
