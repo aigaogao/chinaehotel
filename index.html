@@ -77,8 +77,25 @@
             justify-content: center;
         }
 
+        .city-content {
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .city-heading {
+            font-size: 18px;
+            color: #ff6200;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
         .card {
-            width: 100%; /* 调整为 100%，由外层 .card-link 控制宽度 */
+            width: 100%;
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
@@ -92,13 +109,38 @@
             width: 45%;
         }
 
-        .card-link:hover .card {
+        .city-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 22%; /* Half of 45%, adjusted for gap */
+        }
+
+        .city-content .city-row-last {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .city-content .city-row-last .city-card-link {
+            width: 22%; /* Same width as other city blocks */
+        }
+
+        .card-link:hover .card,
+        .city-card-link:hover .card {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .card-image {
             width: 100%;
             height: 300px;
+            overflow: hidden;
+        }
+
+        .city-card-image {
+            width: 100%;
+            height: 150px; /* Half the height of larger blocks */
             overflow: hidden;
         }
 
@@ -119,6 +161,11 @@
             color: #333;
         }
 
+        .city-content .card-content h3 {
+            text-align: center;
+            margin-bottom: 0; /* Remove margin since no text follows */
+        }
+
         .card-content p {
             font-size: 14px;
             color: #666;
@@ -130,11 +177,6 @@
             color: #ff6200;
             font-weight: bold;
             margin-bottom: 10px;
-        }
-
-        .content .card-link:last-child:nth-child(odd) {
-            width: 45%;
-            margin: 0 auto;
         }
 
         footer {
@@ -160,16 +202,30 @@
                 justify-content: space-around;
             }
 
-            .card-link {
+            .card-link,
+            .city-card-link {
                 width: 100%;
             }
 
-            .content .card-link:last-child:nth-child(odd) {
+            .city-content .city-row-last {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .city-content .city-row-last .city-card-link {
                 width: 100%;
             }
 
             .card-image {
                 height: 200px;
+            }
+
+            .city-card-image {
+                height: 100px; /* Adjusted for smaller screens */
+            }
+
+            .city-heading {
+                font-size: 16px; /* Slightly smaller on mobile */
             }
         }
     </style>
@@ -240,7 +296,7 @@
             <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html" class="card-link" target="_blank">
                 <div class="card">
                     <div class="card-image">
-                        <img src="GZ_越秀公园.jpg" alt="景点图片">
+                        <img src="GZ_花城广场.jpg" alt="景点图片">
                     </div>
                     <div class="card-content">
                         <h3 data-lang="tour5-title">Tour personalizado: 12 días en el sur de China</h3>
@@ -261,6 +317,115 @@
                     </div>
                 </div>
             </a>
+        </div>
+
+        <div class="city-content">
+            <h2 class="city-heading" data-lang="city-heading">Introducción a las atracciones de las ciudades de China</h2>
+            <!-- Existing 4 city blocks -->
+            <a href="https://chinaehotel.com/City_Beijing.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="BJ_居庸关长城.jpg" alt="北京">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-beijing">Pekín</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_Shanghai.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="SH_外滩.jpg" alt="上海">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-shanghai">Shanghái</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_GuangZhou.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="GZ_越秀公园.jpg" alt="广州">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-guangzhou">Cantón</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_Luoyang.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="LY_少林寺1.jpg" alt="洛阳">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-luoyang">Luoyang</h3>
+                    </div>
+                </div>
+            </a>
+            <!-- New row: Xi'an, Guilin, Hong Kong, Sanya (Hainan) -->
+            <a href="https://chinaehotel.com/City_XiAn.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="XA_秦始皇陵兵马俑.jpg" alt="西安">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-xian">Xi'an</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_GuiLin.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="GL_漓江.jpg" alt="桂林">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-guilin">Guilin</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_HongKong.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="HK_尖沙咀.jpg" alt="香港">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-hongkong">Hong Kong</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_SanYa.html" class="city-card-link" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="SY_蜈支洲岛.jpg" alt="三亚（海南）">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-sanya">Sanya (Hainan)</h3>
+                    </div>
+                </div>
+            </a>
+            <!-- Last row: Foshan, Zhongshan (centered) -->
+            <div class="city-row-last">
+                <a href="https://chinaehotel.com/City_FoShan.html" class="city-card-link" target="_blank">
+                    <div class="card">
+                        <div class="city-card-image">
+                            <img src="FS_黄飞鸿纪念馆.jpg" alt="佛山">
+                        </div>
+                        <div class="card-content">
+                            <h3 data-lang="city-foshan">Foshan</h3>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://chinaehotel.com/City_ZhongShan.html" class="city-card-link" target="_blank">
+                    <div class="card">
+                        <div class="city-card-image">
+                            <img src="ZS_中山詹园.jpg" alt="中山">
+                        </div>
+                        <div class="card-content">
+                            <h3 data-lang="city-zhongshan">Zhongshan</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -291,7 +456,18 @@
                 'tour6-title': 'Clásico: 10 días en el sur de China',
                 'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre)',
                 'tour7-title': 'Exclusivo: 12 días en ciudades famosas del sur de China',
-                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan'
+                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan',
+                'city-heading': 'Introducción a las atracciones de las ciudades de China',
+                'city-beijing': 'Pekín',
+                'city-shanghai': 'Shanghái',
+                'city-guangzhou': 'Cantón',
+                'city-luoyang': 'Luoyang',
+                'city-xian': 'Xi\'an',
+                'city-guilin': 'Guilin',
+                'city-hongkong': 'Hong Kong',
+                'city-sanya': 'Sanya (Hainan)',
+                'city-foshan': 'Foshan',
+                'city-zhongshan': 'Zhongshan'
             },
             'en': {
                 'home': 'Home',
@@ -314,7 +490,18 @@
                 'tour6-title': 'Classic: 10-Day South China Tour',
                 'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (June, July, August, September, December)',
                 'tour7-title': 'Exclusive: 12-Day Famous South China Cities Tour',
-                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Hainan Island'
+                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Hainan Island',
+                'city-heading': 'Introduction to Chinese City Attractions',
+                'city-beijing': 'Beijing',
+                'city-shanghai': 'Shanghai',
+                'city-guangzhou': 'Guangzhou',
+                'city-luoyang': 'Luoyang',
+                'city-xian': 'Xi\'an',
+                'city-guilin': 'Guilin',
+                'city-hongkong': 'Hong Kong',
+                'city-sanya': 'Sanya (Hainan)',
+                'city-foshan': 'Foshan',
+                'city-zhongshan': 'Zhongshan'
             },
             'zh': {
                 'home': '主页',
@@ -337,7 +524,18 @@
                 'tour6-title': '10天中国南方经典游',
                 'tour6-desc': '香港-桂林-广州-佛山（6、7、8、9、12月）',
                 'tour7-title': '独家定制12天中国南方名城',
-                'tour7-desc': '香港-桂林-广州-佛山-海南岛'
+                'tour7-desc': '香港-桂林-广州-佛山-海南岛',
+                'city-heading': '中国城市景点介绍',
+                'city-beijing': '北京',
+                'city-shanghai': '上海',
+                'city-guangzhou': '广州',
+                'city-luoyang': '洛阳',
+                'city-xian': '西安',
+                'city-guilin': '桂林',
+                'city-hongkong': '香港',
+                'city-sanya': '三亚（海南）',
+                'city-foshan': '佛山',
+                'city-zhongshan': '中山'
             }
         };
 
