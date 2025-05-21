@@ -393,7 +393,7 @@
                     </div>
                 </div>
             </a>
-            <a href="https://chinaehotel.com/City_SanYa.html" class="city-card-link" target="_blank">
+            <a href="https://chinaehotel.com/City_SanYa.html?lang=es" class="city-card-link" data-city="sanya" target="_blank">
                 <div class="card">
                     <div class="city-card-image">
                         <img src="SY_蜈支洲岛.jpg" alt="三亚（海南）">
@@ -405,7 +405,7 @@
             </a>
             <!-- Last row: Foshan, Zhongshan (centered) -->
             <div class="city-row-last">
-                <a href="https://chinaehotel.com/City_FoShan.html" class="city-card-link" target="_blank">
+                <a href="https://chinaehotel.com/City_FoShan.html?lang=es" class="city-card-link" data-city="foshan" target="_blank">
                     <div class="card">
                         <div class="city-card-image">
                             <img src="FS_黄飞鸿纪念馆.jpg" alt="佛山">
@@ -415,7 +415,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="https://chinaehotel.com/City_ZhongShan.html" class="city-card-link" target="_blank">
+                <a href="https://chinaehotel.com/City_ZhongShan.html?lang=es" class="city-card-link" data-city="zhongshan" target="_blank">
                     <div class="card">
                         <div class="city-card-image">
                             <img src="ZS_中山詹园.jpg" alt="中山">
@@ -430,10 +430,12 @@
     </div>
 
     <footer>
-        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados。</p>
     </footer>
 
     <script>
+        let currentLang = 'es'; // Default language is Spanish
+
         const translations = {
             'es': {
                 'home': 'Inicio',
@@ -540,13 +542,29 @@
         };
 
         function changeLanguage(lang) {
+            currentLang = lang; // Update current language
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
                 element.textContent = translations[lang][key];
             });
             document.documentElement.lang = lang;
+
+            // Update city links with language parameter for Sanya, Foshan, Zhongshan
+            const cityLinks = {
+                'sanya': 'https://chinaehotel.com/City_SanYa.html',
+                'foshan': 'https://chinaehotel.com/City_FoShan.html',
+                'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
+            };
+
+            Object.keys(cityLinks).forEach(city => {
+                const link = document.querySelector(`.city-card-link[data-city="${city}"]`);
+                if (link) {
+                    link.href = `${cityLinks[city]}?lang=${lang}`;
+                }
+            });
         }
 
+        // Initialize with Spanish
         changeLanguage('es');
     </script>
 </body>
