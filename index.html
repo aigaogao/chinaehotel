@@ -239,9 +239,9 @@
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
-                    <a href="#" onclick="changeLanguage('es')">Español</a>
-                    <a href="#" onclick="changeLanguage('en')">English</a>
-                    <a href="#" onclick="changeLanguage('zh')">中文</a>
+                    <a href="#" class="lang-link" data-lang-code="es">Español</a>
+                    <a href="#" class="lang-link" data-lang-code="en">English</a>
+                    <a href="#" class="lang-link" data-lang-code="zh">中文</a>
                 </div>
             </div>
         </nav>
@@ -434,7 +434,7 @@
     </footer>
 
     <script>
-        let currentLang = 'es'; // Default language is Spanish
+        let currentLang = 'es'; // 默认语言为西班牙语
 
         const translations = {
             'es': {
@@ -450,7 +450,7 @@
                 'tour2-desc': 'Shanghai - Luoyang - Templo Shaolin - Xi\'an - Beijing',
                 'tour2-period': '(Junio, Julio, Agosto, Septiembre, Diciembre)',
                 'tour3-title': 'Oferta familiar: 8 días en China',
-                'tour3-desc': 'Beijing - Xi'an - Shanghai',
+                'tour3-desc': 'Beijing - Xi\'an - Shanghai',
                 'tour3-period': '(Marzo, Abril, Mayo, Octubre, Noviembre)',
                 'tour5-title': 'Tour personalizado: 12 días en el sur de China',
                 'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Zhongshan',
@@ -542,14 +542,19 @@
         };
 
         function changeLanguage(lang) {
-            currentLang = lang; // Update current language
+            console.log(`切换语言到: ${lang}`); // 调试日志
+            currentLang = lang; // 更新当前语言
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
-                element.textContent = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                } else {
+                    console.warn(`未找到语言 ${lang} 的翻译键: ${key}`);
+                }
             });
             document.documentElement.lang = lang;
 
-            // Update city links with language parameter for Sanya, Foshan, Zhongshan
+            // 更新三亚、佛山、中山的城市链接
             const cityLinks = {
                 'sanya': 'https://chinaehotel.com/City_SanYa.html',
                 'foshan': 'https://chinaehotel.com/City_FoShan.html',
@@ -560,12 +565,24 @@
                 const link = document.querySelector(`.city-card-link[data-city="${city}"]`);
                 if (link) {
                     link.href = `${cityLinks[city]}?lang=${lang}`;
+                    console.log(`更新 ${city} 链接: ${link.href}`); // 调试日志
                 }
             });
         }
 
-        // Initialize with Spanish
-        changeLanguage('es');
+        // 为语言链接添加事件监听器
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.lang-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // 阻止默认跳转
+                    const lang = link.getAttribute('data-lang-code');
+                    changeLanguage(lang);
+                });
+            });
+
+            // 初始化为西班牙语
+            changeLanguage('es');
+        });
     </script>
 </body>
 </html>
