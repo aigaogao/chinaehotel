@@ -180,9 +180,9 @@
 <body>
     <div class="container">
         <nav>
-            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
-            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
-            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <a href="https://chinaehotel.com" data-lang="home" id="home-link">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html" data-lang="contact" id="contact-link">Contacto</a>
+            <a href="https://chinaehotel.com/form.html" data-lang="form" id="form-link">Formulario</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
@@ -197,6 +197,9 @@
             <h2 id="tour-title">Hong Kong-Guilin-Guangzhou-Hainan</h2>
             <h3 id="highlights-title">Destacados</h3>
             <ul id="highlights"></ul>
+            <span id="Mark_ES"></span>
+            <span id="Mark_EN" style="display:none;"></span>
+            <span id="Mark_ZH" style="display:none;"></span>
             <h3 id="itinerary-title">Itinerario</h3>
             <ul id="itinerary"></ul>
         </div>
@@ -218,13 +221,13 @@
                 'highlightsTitle': '亮点',
                 'itineraryTitle': '行程安排',
                 'highlights': [
-                    '品质保证：锦山行旅游公司在全国设有分支机构，为您提供最佳服务！',
                     '香港：被誉为“东方之珠”的香港是一座高度繁荣的自由港和国际大都市，全球第三大金融中心，中西文化交融之地。',
                     '桂林：“桂林山水甲天下”，以其独特的喀斯特地貌和秀美的自然风光而闻名。它宛如一幅水墨画，向您呈现着大自然的笔墨奇观。',
                     '广州：充满活力和魅力的国家中心城市，海上丝绸之路的起点之一，被誉为“千年商都”；自古就是中外文化交融之地，广府文化发祥地之一。',
                     '三亚：位于海南岛最南端的美丽海滨城市，以其绝美的自然风光、温暖的气候和丰富的旅游资源而闻名。'
                 ],
                 'itinerary': [
+                    '<span class="day">第0天：在飞往中国的国际航班旅程中</span> - 搭乘飞往中国的国际航班。',
                     '<span class="day">第1天：抵达香港</span> - 接机，送酒店。（无餐，住宿：4*酒店）',
                     '<span class="day">第2天：香港</span> - 太平山顶（含单程缆车）、浅水湾、香港仔（舢板游）、赤柱市场。（早/午/晚餐，住宿：4*酒店）<div class="day-images"><div class="attraction-images"><a href="HK_太平山顶.jpg" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="HK_浅水湾.jpg" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="HK_香港仔.jpg" target="_blank"><img src="HK_香港仔.jpg"></a><a href="HK_赤柱市场.jpg" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div>',
                     '<span class="day">第3天：香港</span> - 昂坪大佛、星光大道、尖沙咀、黄大仙祠。（早/午/晚餐，住宿：4*酒店）<div class="day-images"><div class="attraction-images"><a href="HK_天坛大佛01.jpg" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="HK_天坛大佛02.jpg" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="HK_星光大道.jpg" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="HK_尖沙咀.jpg" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="HK_黄大仙祠.jpg" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div>',
@@ -250,13 +253,13 @@
                 'highlightsTitle': 'Highlights',
                 'itineraryTitle': 'Itinerary',
                 'highlights': [
-                    'Quality Guaranteed: Weekend Tour INC has branches across China to provide the best services for you!',
                     'Hong Kong: Known as the "Pearl of the Orient," a thriving free port and global metropolis, the world’s third-largest financial hub, blending Eastern and Western cultures.',
                     'Guilin: Famous globally for "Guilin’s scenery is unmatched," renowned for its unique karst landscape and stunning natural beauty, like a Chinese ink painting.',
                     'Guangzhou: A vibrant national hub, a starting point of the Maritime Silk Road, dubbed the "Thousand-Year Commercial Capital," a cradle of Cantonese culture.',
                     'Sanya: A beautiful coastal city at the southern tip of Hainan Island, famous for its stunning natural scenery, warm climate, and abundant tourism resources.'
                 ],
                 'itinerary': [
+                    '<span class="day">Day 0: On the international flight to China</span> - Travel on an international flight to China.',
                     '<span class="day">Day 1: Arrive in Hong Kong</span> - Airport pickup, hotel check-in. (No meals, Accommodation: 4* hotel)',
                     '<span class="day">Day 2: Hong Kong</span> - Victoria Peak (one-way cable car), Repulse Bay, Aberdeen (sampan ride), Stanley Market.<br><div class="day-images"><div class="attraction-images"><a href="HK_太平山顶.jpg" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="HK_浅水湾.jpg" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="HK_香港仔.jpg" target="_blank"><img src="HK_香港仔.jpg"></a><a href="HK_赤柱市场.jpg" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div> (B/L/D, Accommodation: 4* hotel)',
                     '<span class="day">Day 3: Hong Kong</span> - Ngong Ping Big Buddha, Avenue of Stars, Tsim Sha Tsui, Wong Tai Sin Temple.<br><div class="day-images"><div class="attraction-images"><a href="HK_天坛大佛01.jpg" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="HK_天坛大佛02.jpg" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="HK_星光大道.jpg" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="HK_尖沙咀.jpg" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="HK_黄大仙祠.jpg" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div> (B/L/D, Accommodation: 4* hotel)',
@@ -282,13 +285,13 @@
                 'highlightsTitle': 'Destacados',
                 'itineraryTitle': 'Itinerario',
                 'highlights': [
-                    'Calidad garantizada: Nuestra empresa cuenta con sucursales en toda China para ofrecerle los mejores servicios.',
                     'Hong Kong: Conocida como la "Perla del Oriente", un puerto libre próspero y metrópoli global, el tercer centro financiero más grande del mundo, un crisol de culturas orientales y occidentales.',
                     'Guilin: Famosa por "el paisaje de Guilin es incomparable", conocida por su paisaje kárstico único y su belleza natural, como una pintura de tinta china.',
                     'Guangzhou: Una ciudad nacional vibrante, punto de partida de la Ruta de la Seda Marítima, conocida como la "Capital Comercial Milenaria", cuna de la cultura cantonesa.',
                     'Sanya: Una hermosa ciudad costera en el extremo sur de la isla de Hainan, famosa por sus impresionantes paisajes naturales, clima cálido y abundantes recursos turísticos.'
                 ],
                 'itinerary': [
+                    '<span class="day">Día 0: En el vuelo internacional hacia China</span> - Viaje en vuelo internacional hacia China.',
                     '<span class="day">Día 1: Llegada a Hong Kong</span> - Recogida en el aeropuerto, registro en el hotel. (Sin comidas, Alojamiento: 4* hotel)',
                     '<span class="day">Día 2: Hong Kong</span> - Pico Victoria (funicular de ida), Repulse Bay, Aberdeen (paseo en sampán), Mercado Stanley.<br><div class="day-images"><div class="attraction-images"><a href="HK_太平山顶.jpg" target="_blank"><img src="HK_太平山顶.jpg"></a></div><div class="attraction-images"><a href="HK_浅水湾.jpg" target="_blank"><img src="HK_浅水湾.jpg"></a></div><div class="attraction-images"><a href="HK_香港仔.jpg" target="_blank"><img src="HK_香港仔.jpg"></a><a href="HK_赤柱市场.jpg" target="_blank"><img src="HK_赤柱市场.jpg"></a></div></div> (D/A/C, Alojamiento: 4* hotel)',
                     '<span class="day">Día 3: Hong Kong</span> - Buda Gigante Ngong Ping, Avenida de las Estrellas, Tsim Sha Tsui, Templo Wong Tai Sin.<br><div class="day-images"><div class="attraction-images"><a href="HK_天坛大佛01.jpg" target="_blank"><img src="HK_天坛大佛01.jpg"></a><a href="HK_天坛大佛02.jpg" target="_blank"><img src="HK_天坛大佛02.jpg"></a></div><div class="attraction-images"><a href="HK_星光大道.jpg" target="_blank"><img src="HK_星光大道.jpg"></a></div><div class="attraction-images"><a href="HK_尖沙咀.jpg" target="_blank"><img src="HK_尖沙咀.jpg"></a><a href="HK_黄大仙祠.jpg" target="_blank"><img src="HK_黄大仙祠.jpg"></a></div></div> (D/A/C, Alojamiento: 4* hotel)',
@@ -314,15 +317,29 @@
             document.getElementById('highlights').innerHTML = t.highlights.map(item => `<li>${item}</li>`).join('');
             document.getElementById('itinerary').innerHTML = t.itinerary.map(item => `<li>${item}</li>`).join('');
 
+            // Update navigation links with the selected language
+            document.getElementById('home-link').href = `https://chinaehotel.com${lang !== 'es' ? '?lang=' + lang : ''}`;
+            document.getElementById('contact-link').href = `https://chinaehotel.com/contact.html${lang !== 'es' ? '?lang=' + lang : ''}`;
+            document.getElementById('form-link').href = `https://chinaehotel.com/form.html${lang !== 'es' ? '?lang=' + lang : ''}`;
+
+            // Update text for navigation links
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
-                element.innerHTML = translations[lang][key];
+                element.innerHTML = t[key];
             });
 
             document.documentElement.lang = lang;
+
+            // Show the bookmark for the selected language and hide others
+            document.getElementById('Mark_ES').style.display = lang === 'es' ? 'block' : 'none';
+            document.getElementById('Mark_EN').style.display = lang === 'en' ? 'block' : 'none';
+            document.getElementById('Mark_ZH').style.display = lang === 'zh' ? 'block' : 'none';
         }
 
-        changeLanguage('es');
+        // Get language from URL parameter or default to 'es'
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'es';
+        changeLanguage(lang);
     </script>
 </body>
 </html>
