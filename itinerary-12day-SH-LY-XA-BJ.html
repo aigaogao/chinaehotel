@@ -142,6 +142,11 @@
             margin: 0;
         }
 
+        /* Hide bookmark anchors */
+        #Mark_ES, #Mark_EN, #Mark_ZH {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 100%;
@@ -178,13 +183,18 @@
     </style>
 </head>
 <body>
+    <!-- Language bookmarks -->
+    <span id="Mark_ES"></span>
+    <span id="Mark_EN"></span>
+    <span id="Mark_ZH"></span>
+
     <div class="container">
         <nav>
             <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
             <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
             <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
             <div class="dropdown">
-                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <a href="#" class="dropAngryBirds dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
                     <a href="#" onclick="changeLanguage('es')">Español</a>
                     <a href="#" onclick="changeLanguage('en')">English</a>
@@ -225,6 +235,7 @@
                     'Shaolin de Songshan: Cuna del budismo zen y origen de las artes marciales Shaolin, con reconocimientos como patrimonio cultural mundial y memoria del mundo, conocida como "el templo más famoso del mundo".'
                 ],
                 'itinerary': [
+                    '<span class="day">Día 0: En el vuelo internacional hacia China</span> - Viaje en vuelo internacional hacia China.<br>',
                     '<span class="day">Día 1: Los Ángeles/Shanghai</span> - Llegada a Shanghai, bienvenida por nuestro guía en el aeropuerto y traslado al hotel. Cena organizada. (C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br>',
                     '<span class="day">Día 2: Shanghai</span> - Visita al Templo del Buda de Jade, Templo del Dios de la Ciudad, Mercado Yuyuan (sin entrar al jardín), Xintiandi en la antigua concesión francesa. (D/A/C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
                     '<span class="day">Día 3: Shanghai</span> - Visita a Tianzifang, Calle Nanjing, El Bund. (D/A/C, Alojamiento: 3* Holiday Inn Express Zhabei Shanghai o similar)<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
@@ -257,6 +268,7 @@
                     'Songshan Shaolin: The cradle of Zen Buddhism and the origin of Shaolin martial arts, recognized as a UNESCO World Heritage site and part of the World Memory Register, known as "the most famous temple in the world".'
                 ],
                 'itinerary': [
+                    '<span class="day">Day 0: On the international flight to China</span> - Travel on the international flight to China.<br>',
                     '<span class="day">Day 1: Los Angeles/Shanghai</span> - Airport pickup, hotel check-in, dinner arranged. (D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br>',
                     '<span class="day">Day 2: Shanghai</span> - Jade Buddha Temple, City God Temple, Yuyuan Market (without entering the garden), Former French Concession Xintiandi. (B/L/D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
                     '<span class="day">Day 3: Shanghai</span> - Tianzifang, Nanjing Road, The Bund. (B/L/D, Accommodation: 3* Holiday Inn Express Zhabei Shanghai or similar)<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
@@ -289,6 +301,7 @@
                     '嵩山少林：禅宗祖庭和少林武术发源地，拥有世界文化遗产、世界记忆名录等多项国际殊荣，被誉为“天下第一名刹”。'
                 ],
                 'itinerary': [
+                    '<span class="day">第0天：在飞往中国的国际航班旅程中</span> - 搭乘飞往中国的国际航班。<br>',
                     '<span class="day">第1天：洛杉矶/上海</span> - 接机，送酒店，安排晚餐。（晚餐，住宿：3*上海镇坪智选假日或同级）<br>',
                     '<span class="day">第2天：上海</span> - 玉佛寺，城隍庙，豫园市场（不进园），法租界新天地。（早/午/晚餐，住宿：3*上海镇坪智选假日或同级）<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
                     '<span class="day">第3天：上海</span> - 田子坊，南京路，外滩。（早/午/晚餐，住宿：3*上海镇坪智选假日或同级）<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
@@ -320,9 +333,22 @@
             });
 
             document.documentElement.lang = lang;
+
+            // Scroll to the corresponding bookmark
+            const bookmark = document.getElementById(`Mark_${lang.toUpperCase()}`);
+            if (bookmark) {
+                bookmark.scrollIntoView();
+            }
         }
 
-        changeLanguage('es');
+        // Check for language parameter in URL and set language accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'es'; // Default to Spanish
+        if (['es', 'en', 'zh'].includes(lang)) {
+            changeLanguage(lang);
+        } else {
+            changeLanguage('es'); // Fallback to Spanish if invalid lang parameter
+        }
     </script>
 </body>
 </html>
