@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            color: #ff6200;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #ff6200;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .day {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .day-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .attraction-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .content {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content h3 {
+                font-size: 18px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+            img {
+                max-width: 150px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com?lang=es" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html?lang=es" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html?lang=es" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="#" class="lang-link" data-lang-code="es">Español</a>
+                    <a href="#" class="lang-link" data-lang-code="en">English</a>
+                    <a href="#" class="lang-link" data-lang-code="zh">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h2 id="tour-title" data-lang="title">Shanghái-Xi’an-Pekín</h2>
+            <h3 id="highlights-title" data-lang="highlightsTitle">Destacados</h3>
+            <ul id="highlights"></ul>
+            <h3 id="itinerary-title" data-lang="itineraryTitle">Itinerario</h3>
+            <ul id="itinerary"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        let currentLang = 'es'; // Default language is Spanish
+
+        const translations = {
+            'es': {
+                'home': 'Inicio',
+                'contact': 'Contacto',
+                'form': 'Formulario',
+                'language': 'Idioma',
+                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+                'title': 'Shanghái-Xi’an-Pekín',
+                'highlightsTitle': 'Destacados',
+                'itineraryTitle': 'Itinerario',
+                'highlights': [
+                    'Shanghái: Una metrópoli internacional vibrante y mágica que combina el encanto oriental con modernidad, centro financiero y económico de China, y una de las ciudades más dinámicas de Asia.',
+                    'Xi’an: Un vistazo a mil años de historia, Xi’an es una de las cunas de la civilización china y el punto de partida de la antigua Ruta de la Seda. Conocida como "museo histórico natural", es una de las cuatro grandes capitales antiguas del mundo.',
+                    'Pekín: Centro de poder de las dinastías feudales durante milenios, corazón político de China, ciudad histórica y cultural de renombre, y una de las principales urbes del mundo.'
+                ],
+                'itinerary': [
+                    '<span class="day">Día 1 (Los Ángeles, 5 de noviembre):</span> Tomar el vuelo internacional hacia China.',
+                    '<span class="day">Día 2 (China, 6 de noviembre):</span> Llegada a Shanghái, bienvenida por nuestro guía y operador turístico en el aeropuerto y traslado al hotel para alojamiento. Cena organizada. (C, Alojamiento: 4* Liyang Hotel Shanghai o similar)',
+                    '<span class="day">Día 3 (China, 7 de noviembre):</span> Después del desayuno, visitaremos el Templo del Buda de Jade, El Templo del Dios de la Ciudad, Bazar Yuyuan, Xintiandi de la concesión francesa.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div> (D/A/C, Alojamiento: 4* Liyang Hotel Shanghai o similar)',
+                    '<span class="day">Día 4 (China, 8 de noviembre):</span> Visitaremos Tianzifang, antigua zona residencial de la concesión francesa donde se han asentado tiendas de artesanía, galerías de arte, cafeterías y restaurantes. Asimismo, visitaremos la calle Nanjing, considerada como la calle comercial más antigua de Shanghái y una de las más famosas. Visita del Bund (Malecón), situado en las orillas occidentales del Río Huangpu, desde donde se obtienen las mejores vistas de Pudong, la zona de negocios de Shanghái.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=es" target="_blank"><img src="SH_外滩.jpg"></a></div></div> (D/A/C, Alojamiento: 4* Liyang Hotel Shanghai o similar)',
+                    '<span class="day">Día 5 (China, 9 de noviembre):</span> Xi’an, en la antigüedad, su historia se remonta a cerca de 8,000 años. Visita al famoso museo de los Guerreros y Caballos de Terracota. Visitaremos la Muralla Antigua y la ciudad siempre brillante de Datang.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=es" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=es" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=es" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div> (D/A/C, Alojamiento: 5* Sheraton Xi’an Hotel o similar)',
+                    '<span class="day">Día 6 (China, 10 de noviembre):</span> Después del desayuno, traslado a la estación de trenes de Xi’an para Pekín, traslado en tren de alta velocidad a la ciudad de Pekín. A la llegada, visita a la Plaza de las Torres de la Campana y el Tambor, así como una visita a la Calle Huimin (calle principal del barrio musulmán de Xi’an).<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=es" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=es" target="_blank"><img src="XA_回民街.jpg"></a></div></div> (D/C, Alojamiento: 5* Sheraton Xi’an Hotel o similar)',
+                    '<span class="day">Día 7 (China, 11 de noviembre):</span> Este día visitaremos El Palacio Imperial (Ciudad Prohibida), visita a la segunda plaza más grande del mundo Plaza Tiananmen, Shichahai (paseo por Xiejie y Nanluoguxiang, calles históricas y culturales de Beijing ubicadas en el casco antiguo). Visita exterior de las torres de la Campana y el Tambor.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div> (D/A/C, Alojamiento: 5* Beijing Kunlun Hotel o similar)',
+                    '<span class="day">Día 8 (China, 12 de noviembre):</span> Después del desayuno, excursión para visitar a la más grande y espectacular construcción realizada por el hombre, La Gran Muralla China. A continuación, visita a la calle peatonal Wangfujing, visita exterior de los Estadios Olímpicos Nido de Pájaro y El Cubo de Agua.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_王府井.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="https://chinaehotel.com/City_Beijing.html?lang=es" target="_blank"><img src="BJ_水立方.jpg"></a></div></div> (D/A/C, Alojamiento: 5* Beijing Kunlun Hotel o similar)',
+                    '<span class="day">Día 9 (China/Los Ángeles, 13 de noviembre):</span> Traslado al aeropuerto según horarios de vuelo, regreso a Los Ángeles. (D)',
+                    '<span class="day">Nota:</span> La compañía se reserva el derecho de realizar ajustes finales al itinerario.'
+                ]
+            },
+            'en': {
+                'home': 'Home',
+                'contact': 'Contact',
+                'form': 'Form',
+                'language': 'Language',
+                'footer': '© 2025 chinaehotel.com All rights reserved.',
+                'title': 'Shanghai-Xi’an-Beijing',
+                'highlightsTitle': 'Highlights',
+                'itineraryTitle': 'Itinerary',
+                'highlights': [
+                    'Shanghai: A vibrant, magical international metropolis blending Eastern charm and modernity, China’s financial and economic hub, and one of Asia’s most dynamic cities.',
+                    'Xi’an: A glimpse into a thousand years of history, Xi’an is one of the cradles of Chinese civilization and the starting point of the ancient Silk Road. Known as a "natural history museum," it is one of the world’s four ancient capitals.',
+                    'Beijing: The power center of feudal dynasties for thousands of years, China’s political hub, a renowned historical and cultural city, and one of the world’s top-tier cities.'
+                ],
+                'itinerary': [
+                    '<span class="day">Day 1 (Los Angeles, November 5):</span> Take the international flight to China.',
+                    '<span class="day">Day 2 (China, November 6):</span> Airport pickup, hotel check-in, dinner arranged. (D, Accommodation: 4* Liyang Hotel Shanghai or similar)',
+                    '<span class="day">Day 3 (China, November 7):</span> Jade Buddha Temple, City God Temple, Yuyuan Bazaar, Former French Concession Xintiandi.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div> (B/L/D, Accommodation: 4* Liyang Hotel Shanghai or similar)',
+                    '<span class="day">Day 4 (China, November 8):</span> Tianzifang, Nanjing Road, The Bund.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=en" target="_blank"><img src="SH_外滩.jpg"></a></div></div> (B/L/D, Accommodation: 4* Liyang Hotel Shanghai or similar)',
+                    '<span class="day">Day 5 (China, November 9):</span> Terracotta Warriors, Ancient City Wall, Datang Everbright City.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=en" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=en" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=en" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div> (B/L/D, Accommodation: 5* Sheraton Xi’an or similar)',
+                    '<span class="day">Day 6 (China, November 10):</span> Bell and Drum Tower Square, Huimin Street.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=en" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=en" target="_blank"><img src="XA_回民街.jpg"></a></div></div> (B/D, Accommodation: 5* Sheraton Xi’an or similar)',
+                    '<span class="day">Day 7 (China, November 11):</span> Tiananmen Square, Forbidden City, Shichahai (stroll along Yandai Xiejie and Nanluoguxiang, exterior view of Bell and Drum Towers).<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div> (B/L/D, Accommodation: 5* Beijing Kunlun Hotel or similar)',
+                    '<span class="day">Day 8 (China, November 12):</span> Juyongguan Great Wall, Wangfujing Pedestrian Street, exterior view of Bird’s Nest and Water Cube.<br><div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_王府井.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="https://chinaehotel.com/City_Beijing.html?lang=en" target="_blank"><img src="BJ_水立方.jpg"></a></div></div> (B/L/D, Accommodation: 5* Beijing Kunlun Hotel or similar)',
+                    '<span class="day">Day 9 (China/Los Angeles, November 13):</span> Transfer to airport based on flight schedule, back to Los Angeles. (B)',
+                    '<span class="day">Note:</span> The company reserves the right to make final itinerary adjustments.'
+                ]
+            },
+            'zh': {
+                'home': '主页',
+                'contact': '联系',
+                'form': '表格',
+                'language': '语言',
+                'footer': '© 2025 chinaehotel.com 版权所有。',
+                'title': '上海-西安-北京',
+                'highlightsTitle': '亮点',
+                'itineraryTitle': '行程安排',
+                'highlights': [
+                    '上海：一座充满着东方魅力与现代气息的繁华、魔幻国际化大都市。中国的金融、经济中心，也是中国乃至亚洲最具活力的城市之一。',
+                    '西安: 一眼千年，古都西安。它是中华文明和中华民族的重要发祥地之一，是古丝绸之路的起点。“天然历史博物馆”世界四大古都之一。',
+                    '北京: 数千年来的封建皇朝权力中心，政治中心。中国历史文化名城和古都之一，世界一线城市。'
+                ],
+                'itinerary': [
+                    '<span class="day">第1天（洛杉矶时间11月5日）:</span> 搭乘飞往中国的国际航班。',
+                    '<span class="day">第2天（中国时间11月6日）:</span> 接机，送酒店。（晚餐，住宿：4*上海丽怡酒店或同级）',
+                    '<span class="day">第3天（中国时间11月7日）:</span> 玉佛寺，城隍庙，豫园市场，法租界新天地。（早/午/晚餐，住宿：4*上海丽怡酒店或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_玉佛寺.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_城隍庙.jpg"></a><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_豫园市场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_法租界新天地.jpg"></a></div></div>',
+                    '<span class="day">第4天（中国时间11月8日）:</span> 田子坊，南京路，外滩。（早/午/晚餐，住宿：4*上海丽怡酒店或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_田子坊.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_南京路.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Shanghai.html?lang=zh" target="_blank"><img src="SH_外滩.jpg"></a></div></div>',
+                    '<span class="day">第5天（中国时间11月9日）:</span> 秦兵马俑，古城墙，大唐不夜城。（早/午/晚餐，住宿：5*西安喜来登或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=zh" target="_blank"><img src="XA_秦始皇陵兵马俑.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=zh" target="_blank"><img src="XA_古城墙.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=zh" target="_blank"><img src="XA_大唐不夜城.jpg"></a></div></div>',
+                    '<span class="day">第6天（中国时间11月10日）:</span> 钟鼓楼广场，回民街。（早/晚餐，住宿：5*西安喜来登或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=zh" target="_blank"><img src="XA_钟鼓楼广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_XiAn.html?lang=zh" target="_blank"><img src="XA_回民街.jpg"></a></div></div>',
+                    '<span class="day">第7天（中国时间11月11日）:</span> 天安门广场，故宫，什刹海（步行烟袋斜街、南锣鼓巷、外观钟鼓楼）。（早/午/晚餐，住宿：5*北京昆仑饭店或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_天安门广场.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_故宫.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_什刹海.jpg"></a></div></div>',
+                    '<span class="day">第8天（中国时间11月12日）:</span> 居庸关长城，王府井步行街，外观鸟巢和水立方。（早/午/晚餐，住宿：5*北京昆仑饭店或同级）<div class="day-images"><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_居庸关长城.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_王府井.jpg"></a></div><div class="attraction-images"><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_鸟巢.jpg"></a><a href="https://chinaehotel.com/City_Beijing.html?lang=zh" target="_blank"><img src="BJ_水立方.jpg"></a></div></div>',
+                    '<span class="day">第9天（中国/洛杉矶时间11月13日）:</span> 按航班时间送往机场，返回洛杉矶。（早餐）',
+                    '<span class="day">备注：</span> 本公司保留行程最终调整的权力。'
+                ]
+            }
+        };
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            document.getElementById('highlights').innerHTML = translations[lang].highlights.map(item => `<li>${item}</li>`).join('');
+            document.getElementById('itinerary').innerHTML = translations[lang].itinerary.map(item => `<li>${item}</li>`).join('');
+
+            // Update navigation links with lang parameter
+            document.querySelector('a[data-lang="home"]').href = `https://chinaehotel.com?lang=${lang}`;
+            document.querySelector('a[data-lang="contact"]').href = `https://chinaehotel.com/contact.html?lang=${lang}`;
+            document.querySelector('a[data-lang="form"]').href = `https://chinaehotel.com/form.html?lang=${lang}`;
+
+            // Update attraction image links with lang parameter
+            document.querySelectorAll('.attraction-images a').forEach(link => {
+                const href = link.getAttribute('href').split('?')[0]; // Remove existing query params
+                link.setAttribute('href', `${href}?lang=${lang}`);
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check URL for lang parameter, default to 'es' if not found
+            const langFromUrl = getQueryParam('lang') || 'es';
+            changeLanguage(langFromUrl);
+
+            // Add event listeners for language links
+            document.querySelectorAll('.lang-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const lang = link.getAttribute('data-lang-code');
+                    changeLanguage(lang);
+                    // Update URL with lang parameter
+                    window.history.pushState({}, '', `?lang=${lang}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
