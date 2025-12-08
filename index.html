@@ -11,225 +11,224 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
 
+    .container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    nav {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    nav a:hover {
+        color: #ff6200;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 100px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: #333;
+        padding: 8px 12px;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .content {
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .city-content {
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .city-heading {
+        font-size: 18px;
+        color: #ff6200;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 45%;
+    }
+
+    .city-card-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        width: 22%; /* Half of 45%, adjusted for gap */
+    }
+
+    .city-content .city-row-last {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .city-content .city-row-last .city-card-link {
+        width: 22%; /* Same width as other city blocks */
+    }
+
+    .card-link:hover .card,
+    .city-card-link:hover .card {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .city-card-image {
+        width: 100%;
+        height: 150px; /* Half the height of larger blocks */
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+
+    .card-content h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .city-content .card-content h3 {
+        text-align: center;
+        margin-bottom: 0; /* Remove margin since no text follows */
+    }
+
+    .card-content p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .card-content .price {
+        font-size: 18px;
+        color: #ff6200;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         nav {
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
+            justify-content: space-around;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            margin-right: 20px;
-        }
-
-        nav a:hover {
-            color: #ff6200;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 100px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 8px 12px;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .content {
-            padding: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .city-content {
-            padding: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .city-heading {
-            font-size: 18px;
-            color: #ff6200;
-            font-weight: bold;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .card {
-            width: 100%;
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 45%;
-        }
-
+        .card-link,
         .city-card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 22%; /* Half of 45%, adjusted for gap */
+            width: 100%;
         }
 
         .city-content .city-row-last {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            gap: 20px;
+            flex-direction: column;
+            align-items: center;
         }
 
         .city-content .city-row-last .city-card-link {
-            width: 22%; /* Same width as other city blocks */
-        }
-
-        .card-link:hover .card,
-        .city-card-link:hover .card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
         }
 
         .card-image {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
+            height: 200px;
         }
 
         .city-card-image {
-            width: 100%;
-            height: 150px; /* Half the height of larger blocks */
-            overflow: hidden;
+            height: 100px; /* Adjusted for smaller screens */
         }
 
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .city-heading {
+            font-size: 16px; /* Slightly smaller on mobile */
         }
-
-        .card-content {
-            padding: 15px;
-        }
-
-        .card-content h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .city-content .card-content h3 {
-            text-align: center;
-            margin-bottom: 0; /* Remove margin since no text follows */
-        }
-
-        .card-content p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .card-content .price {
-            font-size: 18px;
-            color: #ff6200;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 100%;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            nav {
-                justify-content: space-around;
-            }
-
-            .card-link,
-            .city-card-link {
-                width: 100%;
-            }
-
-            .city-content .city-row-last {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .city-content .city-row-last .city-card-link {
-                width: 100%;
-            }
-
-            .card-image {
-                height: 200px;
-            }
-
-            .city-card-image {
-                height: 100px; /* Adjusted for smaller screens */
-            }
-
-            .city-heading {
-                font-size: 16px; /* Slightly smaller on mobile */
-            }
-        }
-    </style>
-</head>
+    }
+</style></head>
 <body>
     <div class="container">
         <nav>
@@ -246,371 +245,370 @@
             </div>
         </nav>
 
-        <div class="content">
-            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=es" class="card-link">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="BJ_居庸关长城.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour1-title">Oferta especial para estudiantes: 9 días en China</h3>
-                        <p data-lang="tour1-desc">Beijing - Xi'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
-                        <div class="price" data-lang="tour1-price">$1999+</div>
-                    </div>
+    <div class="content">
+        <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=es" class="card-link">
+            <div class="card">
+                <div class="card-image">
+                    <img src="BJ_居庸关长城.jpg" alt="景点图片">
                 </div>
-            </a>
-            <a href="https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=es" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="LY_少林寺1.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour2-title">Vacaciones doradas: 13 días en China</h3>
-                        <p data-lang="tour2-desc">Shanghai - Luoyang - Templo Shaolin - Xi'an - Beijing</p>
-                        <p data-lang="tour2-period">(Junio, Julio, Agosto, Septiembre, Diciembre)</p>
-                    </div>
+                <div class="card-content">
+                    <h3 data-lang="tour1-title">Oferta especial para estudiantes: 9 días en China</h3>
+                    <p data-lang="tour1-desc">Beijing - Xi'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
                 </div>
-            </a>
-            <a href="https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=es" class="card-link">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="HK_星光大道.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour6-title">Clásico: 11 días en el sur de China</h3>
-                        <p data-lang="tour6-desc">Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre)</p>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=es" class="card-link">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="SY_天涯海角.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour7-title">Exclusivo: 13 días en ciudades famosas del sur de China</h3>
-                        <p data-lang="tour7-desc">Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan</p>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=es" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="GZ_花城广场.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour5-title">Tour personalizado: 13 días en el sur de China</h3>
-                        <p data-lang="tour5-desc">Hong Kong - Guilin - Guangzhou - Zhongshan</p>
-                        <p data-lang="tour5-period">(Temporada alta: Junio, Julio, Agosto, Septiembre, Diciembre; Temporada baja: Marzo, Abril, Mayo, Octubre, Noviembre)</p>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=es" class="card-link" target="_blank">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="BJ_故宫.jpg" alt="景点图片">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="tour3-title">Oferta familiar: 9 días en China</h3>
-                        <p data-lang="tour3-desc">Beijing - Xi'an - Shanghai</p>
-                        <p data-lang="tour3-period">(Marzo, Abril, Mayo, Octubre, Noviembre)</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="city-content">
-            <h2 class="city-heading" data-lang="city-heading">Introducción a las atracciones de las ciudades de China</h2>
-            <!-- Existing 4 city blocks -->
-            <a href="https://chinaehotel.com/City_Beijing.html?lang=es" class="city-card-link" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="BJ_居庸关长城.jpg" alt="北京">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-beijing">Pekín</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_Shanghai.html?lang=es" class="city-card-link" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="SH_外滩.jpg" alt="上海">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-shanghai">Shanghái</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_GuangZhou.html?lang=es" class="city-card-link" data-city="guangzhou" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="GZ_越秀公园.jpg" alt="广州">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-guangzhou">Cantón</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_Luoyang.html?lang=es" class="city-card-link" data-city="luoyang" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="LY_少林寺1.jpg" alt="洛阳">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-luoyang">Luoyang</h3>
-                    </div>
-                </div>
-            </a>
-            <!-- New row: Xi'an, Guilin, Hong Kong, Sanya (Hainan) -->
-            <a href="https://chinaehotel.com/City_XiAn.html?lang=es" class="city-card-link" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="XA_秦始皇陵兵马俑.jpg" alt="西安">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-xian">Xi'an</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_GuiLin.html?lang=es" class="city-card-link" data-city="guilin" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="GL_漓江.jpg" alt="桂林">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-guilin">Guilin</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_HongKong.html?lang=es" class="city-card-link" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="HK_尖沙咀.jpg" alt="香港">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-hongkong">Hong Kong</h3>
-                    </div>
-                </div>
-            </a>
-            <a href="https://chinaehotel.com/City_SanYa.html?lang=es" class="city-card-link" data-city="sanya" target="_blank">
-                <div class="card">
-                    <div class="city-card-image">
-                        <img src="SY_蜈支洲岛.jpg" alt="三亚（海南）">
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="city-sanya">Sanya (Hainan)</h3>
-                    </div>
-                </div>
-            </a>
-            <!-- Last row: Foshan, Zhongshan (centered) -->
-            <div class="city-row-last">
-                <a href="https://chinaehotel.com/City_FoShan.html?lang=es" class="city-card-link" data-city="foshan" target="_blank">
-                    <div class="card">
-                        <div class="city-card-image">
-                            <img src="FS_黄飞鸿纪念馆.jpg" alt="佛山">
-                        </div>
-                        <div class="card-content">
-                            <h3 data-lang="city-foshan">Foshan</h3>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://chinaehotel.com/City_ZhongShan.html?lang=es" class="city-card-link" data-city="zhongshan" target="_blank">
-                    <div class="card">
-                        <div class="city-card-image">
-                            <img src="ZS_中山詹园.jpg" alt="中山">
-                        </div>
-                        <div class="card-content">
-                            <h3 data-lang="city-zhongshan">Zhongshan</h3>
-                        </div>
-                    </div>
-                </a>
             </div>
-        </div>
+        </a>
+        <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=es" class="card-link">
+            <div class="card">
+                <div class="card-image">
+                    <img src="SY_天涯海角.jpg" alt="景点图片">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="tour7-title">Exclusivo: 13 días en ciudades famosas del sur de China</h3>
+                    <p data-lang="tour7-desc">Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=es" class="card-link">
+            <div class="card">
+                <div class="card-image">
+                    <img src="HK_星光大道.jpg" alt="景点图片">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="tour6-title">Clásico: 11 días en el sur de China</h3>
+                    <p data-lang="tour6-desc">Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre)</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=es" class="card-link" target="_blank">
+            <div class="card">
+                <div class="card-image">
+                    <img src="LY_少林寺1.jpg" alt="景点图片">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="tour2-title">Vacaciones doradas: 13 días en China</h3>
+                    <p data-lang="tour2-desc">Shanghai - Luoyang - Templo Shaolin - Xi'an - Beijing</p>
+                    <p data-lang="tour2-period">(Junio, Julio, Agosto, Septiembre, Diciembre)</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=es" class="card-link" target="_blank">
+            <div class="card">
+                <div class="card-image">
+                    <img src="GZ_花城广场.jpg" alt="景点图片">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="tour5-title">Tour personalizado: 13 días en el sur de China</h3>
+                    <p data-lang="tour5-desc">Hong Kong - Guilin - Guangzhou - Zhongshan</p>
+                    <p data-lang="tour5-period">(Temporada alta: Junio, Julio, Agosto, Septiembre, Diciembre; Temporada baja: Marzo, Abril, Mayo, Octubre, Noviembre)</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=es" class="card-link" target="_blank">
+            <div class="card">
+                <div class="card-image">
+                    <img src="BJ_故宫.jpg" alt="景点图片">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="tour3-title">Oferta familiar: 9 días en China</h3>
+                    <p data-lang="tour3-desc">Beijing - Xi'an - Shanghai</p>
+                    <p data-lang="tour3-period">(Marzo, Abril, Mayo, Octubre, Noviembre)</p>
+                </div>
+            </div>
+        </a>
     </div>
 
-    <footer>
-        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados。</p>
-    </footer>
+    <div class="city-content">
+        <h2 class="city-heading" data-lang="city-heading">Introducción a las atracciones de las ciudades de China</h2>
+        <!-- Existing 4 city blocks -->
+        <a href="https://chinaehotel.com/City_Beijing.html?lang=es" class="city-card-link" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="BJ_居庸关长城.jpg" alt="北京">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-beijing">Pekín</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_Shanghai.html?lang=es" class="city-card-link" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="SH_外滩.jpg" alt="上海">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-shanghai">Shanghái</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_GuangZhou.html?lang=es" class="city-card-link" data-city="guangzhou" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="GZ_越秀公园.jpg" alt="广州">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-guangzhou">Cantón</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_Luoyang.html?lang=es" class="city-card-link" data-city="luoyang" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="LY_少林寺1.jpg" alt="洛阳">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-luoyang">Luoyang</h3>
+                </div>
+            </div>
+        </a>
+        <!-- New row: Xi'an, Guilin, Hong Kong, Sanya (Hainan) -->
+        <a href="https://chinaehotel.com/City_XiAn.html?lang=es" class="city-card-link" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="XA_秦始皇陵兵马俑.jpg" alt="西安">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-xian">Xi'an</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_GuiLin.html?lang=es" class="city-card-link" data-city="guilin" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="GL_漓江.jpg" alt="桂林">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-guilin">Guilin</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_HongKong.html?lang=es" class="city-card-link" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="HK_尖沙咀.jpg" alt="香港">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-hongkong">Hong Kong</h3>
+                </div>
+            </div>
+        </a>
+        <a href="https://chinaehotel.com/City_SanYa.html?lang=es" class="city-card-link" data-city="sanya" target="_blank">
+            <div class="card">
+                <div class="city-card-image">
+                    <img src="SY_蜈支洲岛.jpg" alt="三亚（海南）">
+                </div>
+                <div class="card-content">
+                    <h3 data-lang="city-sanya">Sanya (Hainan)</h3>
+                </div>
+            </div>
+        </a>
+        <!-- Last row: Foshan, Zhongshan (centered) -->
+        <div class="city-row-last">
+            <a href="https://chinaehotel.com/City_FoShan.html?lang=es" class="city-card-link" data-city="foshan" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="FS_黄飞鸿纪念馆.jpg" alt="佛山">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-foshan">Foshan</h3>
+                    </div>
+                </div>
+            </a>
+            <a href="https://chinaehotel.com/City_ZhongShan.html?lang=es" class="city-card-link" data-city="zhongshan" target="_blank">
+                <div class="card">
+                    <div class="city-card-image">
+                        <img src="ZS_中山詹园.jpg" alt="中山">
+                    </div>
+                    <div class="card-content">
+                        <h3 data-lang="city-zhongshan">Zhongshan</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 
-    <script>
-        let currentLang = 'es'; // 默认语言为西班牙语
+<footer>
+    <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados。</p>
+</footer>
 
-        const translations = {
-            'es': {
-                'home': 'Inicio',
-                'contact': 'Contacto',
-                'form': 'Formulario',
-                'language': 'Idioma',
-                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
-                'tour1-title': 'Oferta especial para estudiantes: 9 días en China',
-                'tour1-desc': 'Beijing - Xi\'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
-                'tour1-price': '$1999+',
-                'tour2-title': 'Vacaciones doradas: 13 días en China',
-                'tour2-desc': 'Shanghai - Luoyang - Templo Shaolin - Xi\'an - Beijing',
-                'tour2-period': '(Junio, Julio, Agosto, Septiembre, Diciembre)',
-                'tour3-title': 'Oferta familiar: 9 días en China',
-                'tour3-desc': 'Beijing - Xi\'an - Shanghai',
-                'tour3-period': '(Marzo, Abril, Mayo, Octubre, Noviembre)',
-                'tour5-title': 'Tour personalizado: 13 días en el sur de China',
-                'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Zhongshan',
-                'tour5-period': '(Temporada alta: Junio, Julio, Agosto, Septiembre, Diciembre; Temporada baja: Marzo, Abril, Mayo, Octubre, Noviembre)',
-                'tour6-title': 'Clásico: 11 días en el sur de China',
-                'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre)',
-                'tour7-title': 'Exclusivo: 13 días en ciudades famosas del sur de China',
-                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan',
-                'city-heading': 'Introducción a las atracciones de las ciudades de China',
-                'city-beijing': 'Pekín',
-                'city-shanghai': 'Shanghái',
-                'city-guangzhou': 'Cantón',
-                'city-luoyang': 'Luoyang',
-                'city-xian': 'Xi\'an',
-                'city-guilin': 'Guilin',
-                'city-hongkong': 'Hong Kong',
-                'city-sanya': 'Sanya (Hainan)',
-                'city-foshan': 'Foshan',
-                'city-zhongshan': 'Zhongshan'
-            },
-            'en': {
-                'home': 'Home',
-                'contact': 'Contact',
-                'form': 'Form',
-                'language': 'Language',
-                'footer': '© 2025 chinaehotel.com All rights reserved.',
-                'tour1-title': 'Student Special: 9-Day China Tour',
-                'tour1-desc': 'Beijing - Xi\'an - Shanghai (March, April, May, October, November 2025)',
-                'tour1-price': '$1999+',
-                'tour2-title': 'Golden Holiday: 13-Day China Tour',
-                'tour2-desc': 'Shanghai - Luoyang - Shaolin Temple - Xi\'an - Beijing',
-                'tour2-period': '(June, July, August, September, December)',
-                'tour3-title': 'Family Special: 9-Day China Tour',
-                'tour3-desc': 'Beijing - Xi\'an - Shanghai',
-                'tour3-period': '(March, April, May, October, November)',
-                'tour5-title': 'Customized: 13-Day South China Tour',
-                'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Zhongshan',
-                'tour5-period': '(Peak season: June, July, August, September, December; Off-season: March, April, May, October, November)',
-                'tour6-title': 'Classic: 11-Day South China Tour',
-                'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (June, July, August, September, December)',
-                'tour7-title': 'Exclusive: 13-Day Famous South China Cities Tour',
-                'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Hainan Island',
-                'city-heading': 'Introduction to Chinese City Attractions',
-                'city-beijing': 'Beijing',
-                'city-shanghai': 'Shanghai',
-                'city-guangzhou': 'Guangzhou',
-                'city-luoyang': 'Luoyang',
-                'city-xian': 'Xi\'an',
-                'city-guilin': 'Guilin',
-                'city-hongkong': 'Hong Kong',
-                'city-sanya': 'Sanya (Hainan)',
-                'city-foshan': 'Foshan',
-                'city-zhongshan': 'Zhongshan'
-            },
-            'zh': {
-                'home': '主页',
-                'contact': '联系',
-                'form': '表格',
-                'language': '语言',
-                'footer': '© 2025 chinaehotel.com 版权所有。',
-                'tour1-title': '学生特价9天中国游',
-                'tour1-desc': '北京-西安-上海（3、4、5、10、11月）',
-                'tour1-price': '$1999+',
-                'tour2-title': '黄金假期13天中国游',
-                'tour2-desc': '上海-洛阳-少林寺-西安-北京',
-                'tour2-period': '（6、7、8、9、12月）',
-                'tour3-title': '家庭9天中国特惠游',
-                'tour3-desc': '北京-西安-上海',
-                'tour3-period': '（3、4、5、10、11月）',
-                'tour5-title': '13天中国南方定制游',
-                'tour5-desc': '香港-桂林-广州-中山',
-                'tour5-period': '（旺季：6、7、8、9、12月 淡季：3、4、5、10、11月）',
-                'tour6-title': '11天中国南方经典游',
-                'tour6-desc': '香港-桂林-广州-佛山（6、7、8、9、12月）',
-                'tour7-title': '独家定制13天中国南方名城',
-                'tour7-desc': '香港-桂林-广州-佛山-海南岛',
-                'city-heading': '中国城市景点介绍',
-                'city-beijing': '北京',
-                'city-shanghai': '上海',
-                'city-guangzhou': '广州',
-                'city-luoyang': '洛阳',
-                'city-xian': '西安',
-                'city-guilin': '桂林',
-                'city-hongkong': '香港',
-                'city-sanya': '三亚（海南）',
-                'city-foshan': '佛山',
-                'city-zhongshan': '中山'
+<script>
+    let currentLang = 'es'; // 默认语言为西班牙语
+
+    const translations = {
+        'es': {
+            'home': 'Inicio',
+            'contact': 'Contacto',
+            'form': 'Formulario',
+            'language': 'Idioma',
+            'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
+            'tour1-title': 'Oferta especial para estudiantes: 9 días en China',
+            'tour1-desc': 'Beijing - Xi\'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
+            'tour1-price': '$1999+',
+            'tour2-title': 'Vacaciones doradas: 13 días en China',
+            'tour2-desc': 'Shanghai - Luoyang - Templo Shaolin - Xi\'an - Beijing',
+            'tour2-period': '(Junio, Julio, Agosto, Septiembre, Diciembre)',
+            'tour3-title': 'Oferta familiar: 9 días en China',
+            'tour3-desc': 'Beijing - Xi\'an - Shanghai',
+            'tour3-period': '(Marzo, Abril, Mayo, Octubre, Noviembre)',
+            'tour5-title': 'Tour personalizado: 13 días en el sur de China',
+            'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Zhongshan',
+            'tour5-period': '(Temporada alta: Junio, Julio, Agosto, Septiembre, Diciembre; Temporada baja: Marzo, Abril, Mayo, Octubre, Noviembre)',
+            'tour6-title': 'Clásico: 11 días en el sur de China',
+            'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (Junio, Julio, Agosto, Septiembre, Diciembre)',
+            'tour7-title': 'Exclusivo: 13 días en ciudades famosas del sur de China',
+            'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Isla de Hainan',
+            'city-heading': 'Introducción a las atracciones de las ciudades de China',
+            'city-beijing': 'Pekín',
+            'city-shanghai': 'Shanghái',
+            'city-guangzhou': 'Cantón',
+            'city-luoyang': 'Luoyang',
+            'city-xian': 'Xi\'an',
+            'city-guilin': 'Guilin',
+            'city-hongkong': 'Hong Kong',
+            'city-sanya': 'Sanya (Hainan)',
+            'city-foshan': 'Foshan',
+            'city-zhongshan': 'Zhongshan'
+        },
+        'en': {
+            'home': 'Home',
+            'contact': 'Contact',
+            'form': 'Form',
+            'language': 'Language',
+            'footer': '© 2025 chinaehotel.com All rights reserved.',
+            'tour1-title': 'Student Special: 9-Day China Tour',
+            'tour1-desc': 'Beijing - Xi\'an - Shanghai (March, April, May, October, November 2025)',
+            'tour1-price': '$1999+',
+            'tour2-title': 'Golden Holiday: 13-Day China Tour',
+            'tour2-desc': 'Shanghai - Luoyang - Shaolin Temple - Xi\'an - Beijing',
+            'tour2-period': '(June, July, August, September, December)',
+            'tour3-title': 'Family Special: 9-Day China Tour',
+            'tour3-desc': 'Beijing - Xi\'an - Shanghai',
+            'tour3-period': '(March, April, May, October, November)',
+            'tour5-title': 'Customized: 13-Day South China Tour',
+            'tour5-desc': 'Hong Kong - Guilin - Guangzhou - Zhongshan',
+            'tour5-period': '(Peak season: June, July, August, September, December; Off-season: March, April, May, October, November)',
+            'tour6-title': 'Classic: 11-Day South China Tour',
+            'tour6-desc': 'Hong Kong - Guilin - Guangzhou - Foshan (June, July, August, September, December)',
+            'tour7-title': 'Exclusive: 13-Day Famous South China Cities Tour',
+            'tour7-desc': 'Hong Kong - Guilin - Guangzhou - Foshan - Hainan Island',
+            'city-heading': 'Introduction to Chinese City Attractions',
+            'city-beijing': 'Beijing',
+            'city-shanghai': 'Shanghai',
+            'city-guangzhou': 'Guangzhou',
+            'city-luoyang': 'Luoyang',
+            'city-xian': 'Xi\'an',
+            'city-guilin': 'Guilin',
+            'city-hongkong': 'Hong Kong',
+            'city-sanya': 'Sanya (Hainan)',
+            'city-foshan': 'Foshan',
+            'city-zhongshan': 'Zhongshan'
+        },
+        'zh': {
+            'home': '主页',
+            'contact': '联系',
+            'form': '表格',
+            'language': '语言',
+            'footer': '© 2025 chinaehotel.com 版权所有。',
+            'tour1-title': '学生特价9天中国游',
+            'tour1-desc': '北京-西安-上海（3、4、5、10、11月）',
+            'tour1-price': '$1999+',
+            'tour2-title': '黄金假期13天中国游',
+            'tour2-desc': '上海-洛阳-少林寺-西安-北京',
+            'tour2-period': '（6、7、8、9、12月）',
+            'tour3-title': '家庭9天中国特惠游',
+            'tour3-desc': '北京-西安-上海',
+            'tour3-period': '（3、4、5、10、11月）',
+            'tour5-title': '13天中国南方定制游',
+            'tour5-desc': '香港-桂林-广州-中山',
+            'tour5-period': '（旺季：6、7、8、9、12月 淡季：3、4、5、10、11月）',
+            'tour6-title': '11天中国南方经典游',
+            'tour6-desc': '香港-桂林-广州-佛山（6、7、8、9、12月）',
+            'tour7-title': '独家定制13天中国南方名城',
+            'tour7-desc': '香港-桂林-广州-佛山-海南岛',
+            'city-heading': '中国城市景点介绍',
+            'city-beijing': '北京',
+            'city-shanghai': '上海',
+            'city-guangzhou': '广州',
+            'city-luoyang': '洛阳',
+            'city-xian': '西安',
+            'city-guilin': '桂林',
+            'city-hongkong': '香港',
+            'city-sanya': '三亚（海南）',
+            'city-foshan': '佛山',
+            'city-zhongshan': '中山'
+        }
+    };
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    function changeLanguage(lang) {
+        console.log(`切换语言到: ${lang}`); // 调试日志
+        currentLang = lang; // 更新当前语言
+        document.querySelectorAll('[data-lang]').forEach(element => {
+            const key = element.getAttribute('data-lang');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            } else {
+                console.warn(`未找到语言 ${lang} 的翻译键: ${key}`);
             }
+        });
+        document.documentElement.lang = lang;
+
+        // 更新导航链接
+        document.querySelector('a[data-lang="home"]').href = `https://chinaehotel.com?lang=${lang}`;
+        document.querySelector('a[data-lang="contact"]').href = `https://chinaehotel.com/contact.html?lang=${lang}`;
+        document.querySelector('a[data-lang="form"]').href = `https://chinaehotel.com/form.html?lang=${lang}`;
+
+        // 更新行程链接
+        document.querySelector('a[href*="itinerary-8day-BJ-XA-SH.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=${lang}`;
+        document.querySelector('a[href*="itinerary-12day-SH-LY-XA-BJ.html"]').href = `https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=${lang}`;
+        document.querySelector('a[href*="itinerary-10day-HK-GL-GZ-FS.html"]').href = `https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=${lang}`;
+        document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-HN.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=${lang}`;
+        document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-ZS.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=${lang}`;
+        document.querySelector('a[href*="itinerary-8day-BJ-XA-SH_5StarHotel.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=${lang}`;
+
+        // 更新城市链接
+        const cityLinks = {
+            'beijing': 'https://chinaehotel.com/City_Beijing.html',
+            'shanghai': 'https://chinaehotel.com/City_Shanghai.html',
+            'guangzhou': 'https://chinaehotel.com/City_GuangZhou.html',
+            'luoyang': 'https://chinaehotel.com/City_Luoyang.html',
+            'xian': 'https://chinaehotel.com/City_XiAn.html',
+            'guilin': 'https://chinaehotel.com/City_GuiLin.html',
+            'hongkong': 'https://chinaehotel.com/City_HongKong.html',
+            'sanya': 'https://chinaehotel.com/City_SanYa.html',
+            'foshan': 'https://chinaehotel.com/City_FoShan.html',
+            'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
         };
 
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+        Object.keys(cityLinks).forEach(city => {
+            const link = document.querySelector(`.city-card-link[data-city="${city}"]`) || document.querySelector(`a[href*="${cityLinks[city]}"]`);
+            if (link) {
+                link.href = `${cityLinks[city]}?lang=${lang}`;
+                console.log(`更新 ${city} 链接: ${link.href}`); // 调试日志
+            }
+        });
+    }
 
-        function changeLanguage(lang) {
-            console.log(`切换语言到: ${lang}`); // 调试日志
-            currentLang = lang; // 更新当前语言
-            document.querySelectorAll('[data-lang]').forEach(element => {
-                const key = element.getAttribute('data-lang');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                } else {
-                    console.warn(`未找到语言 ${lang} 的翻译键: ${key}`);
-                }
-            });
-            document.documentElement.lang = lang;
+    // 为语言链接添加事件监听器
+    document.addEventListener('DOMContentLoaded', () => {
+        // 检查 URL 中的 lang 参数
+        const langFromUrl = getQueryParam('lang') || 'es'; // 默认西班牙语
+        changeLanguage(langFromUrl);
 
-            // 更新导航链接
-            document.querySelector('a[data-lang="home"]').href = `https://chinaehotel.com?lang=${lang}`;
-            document.querySelector('a[data-lang="contact"]').href = `https://chinaehotel.com/contact.html?lang=${lang}`;
-            document.querySelector('a[data-lang="form"]').href = `https://chinaehotel.com/form.html?lang=${lang}`;
-
-            // 更新行程链接
-            document.querySelector('a[href*="itinerary-8day-BJ-XA-SH.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=${lang}`;
-            document.querySelector('a[href*="itinerary-12day-SH-LY-XA-BJ.html"]').href = `https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=${lang}`;
-            document.querySelector('a[href*="itinerary-10day-HK-GL-GZ-FS.html"]').href = `https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=${lang}`;
-            document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-HN.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=${lang}`;
-            document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-ZS.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=${lang}`;
-            document.querySelector('a[href*="itinerary-8day-BJ-XA-SH_5StarHotel.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=${lang}`;
-
-            // 更新城市链接
-            const cityLinks = {
-                'beijing': 'https://chinaehotel.com/City_Beijing.html',
-                'shanghai': 'https://chinaehotel.com/City_Shanghai.html',
-                'guangzhou': 'https://chinaehotel.com/City_GuangZhou.html',
-                'luoyang': 'https://chinaehotel.com/City_Luoyang.html',
-                'xian': 'https://chinaehotel.com/City_XiAn.html',
-                'guilin': 'https://chinaehotel.com/City_GuiLin.html',
-                'hongkong': 'https://chinaehotel.com/City_HongKong.html',
-                'sanya': 'https://chinaehotel.com/City_SanYa.html',
-                'foshan': 'https://chinaehotel.com/City_FoShan.html',
-                'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
-            };
-
-            Object.keys(cityLinks).forEach(city => {
-                const link = document.querySelector(`.city-card-link[data-city="${city}"]`) || document.querySelector(`a[href*="${cityLinks[city]}"]`);
-                if (link) {
-                    link.href = `${cityLinks[city]}?lang=${lang}`;
-                    console.log(`更新 ${city} 链接: ${link.href}`); // 调试日志
-                }
-            });
-        }
-
-        // 为语言链接添加事件监听器
-        document.addEventListener('DOMContentLoaded', () => {
-            // 检查 URL 中的 lang 参数
-            const langFromUrl = getQueryParam('lang') || 'es'; // 默认西班牙语
-            changeLanguage(langFromUrl);
-
-            document.querySelectorAll('.lang-link').forEach(link => {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault(); // 阻止默认跳转
-                    const lang = link.getAttribute('data-lang-code');
-                    changeLanguage(lang);
-                    // 更新 URL 中的 lang 参数
-                    window.history.pushState({}, '', `?lang=${lang}`);
-                });
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // 阻止默认跳转
+                const lang = link.getAttribute('data-lang-code');
+                changeLanguage(lang);
+                // 更新 URL 中的 lang 参数
+                window.history.pushState({}, '', `?lang=${lang}`);
             });
         });
-    </script>
-</body>
+    });
+</script></body>
 </html>
+
