@@ -246,14 +246,14 @@
         </nav>
 
     <div class="content">
-        <a href="https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=es" class="card-link">
+        <a href="https://chinaehotel.com/itinerary-10day-MexicoStudents-ChinaStudyTour.html?lang=es" class="card-link">
             <div class="card">
                 <div class="card-image">
-                    <img src="BJ_居庸关长城.jpg" alt="景点图片">
+                    <img src="GD_Student.jpg" alt="景点图片">
                 </div>
                 <div class="card-content">
-                    <h3 data-lang="tour1-title">Oferta especial para estudiantes: 9 días en China</h3>
-                    <p data-lang="tour1-desc">Beijing - Xi'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
+                    <h3 data-lang="tour1-title">Oferta especial para estudiantes: 10 días en China</h3>
+                    <p data-lang="tour1-desc">Hong Kong - Shenzhen - Guangzhou - Foshan (Marzo, Abril, Mayo, Octubre, Noviembre 2025)</p>
                 </div>
             </div>
         </a>
@@ -441,8 +441,8 @@
             'form': 'Formulario',
             'language': 'Idioma',
             'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
-            'tour1-title': 'Oferta especial para estudiantes: 9 días en China',
-            'tour1-desc': 'Beijing - Xi\'an - Shanghai (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
+            'tour1-title': 'Oferta especial para estudiantes: 10 días en China',
+            'tour1-desc': 'Hong Kong - Shenzhen - Guangzhou - Foshan (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
             'tour1-price': '$1999+',
             'tour2-title': 'Vacaciones doradas: 13 días en China',
             'tour2-desc': 'Shanghai - Luoyang - Templo Shaolin - Xi\'an - Beijing',
@@ -475,8 +475,8 @@
             'form': 'Form',
             'language': 'Language',
             'footer': '© 2025 chinaehotel.com All rights reserved.',
-            'tour1-title': 'Student Special: 9-Day China Tour',
-            'tour1-desc': 'Beijing - Xi\'an - Shanghai (March, April, May, October, November 2025)',
+            'tour1-title': 'Student Special: 10-Day China Tour',
+            'tour1-desc': 'Hong Kong - Shenzhen - Guangzhou - Foshan (March, April, May, October, November 2025)',
             'tour1-price': '$1999+',
             'tour2-title': 'Golden Holiday: 13-Day China Tour',
             'tour2-desc': 'Shanghai - Luoyang - Shaolin Temple - Xi\'an - Beijing',
@@ -509,8 +509,8 @@
             'form': '表格',
             'language': '语言',
             'footer': '© 2025 chinaehotel.com 版权所有。',
-            'tour1-title': '学生特价9天中国游',
-            'tour1-desc': '北京-西安-上海（3、4、5、10、11月）',
+            'tour1-title': '学生特价10天中国游',
+            'tour1-desc': '香港-深圳-广州-佛山（3、4、5、10、11月）',
             'tour1-price': '$1999+',
             'tour2-title': '黄金假期13天中国游',
             'tour2-desc': '上海-洛阳-少林寺-西安-北京',
@@ -544,71 +544,4 @@
         return urlParams.get(param);
     }
 
-    function changeLanguage(lang) {
-        console.log(`切换语言到: ${lang}`); // 调试日志
-        currentLang = lang; // 更新当前语言
-        document.querySelectorAll('[data-lang]').forEach(element => {
-            const key = element.getAttribute('data-lang');
-            if (translations[lang] && translations[lang][key]) {
-                element.textContent = translations[lang][key];
-            } else {
-                console.warn(`未找到语言 ${lang} 的翻译键: ${key}`);
-            }
-        });
-        document.documentElement.lang = lang;
-
-        // 更新导航链接
-        document.querySelector('a[data-lang="home"]').href = `https://chinaehotel.com?lang=${lang}`;
-        document.querySelector('a[data-lang="contact"]').href = `https://chinaehotel.com/contact.html?lang=${lang}`;
-        document.querySelector('a[data-lang="form"]').href = `https://chinaehotel.com/form.html?lang=${lang}`;
-
-        // 更新行程链接
-        document.querySelector('a[href*="itinerary-8day-BJ-XA-SH.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH.html?lang=${lang}`;
-        document.querySelector('a[href*="itinerary-12day-SH-LY-XA-BJ.html"]').href = `https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=${lang}`;
-        document.querySelector('a[href*="itinerary-10day-HK-GL-GZ-FS.html"]').href = `https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=${lang}`;
-        document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-HN.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=${lang}`;
-        document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-ZS.html"]').href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=${lang}`;
-        document.querySelector('a[href*="itinerary-8day-BJ-XA-SH_5StarHotel.html"]').href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=${lang}`;
-
-        // 更新城市链接
-        const cityLinks = {
-            'beijing': 'https://chinaehotel.com/City_Beijing.html',
-            'shanghai': 'https://chinaehotel.com/City_Shanghai.html',
-            'guangzhou': 'https://chinaehotel.com/City_GuangZhou.html',
-            'luoyang': 'https://chinaehotel.com/City_Luoyang.html',
-            'xian': 'https://chinaehotel.com/City_XiAn.html',
-            'guilin': 'https://chinaehotel.com/City_GuiLin.html',
-            'hongkong': 'https://chinaehotel.com/City_HongKong.html',
-            'sanya': 'https://chinaehotel.com/City_SanYa.html',
-            'foshan': 'https://chinaehotel.com/City_FoShan.html',
-            'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
-        };
-
-        Object.keys(cityLinks).forEach(city => {
-            const link = document.querySelector(`.city-card-link[data-city="${city}"]`) || document.querySelector(`a[href*="${cityLinks[city]}"]`);
-            if (link) {
-                link.href = `${cityLinks[city]}?lang=${lang}`;
-                console.log(`更新 ${city} 链接: ${link.href}`); // 调试日志
-            }
-        });
-    }
-
-    // 为语言链接添加事件监听器
-    document.addEventListener('DOMContentLoaded', () => {
-        // 检查 URL 中的 lang 参数
-        const langFromUrl = getQueryParam('lang') || 'es'; // 默认西班牙语
-        changeLanguage(langFromUrl);
-
-        document.querySelectorAll('.lang-link').forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault(); // 阻止默认跳转
-                const lang = link.getAttribute('data-lang-code');
-                changeLanguage(lang);
-                // 更新 URL 中的 lang 参数
-                window.history.pushState({}, '', `?lang=${lang}`);
-            });
-        });
-    });
-</script></body>
-</html>
-
+    function changeLanguage(lang)
