@@ -443,7 +443,6 @@
             'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
             'tour1-title': 'Oferta especial para estudiantes: 10 días en China',
             'tour1-desc': 'Hong Kong - Shenzhen - Guangzhou - Foshan (Marzo, Abril, Mayo, Octubre, Noviembre 2025)',
-            'tour1-price': '$1999+',
             'tour2-title': 'Vacaciones doradas: 13 días en China',
             'tour2-desc': 'Shanghai - Luoyang - Templo Shaolin - Xi\'an - Beijing',
             'tour2-period': '(Junio, Julio, Agosto, Septiembre, Diciembre)',
@@ -477,7 +476,6 @@
             'footer': '© 2025 chinaehotel.com All rights reserved.',
             'tour1-title': 'Student Special: 10-Day China Tour',
             'tour1-desc': 'Hong Kong - Shenzhen - Guangzhou - Foshan (March, April, May, October, November 2025)',
-            'tour1-price': '$1999+',
             'tour2-title': 'Golden Holiday: 13-Day China Tour',
             'tour2-desc': 'Shanghai - Luoyang - Shaolin Temple - Xi\'an - Beijing',
             'tour2-period': '(June, July, August, September, December)',
@@ -511,7 +509,6 @@
             'footer': '© 2025 chinaehotel.com 版权所有。',
             'tour1-title': '学生特价10天中国游',
             'tour1-desc': '香港-深圳-广州-佛山（3、4、5、10、11月）',
-            'tour1-price': '$1999+',
             'tour2-title': '黄金假期13天中国游',
             'tour2-desc': '上海-洛阳-少林寺-西安-北京',
             'tour2-period': '（6、7、8、9、12月）',
@@ -544,4 +541,83 @@
         return urlParams.get(param);
     }
 
-    function changeLanguage(lang)
+    function changeLanguage(lang) {
+        console.log('正在切换语言到:', lang);
+        currentLang = lang;
+        document.querySelectorAll('[data-lang]').forEach(element => {
+            const key = element.getAttribute('data-lang');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+        document.documentElement.lang = lang;
+
+        // 安全更新导航链接（加了防空判断，防止任何可能的JS错误）
+        let homeLink = document.querySelector('a[data-lang="home"]');
+        if (homeLink) homeLink.href = `https://chinaehotel.com?lang=${lang}`;
+
+        let contactLink = document.querySelector('a[data-lang="contact"]');
+        if (contactLink) contactLink.href = `https://chinaehotel.com/contact.html?lang=${lang}`;
+
+        let formLink = document.querySelector('a[data-lang="form"]');
+        if (formLink) formLink.href = `https://chinaehotel.com/form.html?lang=${lang}`;
+
+        // 安全更新所有行程卡片链接（全部加了if判断，彻底避免null错误）
+        let studentLink = document.querySelector('a[href*="itinerary-10day-MexicoStudents-ChinaStudyTour.html"]');
+        if (studentLink) studentLink.href = `https://chinaehotel.com/itinerary-10day-MexicoStudents-ChinaStudyTour.html?lang=${lang}`;
+
+        let tour2Link = document.querySelector('a[href*="itinerary-12day-SH-LY-XA-BJ.html"]');
+        if (tour2Link) tour2Link.href = `https://chinaehotel.com/itinerary-12day-SH-LY-XA-BJ.html?lang=${lang}`;
+
+        let tour6Link = document.querySelector('a[href*="itinerary-10day-HK-GL-GZ-FS.html"]');
+        if (tour6Link) tour6Link.href = `https://chinaehotel.com/itinerary-10day-HK-GL-GZ-FS.html?lang=${lang}`;
+
+        let tour7Link = document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-HN.html"]');
+        if (tour7Link) tour7Link.href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-HN.html?lang=${lang}`;
+
+        let tour5Link = document.querySelector('a[href*="itinerary-12day-HK-GL-GZ-ZS.html"]');
+        if (tour5Link) tour5Link.href = `https://chinaehotel.com/itinerary-12day-HK-GL-GZ-ZS.html?lang=${lang}`;
+
+        let tour3Link = document.querySelector('a[href*="itinerary-8day-BJ-XA-SH_5StarHotel.html"]');
+        if (tour3Link) tour3Link.href = `https://chinaehotel.com/itinerary-8day-BJ-XA-SH_5StarHotel.html?lang=${lang}`;
+
+        // 更新城市链接（已安全）
+        const cityLinks = {
+            'beijing': 'https://chinaehotel.com/City_Beijing.html',
+            'shanghai': 'https://chinaehotel.com/City_Shanghai.html',
+            'guangzhou': 'https://chinaehotel.com/City_GuangZhou.html',
+            'luoyang': 'https://chinaehotel.com/City_Luoyang.html',
+            'xian': 'https://chinaehotel.com/City_XiAn.html',
+            'guilin': 'https://chinaehotel.com/City_GuiLin.html',
+            'hongkong': 'https://chinaehotel.com/City_HongKong.html',
+            'sanya': 'https://chinaehotel.com/City_SanYa.html',
+            'foshan': 'https://chinaehotel.com/City_FoShan.html',
+            'zhongshan': 'https://chinaehotel.com/City_ZhongShan.html'
+        };
+
+        Object.keys(cityLinks).forEach(city => {
+            const link = document.querySelector(`.city-card-link[data-city="${city}"]`) || document.querySelector(`a[href*="${cityLinks[city]}"]`);
+            if (link) {
+                link.href = `${cityLinks[city]}?lang=${lang}`;
+            }
+        });
+
+        console.log('语言切换完成:', lang);
+    }
+
+    // 语言切换事件
+    document.addEventListener('DOMContentLoaded', () => {
+        const langFromUrl = getQueryParam('lang') || 'es';
+        changeLanguage(langFromUrl);
+
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const lang = link.getAttribute('data-lang-code');
+                changeLanguage(lang);
+                window.history.pushState({}, '', `?lang=${lang}`);
+            });
+        });
+    });
+</script></body>
+</html>
