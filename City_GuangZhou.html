@@ -5,359 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chinaehotel - Guangzhou Attractions</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        nav {
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            margin-right: 20px;
-        }
-
-        nav a:hover {
-            color: #ff6200;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            min-width: 100px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 8px 12px;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .city-title {
-            font-size: 24px;
-            color: #ff6200;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .content {
-            padding: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .card {
-            width: 100%;
-            height: auto;
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            width: 45%;
-            margin: 0 auto;
-        }
-
-        .card-link:hover .card {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card-content {
-            padding: 15px;
-            min-height: 100px;
-            overflow: hidden;
-        }
-
-        .card-content h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .card-content p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .container { max-width: 1200px; width: 90%; margin: 0 auto; }
+        nav { background-color: #fff; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 15px 0; }
+        nav a { text-decoration: none; color: #333; font-size: 16px; margin-right: 20px; }
+        nav a:hover { color: #ff6200; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 100px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #333; padding: 8px 12px; display: block; }
+        .dropdown-content a:hover { background-color: #f1f1f1; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .city-title { font-size: 28px; color: #ff6200; text-align: center; margin: 20px 0; font-weight: bold; }
+        .content { padding: 20px 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .card-link { text-decoration: none; color: inherit; display: block; width: 45%; margin: 0 auto; }
+        .card-link:hover .card { box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .card { width: 100%; background-color: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card-image { width: 100%; height: 300px; overflow: hidden; }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card-content { padding: 15px; }
+        .card-content h3 { font-size: 17px; margin-bottom: 8px; color: #333; }
+        .card-content p { font-size: 14px; color: #666; line-height: 1.5; }
+        footer { background-color: #333; color: #fff; padding: 20px 0; margin-top: 20px; text-align: center; }
+        footer p { margin: 0; }
         @media (max-width: 768px) {
-            .container {
-                width: 100%;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-
-            nav {
-                justify-content: space-around;
-            }
-
-            .card-link {
-                width: 100%;
-            }
-
-            .card-image {
-                height: 200px;
-            }
+            .card-link { width: 100%; }
+            .card-image { height: 220px; }
+            .city-title { font-size: 24px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <a href="https://chinaehotel.com" data-lang="home">Inicio</a>
-            <a href="https://chinaehotel.com/contact.html" data-lang="contact">Contacto</a>
-            <a href="https://chinaehotel.com/form.html" data-lang="form">Formulario</a>
+            <a href="https://chinaehotel.com?lang=es" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html?lang=es" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html?lang=es" data-lang="form">Formulario</a>
             <div class="dropdown">
                 <a href="#" class="dropbtn" data-lang="language">Idioma</a>
                 <div class="dropdown-content">
-                    <a href="?lang=es" onclick="changeLanguage('es')">Español</a>
-                    <a href="?lang=en" onclick="changeLanguage('en')">English</a>
-                    <a href="?lang=zh" onclick="changeLanguage('zh')">中文</a>
+                    <a href="?lang=es" class="lang-link" data-lang-code="es">Español</a>
+                    <a href="?lang=en" class="lang-link" data-lang-code="en">English</a>
+                    <a href="?lang=zh" class="lang-link" data-lang-code="zh">中文</a>
                 </div>
             </div>
         </nav>
 
-        <h1 class="city-title" data-lang="city-title">Guangzhou</h1>
+        <h1 class="city-title" data-lang="city-title">Guangzhou – La Ciudad del Futuro que Cambiará tu Vida</h1>
 
         <div class="content">
-            <div class="card-link">
-                <div class="card" id="shamian-island">
-                    <div class="card-image">
-                        <a href="GZ_沙面.jpg" target="_blank"><img src="GZ_沙面.jpg" alt="Shamian Island"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction1-title">Isla Shamian</h3>
-                        <p data-lang="attraction1-desc">Antiguo centro comercial de Guangzhou, con edificios europeos de estilo colonial, es conocida como un "museo al aire libre".</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="chen-clan-ancestral-hall">
-                    <div class="card-image">
-                        <a href="GZ_陈家祠.jpg" target="_blank"><img src="GZ_陈家祠.jpg" alt="Chen Clan Ancestral Hall"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction2-title">Templo Ancestral del Clan Chen</h3>
-                        <p data-lang="attraction2-desc">Clasificado como Museo Nacional de Primera Categoría, es considerado la "Perla del Arte Arquitectónico de Lingnan".</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="lizhiwan-yong">
-                    <div class="card-image">
-                        <a href="GZ_荔枝湾涌.jpg" target="_blank"><img src="GZ_荔枝湾涌.jpg" alt="Lizhiwan Yong"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction3-title">Canal Lizhiwan</h3>
-                        <p data-lang="attraction3-desc">Un lugar para experimentar el encanto de Xiguan y el paisaje acuático de estilo veneciano en el distrito de Liwan.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="yongqing-fang">
-                    <div class="card-image">
-                        <a href="GZ_永庆坊.jpg" target="_blank"><img src="GZ_永庆坊.jpg" alt="Yongqing Fang"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction4-title">Yongqing Fang</h3>
-                        <p data-lang="attraction4-desc">Un distrito histórico que combina arquitectura tradicional, arte, ocio internacional y tendencias modernas.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="yuexiu-mountain">
-                    <div class="card-image">
-                        <a href="GZ_越秀公园.jpg" target="_blank"><img src="GZ_越秀公园.jpg" alt="Yuexiu Mountain"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction5-title">Montaña Yuexiu</h3>
-                        <p data-lang="attraction5-desc">El principal monte de la antigua Guangzhou, famoso por su paisaje, la Torre Zhenhai y la escultura de las Cinco Cabras.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="zhenhai-tower">
-                    <div class="card-image">
-                        <a href="GZ_镇海楼.jpg" target="_blank"><img src="GZ_镇海楼.jpg" alt="Zhenhai Tower"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction6-title">Torre Zhenhai</h3>
-                        <p data-lang="attraction6-desc">Construida en 1380 en la montaña Yuexiu, alberga el Museo de Guangzhou y tiene más de 600 años de historia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-link">
-                <div class="card" id="huacheng-square">
-                    <div class="card-image">
-                        <a href="GZ_花城广场.jpg" target="_blank"><img src="GZ_花城广场.jpg" alt="Huacheng Square"></a>
-                    </div>
-                    <div class="card-content">
-                        <h3 data-lang="attraction7-title">Plaza Huacheng</h3>
-                        <p data-lang="attraction7-desc">Ubicada en el nuevo eje de Guangzhou, rodeada de flores, rascacielos y sitios culturales como la Ópera y el Museo Provincial.</p>
-                    </div>
-                </div>
-            </div>
+            <!-- 现代研学景点 -->
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_UniversityGame.jpg" target="_blank"><img src="GZ_UniversityGame.jpg"></a></div><div class="card-content"><h3 data-lang="attraction1-title">Intercambio Universitario de Videojuegos</h3><p data-lang="attraction1-desc">¡Imagina aprender de profesores chinos cómo crear el próximo gran videojuego! Esta experiencia te da las habilidades que las empresas mundiales buscan. ¡No querrás perdértela!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_Class.jpg" target="_blank"><img src="GZ_Class.jpg"></a></div><div class="card-content"><h3 data-lang="attraction2-title">Clase Práctica de Videojuegos e IA</h3><p data-lang="attraction2-desc">Pon las manos en el teclado y crea tu propio personaje. Aquí no solo ves el futuro… ¡lo construyes tú mismo!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_GameAICompany.jpg" target="_blank"><img src="GZ_GameAICompany.jpg"></a></div><div class="card-content"><h3 data-lang="attraction3-title">Empresa Líder de Videojuegos e IA</h3><p data-lang="attraction3-desc">Conoce cómo se crea un juego que llega a millones. Esta visita te abrirá las puertas de tu carrera.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_Shein.jpg" target="_blank"><img src="GZ_Shein.jpg"></a></div><div class="card-content"><h3 data-lang="attraction4-title">Cadena de Suministro y E-commerce</h3><p data-lang="attraction4-desc">Entiende el proceso completo desde el diseño hasta la venta global. Ideal para estudiantes interesados en emprendimiento digital.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_MCN.jpg" target="_blank"><img src="GZ_MCN.jpg"></a></div><div class="card-content"><h3 data-lang="attraction5-title">Agencia MCN y Live Streaming</h3><p data-lang="attraction5-desc">Ve cómo los influencers ganan miles de dólares en minutos. ¡Tu pasión puede convertirse en ingresos reales!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_BruceLee.jpg" target="_blank"><img src="GZ_BruceLee.jpg"></a></div><div class="card-content"><h3 data-lang="attraction6-title">Casa de Bruce Lee y Kung Fu Auténtico</h3><p data-lang="attraction6-desc">No es cine. Es el entrenamiento real que forjó a la leyenda. Siente la disciplina que cambiará tu vida.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_Exoskeleton.jpg" target="_blank"><img src="GZ_Exoskeleton.jpg"></a></div><div class="card-content"><h3 data-lang="attraction7-title">Exoesqueleto Robótico en Baiyun</h3><p data-lang="attraction7-desc">¡Conviértete en superhéroe! Sube la montaña con un robot que multiplica tu fuerza. ¡Nadie en México lo tiene!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_PearlRiverCruise.jpg" target="_blank"><img src="GZ_PearlRiverCruise.jpg"></a></div><div class="card-content"><h3 data-lang="attraction8-title">Crucero Nocturno por el Río Perla</h3><p data-lang="attraction8-desc">La ciudad iluminada reflejada en el agua… una noche mágica que recordarás toda la vida.</p></div></div></div>
+
+            <!-- 食在广州 -->
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_DimSum.jpg" target="_blank"><img src="GZ_DimSum.jpg"></a></div><div class="card-content"><h3 data-lang="attraction16-title">¡Comer en Guangzhou! Dim Sum Cantonesa</h3><p data-lang="attraction16-desc">¡La famosa “Comer en Guangzhou”! Prueba los auténticos dim sum cantoneses en vaporeras de bambú. Uno de los placeres gastronómicos más famosos del mundo. ¡Una experiencia que nunca olvidarás!</p></div></div></div>
+
+            <!-- 传统景点 -->
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_沙面.jpg" target="_blank"><img src="GZ_沙面.jpg"></a></div><div class="card-content"><h3 data-lang="attraction9-title">Isla Shamian</h3><p data-lang="attraction9-desc">Edificios coloniales europeos en medio de Guangzhou. Un "museo al aire libre" que te transporta al pasado y al presente al mismo tiempo.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_陈家祠.jpg" target="_blank"><img src="GZ_陈家祠.jpg"></a></div><div class="card-content"><h3 data-lang="attraction10-title">Templo Ancestral del Clan Chen</h3><p data-lang="attraction10-desc">Museo Nacional de Primera Categoría. La "Perla del Arte Arquitectónico de Lingnan". ¡Una obra maestra que no verás en ningún otro lugar!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_荔枝湾涌.jpg" target="_blank"><img src="GZ_荔枝湾涌.jpg"></a></div><div class="card-content"><h3 data-lang="attraction11-title">Canal Lizhiwan</h3><p data-lang="attraction11-desc">Venecia china en Guangzhou. Barcos, luces y el encanto antiguo de Xiguan. Perfecto para fotos y recuerdos inolvidables.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_永庆坊.jpg" target="_blank"><img src="GZ_永庆坊.jpg"></a></div><div class="card-content"><h3 data-lang="attraction12-title">Yongqing Fang</h3><p data-lang="attraction12-desc">Barrio histórico donde tradición y modernidad se fusionan. Arte, cafés y la verdadera alma de Guangzhou.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_越秀公园.jpg" target="_blank"><img src="GZ_越秀公园.jpg"></a></div><div class="card-content"><h3 data-lang="attraction13-title">Montaña Yuexiu</h3><p data-lang="attraction13-desc">La montaña más famosa de la antigua Guangzhou. Paisajes, Torre Zhenhai y la icónica escultura de las Cinco Cabras.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_镇海楼.jpg" target="_blank"><img src="GZ_镇海楼.jpg"></a></div><div class="card-content"><h3 data-lang="attraction14-title">Torre Zhenhai</h3><p data-lang="attraction14-desc">Construida en 1380, más de 600 años de historia. Alberga el Museo de Guangzhou. ¡Una joya que debes ver!</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="GZ_花城广场.jpg" target="_blank"><img src="GZ_花城广场.jpg"></a></div><div class="card-content"><h3 data-lang="attraction15-title">Plaza Huacheng</h3><p data-lang="attraction15-desc">El corazón moderno de Guangzhou. Flores, rascacielos y la Ópera. El futuro que ya está aquí.</p></div></div></div>
         </div>
     </div>
 
     <footer>
-        <p data-lang="footer">© 2025 chinaehotel.com Todos los derechos reservados.</p>
+        <p data-lang="footer">© 2026 chinaehotel.com Todos los derechos reservados.</p>
     </footer>
 
     <script>
         const translations = {
-            'es': {
-                'home': 'Inicio',
-                'contact': 'Contacto',
-                'form': 'Formulario',
-                'language': 'Idioma',
-                'footer': '© 2025 chinaehotel.com Todos los derechos reservados.',
-                'city-title': 'Guangzhou',
-                'attraction1-title': 'Isla Shamian',
-                'attraction1-desc': 'Antiguo centro comercial de Guangzhou, con edificios europeos de estilo colonial, es conocida como un "museo al aire libre".',
-                'attraction2-title': 'Templo Ancestral del Clan Chen',
-                'attraction2-desc': 'Clasificado como Museo Nacional de Primera Categoría, es considerado la "Perla del Arte Arquitectónico de Lingnan".',
-                'attraction3-title': 'Canal Lizhiwan',
-                'attraction3-desc': 'Un lugar para experimentar el encanto de Xiguan y el paisaje acuático de estilo veneciano en el distrito de Liwan.',
-                'attraction4-title': 'Yongqing Fang',
-                'attraction4-desc': 'Un distrito histórico que combina arquitectura tradicional, arte, ocio internacional y tendencias modernas.',
-                'attraction5-title': 'Montaña Yuexiu',
-                'attraction5-desc': 'El principal monte de la antigua Guangzhou, famoso por su paisaje, la Torre Zhenhai y la escultura de las Cinco Cabras.',
-                'attraction6-title': 'Torre Zhenhai',
-                'attraction6-desc': 'Construida en 1380 en la montaña Yuexiu, alberga el Museo de Guangzhou y tiene más de 600 años de historia.',
-                'attraction7-title': 'Plaza Huacheng',
-                'attraction7-desc': 'Ubicada en el nuevo eje de Guangzhou, rodeada de flores, rascacielos y sitios culturales como la Ópera y el Museo Provincial.'
+            'es': { /* 西班牙语完整 */ 
+                'home': 'Inicio', 'contact': 'Contacto', 'form': 'Formulario', 'language': 'Idioma',
+                'footer': '© 2026 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Guangzhou – La Ciudad del Futuro que Cambiará tu Vida',
+                'attraction1-title': 'Intercambio Universitario de Videojuegos', 'attraction1-desc': '¡Imagina aprender de profesores chinos cómo crear el próximo gran videojuego! Esta experiencia te da las habilidades que las empresas mundiales buscan. ¡No querrás perdértela!',
+                'attraction2-title': 'Clase Práctica de Videojuegos e IA', 'attraction2-desc': 'Pon las manos en el teclado y crea tu propio personaje. Aquí no solo ves el futuro… ¡lo construyes tú mismo!',
+                'attraction3-title': 'Empresa Líder de Videojuegos e IA', 'attraction3-desc': 'Conoce cómo se crea un juego que llega a millones. Esta visita te abrirá las puertas de tu carrera.',
+                'attraction4-title': 'Cadena de Suministro y E-commerce', 'attraction4-desc': 'Entiende el proceso completo desde el diseño hasta la venta global. Ideal para estudiantes interesados en emprendimiento digital.',
+                'attraction5-title': 'Agencia MCN y Live Streaming', 'attraction5-desc': 'Ve cómo los influencers ganan miles de dólares en minutos. ¡Tu pasión puede convertirse en ingresos reales!',
+                'attraction6-title': 'Casa de Bruce Lee y Kung Fu Auténtico', 'attraction6-desc': 'No es cine. Es el entrenamiento real que forjó a la leyenda. Siente la disciplina que cambiará tu vida.',
+                'attraction7-title': 'Exoesqueleto Robótico en Baiyun', 'attraction7-desc': '¡Conviértete en superhéroe! Sube la montaña con un robot que multiplica tu fuerza. ¡Nadie en México lo tiene!',
+                'attraction8-title': 'Crucero Nocturno por el Río Perla', 'attraction8-desc': 'La ciudad iluminada reflejada en el agua… una noche mágica que recordarás toda la vida.',
+                'attraction16-title': '¡Comer en Guangzhou! Dim Sum Cantonesa', 'attraction16-desc': '¡La famosa “Comer en Guangzhou”! Prueba los auténticos dim sum cantoneses en vaporeras de bambú. Uno de los placeres gastronómicos más famosos del mundo. ¡Una experiencia que nunca olvidarás!',
+                'attraction9-title': 'Isla Shamian', 'attraction9-desc': 'Edificios coloniales europeos en medio de Guangzhou. Un "museo al aire libre" que te transporta al pasado y al presente al mismo tiempo.',
+                'attraction10-title': 'Templo Ancestral del Clan Chen', 'attraction10-desc': 'Museo Nacional de Primera Categoría. La "Perla del Arte Arquitectónico de Lingnan". ¡Una obra maestra que no verás en ningún otro lugar!',
+                'attraction11-title': 'Canal Lizhiwan', 'attraction11-desc': 'Venecia china en Guangzhou. Barcos, luces y el encanto antiguo de Xiguan. Perfecto para fotos y recuerdos inolvidables.',
+                'attraction12-title': 'Yongqing Fang', 'attraction12-desc': 'Barrio histórico donde tradición y modernidad se fusionan. Arte, cafés y la verdadera alma de Guangzhou.',
+                'attraction13-title': 'Montaña Yuexiu', 'attraction13-desc': 'La montaña más famosa de la antigua Guangzhou. Paisajes, Torre Zhenhai y la icónica escultura de las Cinco Cabras.',
+                'attraction14-title': 'Torre Zhenhai', 'attraction14-desc': 'Construida en 1380, más de 600 años de historia. Alberga el Museo de Guangzhou. ¡Una joya que debes ver!',
+                'attraction15-title': 'Plaza Huacheng', 'attraction15-desc': 'El corazón moderno de Guangzhou. Flores, rascacielos y la Ópera. El futuro que ya está aquí.'
             },
-            'en': {
-                'home': 'Home',
-                'contact': 'Contact',
-                'form': 'Form',
-                'language': 'Language',
-                'footer': '© 2025 chinaehotel.com All rights reserved.',
-                'city-title': 'Guangzhou',
-                'attraction1-title': 'Shamian Island',
-                'attraction1-desc': 'Once a key trading hub, its European-style colonial buildings make it an "open-air museum" of Guangzhou’s history.',
-                'attraction2-title': 'Chen Clan Ancestral Hall',
-                'attraction2-desc': 'Rated a National First-Class Museum, it’s hailed as the "Pearl of Lingnan Architectural Art".',
-                'attraction3-title': 'Lizhiwan Canal',
-                'attraction3-desc': 'Experience the charm of Xiguan and a Venetian-style water town in Guangzhou’s Liwan district.',
-                'attraction4-title': 'Yongqing Fang',
-                'attraction4-desc': 'A historic district blending traditional architecture, art, international leisure, and modern trends.',
-                'attraction5-title': 'Yuexiu Mountain',
-                'attraction5-desc': 'Guangzhou’s ancient main hill, renowned for its scenery, Zhenhai Tower, and the Five Rams statue.',
-                'attraction6-title': 'Zhenhai Tower',
-                'attraction6-desc': 'Built in 1380 on Yuexiu Mountain, it houses the Guangzhou Museum and boasts over 600 years of history.',
-                'attraction7-title': 'Huacheng Square',
-                'attraction7-desc': 'Located on Guangzhou’s new central axis, surrounded by flowers, skyscrapers, and cultural landmarks like the Opera House.'
+            'en': { /* 英文完整 */ 
+                'home': 'Home', 'contact': 'Contact', 'form': 'Form', 'language': 'Language',
+                'footer': '© 2026 chinaehotel.com All rights reserved.',
+                'city-title': 'Guangzhou – The Future City That Will Change Your Life',
+                'attraction1-title': 'University Exchange in Video Games', 'attraction1-desc': 'Imagine learning from top Chinese professors how to create the next big game! This experience gives you the exact skills global companies want. You won’t want to miss it!',
+                'attraction2-title': 'Practical Class in Video Games & AI', 'attraction2-desc': 'Put your hands on the keyboard and create your own character. Here you don’t just see the future… you build it yourself!',
+                'attraction3-title': 'Leading Video Game & AI Company', 'attraction3-desc': 'See how games that reach millions are made. This visit will open doors to your future career.',
+                'attraction4-title': 'Supply Chain & E-commerce', 'attraction4-desc': 'Understand the full process from design to global sales. Perfect for students interested in digital entrepreneurship.',
+                'attraction5-title': 'MCN Agency & Live Streaming', 'attraction5-desc': 'Watch influencers earn thousands of dollars in minutes. Your passion can become real income!',
+                'attraction6-title': 'Bruce Lee House & Real Kung Fu', 'attraction6-desc': 'This is not cinema. It’s the real training that created the legend. Feel the discipline that will change your life.',
+                'attraction7-title': 'Robotic Exoskeleton on Baiyun', 'attraction7-desc': 'Become a superhero! Climb the mountain with a robot that multiplies your strength. Nobody in Mexico has this!',
+                'attraction8-title': 'Pearl River Night Cruise', 'attraction8-desc': 'The illuminated city reflected on the water… a magical night you will remember forever.',
+                'attraction16-title': 'Eating in Guangzhou! Cantonese Dim Sum', 'attraction16-desc': 'The famous “Food Capital of China”! Taste authentic Cantonese dim sum in bamboo steamers. One of the most famous gastronomic pleasures in the world. An experience you will never forget!',
+                'attraction9-title': 'Shamian Island', 'attraction9-desc': 'European colonial buildings in the middle of Guangzhou. An "open-air museum" that takes you to the past and present at the same time.',
+                'attraction10-title': 'Chen Clan Ancestral Hall', 'attraction10-desc': 'National First-Class Museum. The "Pearl of Lingnan Architectural Art". A masterpiece you won’t see anywhere else!',
+                'attraction11-title': 'Lizhiwan Canal', 'attraction11-desc': 'Chinese Venice in Guangzhou. Boats, lights and the ancient charm of Xiguan. Perfect for photos and unforgettable memories.',
+                'attraction12-title': 'Yongqing Fang', 'attraction12-desc': 'Historic district where tradition and modernity merge. Art, cafés and the true soul of Guangzhou.',
+                'attraction13-title': 'Yuexiu Mountain', 'attraction13-desc': 'The most famous mountain of ancient Guangzhou. Scenery, Zhenhai Tower and the iconic Five Rams statue.',
+                'attraction14-title': 'Zhenhai Tower', 'attraction14-desc': 'Built in 1380, over 600 years of history. Houses the Guangzhou Museum. A jewel you must see!',
+                'attraction15-title': 'Huacheng Square', 'attraction15-desc': 'The modern heart of Guangzhou. Flowers, skyscrapers and the Opera House. The future is already here.'
             },
-            'zh': {
-                'home': '主页',
-                'contact': '联系',
-                'form': '表格',
-                'language': '语言',
-                'footer': '© 2025 chinaehotel.com 版权所有。',
-                'city-title': '广州',
-                'attraction1-title': '沙面',
-                'attraction1-desc': '沙面曾是广州的重要商埠，岛内设立过多个国家领事馆，是广州最具异国情调的欧洲建筑群，被称为“露天博物馆”。',
-                'attraction2-title': '陈家祠',
-                'attraction2-desc': '2017年被中国博物馆协会评为“国家一级博物馆”。被誉为“岭南建筑艺术明珠”。',
-                'attraction3-title': '荔枝湾涌',
-                'attraction3-desc': '体验西关风貌、威尼斯水城般的荔湾水乡。',
-                'attraction4-title': '永庆坊',
-                'attraction4-desc': '融汇了人文古建、传统艺术、国际休闲、时尚潮流的广州核心历史文化街区。',
-                'attraction5-title': '越秀山',
-                'attraction5-desc': '在古代是广州的主山，以秀丽的湖光山色取胜，兼有镇海楼和五羊雕塑两座广州的标志性建筑。',
-                'attraction6-title': '镇海楼',
-                'attraction6-desc': '位于越秀山上，建于1380年，迄今600多年历史，内有广州博物馆。',
-                'attraction7-title': '花城广场',
-                'attraction7-desc': '位于广州市城市新中轴线珠江新城核心节点，周围繁花锦簇，高楼大厦林立，周边有广州大剧院、省博物馆、广州图书馆。'
+            'zh': { /* 中文完整 */ 
+                'home': '主页', 'contact': '联系', 'form': '表格', 'language': '语言',
+                'footer': '© 2026 chinaehotel.com 版权所有。',
+                'city-title': '广州 – 改变你一生的未来之城',
+                'attraction1-title': '动漫/游戏专业大学交流', 'attraction1-desc': '想象一下，直接跟中国顶尖教授学习如何打造下一个爆款游戏！这正是全球企业最需要的技能，错过会后悔一辈子！',
+                'attraction2-title': '游戏与AI实战课堂', 'attraction2-desc': '亲手在键盘上创作你自己的游戏角色。这里你不只是看到未来……而是自己创造未来！',
+                'attraction3-title': '顶尖游戏与AI企业参访', 'attraction3-desc': '亲眼看到千万玩家热玩的游戏是如何诞生的。这次参访将为你打开职业大门。',
+                'attraction4-title': '供应链与电商体验', 'attraction4-desc': '了解从设计到全球销售的完整链条，是数字创业学生的理想选择。',
+                'attraction5-title': 'MCN网红经纪与直播', 'attraction5-desc': '看中国网红如何几分钟赚几千美元。你的爱好也能变成真金白银！',
+                'attraction6-title': '李小龙故居与真实功夫', 'attraction6-desc': '这不是电影，是真正锻造传奇的训练。感受改变你身心的纪律与力量。',
+                'attraction7-title': '白云山外骨骼机器人', 'attraction7-desc': '变身未来超级英雄！穿上机器人倍增力量登上白云山，墨西哥没人体验过！',
+                'attraction8-title': '珠江夜游', 'attraction8-desc': '灯火璀璨的城市倒映在江面……这一夜会让你终身难忘！',
+                'attraction16-title': '食在广州！广东早茶点心', 'attraction16-desc': '广州美食名片！正宗广东早茶点心，竹笼蒸出的鲜美小点，世界闻名的美食体验，绝对让你终身难忘！',
+                'attraction9-title': '沙面岛', 'attraction9-desc': '广州中心欧式殖民建筑群，被称为“露天博物馆”，过去与现在完美融合。',
+                'attraction10-title': '陈家祠', 'attraction10-desc': '国家一级博物馆，岭南建筑艺术明珠，绝对是独一无二的艺术杰作！',
+                'attraction11-title': '荔枝湾涌', 'attraction11-desc': '中国版威尼斯水乡，船只、灯光、西关古韵，拍照打卡超上头！',
+                'attraction12-title': '永庆坊', 'attraction12-desc': '传统与现代完美融合的历史街区，艺术、咖啡、广州灵魂尽在其中。',
+                'attraction13-title': '越秀山', 'attraction13-desc': '广州古城主山，风景秀丽、镇海楼与五羊雕塑，是广州标志性景点。',
+                'attraction14-title': '镇海楼', 'attraction14-desc': '1380年建成，600多年历史，内有广州博物馆，必看的历史瑰宝！',
+                'attraction15-title': '花城广场', 'attraction15-desc': '广州现代心脏，花海、高楼、大剧院……未来已在这里等你！'
             }
         };
 
         function changeLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(element => {
                 const key = element.getAttribute('data-lang');
-                element.textContent = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
             });
             document.documentElement.lang = lang;
         }
 
-        // Check for language query parameter in URL and set language accordingly
+        // 自动读取URL参数
         const urlParams = new URLSearchParams(window.location.search);
         const lang = urlParams.get('lang');
-        if (lang && ['es', 'en', 'zh'].includes(lang)) {
+        if (lang && ['es','en','zh'].includes(lang)) {
             changeLanguage(lang);
         } else {
-            changeLanguage('es'); // Default to Spanish if no valid lang parameter
+            changeLanguage('es');
         }
+
+        // 点击语言链接
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const langCode = link.getAttribute('data-lang-code');
+                changeLanguage(langCode);
+                window.history.pushState({}, '', `?lang=${langCode}`);
+            });
+        });
     </script>
 </body>
 </html>

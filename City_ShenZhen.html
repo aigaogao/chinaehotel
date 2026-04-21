@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chinaehotel - Shenzhen Attractions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .container { max-width: 1200px; width: 90%; margin: 0 auto; }
+        nav { background-color: #fff; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 15px 0; }
+        nav a { text-decoration: none; color: #333; font-size: 16px; margin-right: 20px; }
+        nav a:hover { color: #ff6200; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 100px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #333; padding: 8px 12px; display: block; }
+        .dropdown-content a:hover { background-color: #f1f1f1; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .city-title { font-size: 28px; color: #ff6200; text-align: center; margin: 20px 0; font-weight: bold; }
+        .content { padding: 20px 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .card-link { text-decoration: none; color: inherit; display: block; width: 45%; margin: 0 auto; }
+        .card-link:hover .card { box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .card { width: 100%; background-color: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .card-image { width: 100%; height: 300px; overflow: hidden; }
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card-content { padding: 15px; }
+        .card-content h3 { font-size: 17px; margin-bottom: 8px; color: #333; }
+        .card-content p { font-size: 14px; color: #666; line-height: 1.5; }
+        footer { background-color: #333; color: #fff; padding: 20px 0; margin-top: 20px; text-align: center; }
+        footer p { margin: 0; }
+        @media (max-width: 768px) {
+            .card-link { width: 100%; }
+            .card-image { height: 220px; }
+            .city-title { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="https://chinaehotel.com?lang=es" data-lang="home">Inicio</a>
+            <a href="https://chinaehotel.com/contact.html?lang=es" data-lang="contact">Contacto</a>
+            <a href="https://chinaehotel.com/form.html?lang=es" data-lang="form">Formulario</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn" data-lang="language">Idioma</a>
+                <div class="dropdown-content">
+                    <a href="?lang=es" class="lang-link" data-lang-code="es">Español</a>
+                    <a href="?lang=en" class="lang-link" data-lang-code="en">English</a>
+                    <a href="?lang=zh" class="lang-link" data-lang-code="zh">中文</a>
+                </div>
+            </div>
+        </nav>
+
+        <h1 class="city-title" data-lang="city-title">Shenzhen – La Capital Tecnológica del Mundo</h1>
+
+        <div class="content">
+            <!-- 第1张卡片：全球领先的无人机品牌 -->
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_DJI.jpg" target="_blank"><img src="SZ_DJI.jpg"></a></div><div class="card-content"><h3 data-lang="attraction1-title">Global Leading Drone Brand</h3><p data-lang="attraction1-desc">Empresa que desarrolla y produce drones civiles, equipos de filmación aérea, sistemas ópticos de fotografía y componentes para vehículos. Su cuota de mercado mundial en drones civiles y comerciales se estima entre el 70% y el 83%. ¿Cómo lo lograron? Una visita que revela los secretos de la innovación tecnológica.</p></div></div></div>
+
+            <!-- 其余卡片保持不变 -->
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_PlanningMuseum.jpg" target="_blank"><img src="SZ_PlanningMuseum.jpg"></a></div><div class="card-content"><h3 data-lang="attraction2-title">Museo de Planificación Urbana (Ciudad Inteligente)</h3><p data-lang="attraction2-desc">Descubre cómo la tecnología transforma una ciudad entera en un modelo de futuro. Ideal para entender el impacto de la innovación en la vida cotidiana y el urbanismo del mañana.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_Huaqiangbei.jpg" target="_blank"><img src="SZ_Huaqiangbei.jpg"></a></div><div class="card-content"><h3 data-lang="attraction3-title">Mercado Electrónico Huaqiangbei</h3><p data-lang="attraction3-desc">El paraíso de los componentes electrónicos donde nacen miles de startups. Aquí ves la cadena completa desde piezas hasta productos terminados – el punto de partida perfecto para futuros emprendedores tecnológicos.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_DroneDelivery.jpg" target="_blank"><img src="SZ_DroneDelivery.jpg"></a></div><div class="card-content"><h3 data-lang="attraction4-title">Demostración de Entrega con Drones</h3><p data-lang="attraction4-desc">Ve en tiempo real cómo la tecnología de vanguardia se convierte en servicio cotidiano. Una experiencia que muestra el futuro de la logística y la aplicación práctica de la innovación.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_Robot6S.jpg" target="_blank"><img src="SZ_Robot6S.jpg"></a></div><div class="card-content"><h3 data-lang="attraction5-title">Primera Tienda de Experiencia 6S de Robots del Mundo</h3><p data-lang="attraction5-desc">Interactúa con robots y IA en la vida real. La visita perfecta para entender el futuro de la robótica y cómo impactará tu carrera en tecnología.</p></div></div></div>
+            <div class="card-link"><div class="card"><div class="card-image"><a href="SZ_Night.jpg" target="_blank"><img src="SZ_Night.jpg"></a></div><div class="card-content"><h3 data-lang="attraction6-title">Shenzhen de Noche – La Ciudad que Nunca Duerme</h3><p data-lang="attraction6-desc">Contempla el skyline futurista y la energía de la capital tecnológica. Una visión que te muestra el rápido desarrollo de China y las oportunidades que esperan a los jóvenes profesionales.</p></div></div></div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-lang="footer">© 2026 chinaehotel.com Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'es': {
+                'home': 'Inicio', 'contact': 'Contacto', 'form': 'Formulario', 'language': 'Idioma',
+                'footer': '© 2026 chinaehotel.com Todos los derechos reservados.',
+                'city-title': 'Shenzhen – La Capital Tecnológica del Mundo',
+                'attraction1-title': 'Marca Líder Mundial en Drones', 'attraction1-desc': 'Empresa que desarrolla y produce drones civiles, equipos de filmación aérea, sistemas ópticos de fotografía y componentes para vehículos. Su cuota de mercado mundial en drones civiles y comerciales se estima entre el 70% y el 83%. ¿Cómo lo lograron? Una visita que revela los secretos de la innovación tecnológica.',
+                'attraction2-title': 'Museo de Planificación Urbana (Ciudad Inteligente)', 'attraction2-desc': 'Descubre cómo la tecnología transforma una ciudad entera en un modelo de futuro. Ideal para entender el impacto de la innovación en la vida cotidiana y el urbanismo del mañana.',
+                'attraction3-title': 'Mercado Electrónico Huaqiangbei', 'attraction3-desc': 'El paraíso de los componentes electrónicos donde nacen miles de startups. Aquí ves la cadena completa desde piezas hasta productos terminados – el punto de partida perfecto para futuros emprendedores tecnológicos.',
+                'attraction4-title': 'Demostración de Entrega con Drones', 'attraction4-desc': 'Ve en tiempo real cómo la tecnología de vanguardia se convierte en servicio cotidiano. Una experiencia que muestra el futuro de la logística y la aplicación práctica de la innovación.',
+                'attraction5-title': 'Primera Tienda de Experiencia 6S de Robots del Mundo', 'attraction5-desc': 'Interactúa con robots y IA en la vida real. La visita perfecta para entender el futuro de la robótica y cómo impactará tu carrera en tecnología.',
+                'attraction6-title': 'Shenzhen de Noche – La Ciudad que Nunca Duerme', 'attraction6-desc': 'Contempla el skyline futurista y la energía de la capital tecnológica. Una visión que te muestra el rápido desarrollo de China y las oportunidades que esperan a los jóvenes profesionales.'
+            },
+            'en': {
+                'home': 'Home', 'contact': 'Contact', 'form': 'Form', 'language': 'Language',
+                'footer': '© 2026 chinaehotel.com All rights reserved.',
+                'city-title': 'Shenzhen – The World’s Tech Capital',
+                'attraction1-title': 'World Leading Drone Brand', 'attraction1-desc': 'Company that develops and produces civilian drones, aerial filming equipment, photographic optical systems and related vehicle components. Its global market share in civilian and commercial drones is estimated between 70% and 83%. How did they achieve it? A visit that reveals the secrets of technological innovation.',
+                'attraction2-title': 'Urban Planning Museum (Smart City)', 'attraction2-desc': 'Discover how technology transforms an entire city into a model of the future. Perfect for understanding innovation’s impact on daily life and tomorrow’s urban planning.',
+                'attraction3-title': 'Huaqiangbei Electronics Market', 'attraction3-desc': 'The paradise of electronic components where thousands of startups are born. See the full supply chain from parts to finished products – the perfect starting point for future tech entrepreneurs.',
+                'attraction4-title': 'Drone Food Delivery Demonstration', 'attraction4-desc': 'Watch cutting-edge technology become everyday service in real time. An experience that reveals the future of logistics and practical innovation.',
+                'attraction5-title': 'World’s First 6S Robot Experience Store', 'attraction5-desc': 'Interact with robots and AI in real life. The perfect visit to understand the future of robotics and how it will shape your technology career.',
+                'attraction6-title': 'Shenzhen by Night – The City That Never Sleeps', 'attraction6-desc': 'Admire the futuristic skyline and the energy of the tech capital. A view that shows China’s rapid development and the opportunities waiting for young professionals.'
+            },
+            'zh': {
+                'home': '主页', 'contact': '联系', 'form': '表格', 'language': '语言',
+                'footer': '© 2026 chinaehotel.com 版权所有。',
+                'city-title': '深圳 – 全球科技之都',
+                'attraction1-title': '全球领先的无人机品牌', 'attraction1-desc': '研发及生产民用无人机、航拍设备、摄影光学系统及相关车载零组件的科技公司，在全球民用及商用无人机市场的占有率估计介乎70%至83%，它是怎样做到的？',
+                'attraction2-title': '城市规划馆（智慧城市）', 'attraction2-desc': '了解科技如何将整座城市变成未来典范。对想从事城市规划、创新与智慧城市的学生来说是必看体验。',
+                'attraction3-title': '华强北电子市场', 'attraction3-desc': '电子元器件天堂，数千家初创企业诞生地。从零部件到成品的全产业链，是未来科技创业者的起点。',
+                'attraction4-title': '无人机送外卖演示', 'attraction4-desc': '亲眼见证前沿科技如何直接服务日常生活。物流与创新应用的未来，就在这里！',
+                'attraction5-title': '全球首家机器人6S体验店', 'attraction5-desc': '与机器人和AI真实互动。了解机器人未来发展方向的最佳实践场所。',
+                'attraction6-title': '深圳夜景 – 永不眠的科技之都', 'attraction6-desc': '俯瞰未来感十足的天际线，感受这座城市的活力与速度。中国高速发展的缩影，激励每一位年轻学子。'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang');
+        if (lang && ['es','en','zh'].includes(lang)) changeLanguage(lang);
+        else changeLanguage('es');
+
+        document.querySelectorAll('.lang-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const langCode = link.getAttribute('data-lang-code');
+                changeLanguage(langCode);
+                window.history.pushState({}, '', `?lang=${langCode}`);
+            });
+        });
+    </script>
+</body>
+</html>
